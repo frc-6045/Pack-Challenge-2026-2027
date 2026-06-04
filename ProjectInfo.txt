@@ -1,0 +1,32 @@
+TiaPortal:
+  MinimumRequired:
+  - Version: V21.0
+  - TechnicalVersion: 21.00.00.00
+  LastUsed:
+  - Version: V21 Update 1
+  - TechnicalVersion: 21.00.01.00
+
+UsedProducts:
+- Name: SINAMICS Startdrive Advanced
+  Version: V21 HF1
+  TechnicalVersion: 21.00.00.01
+- Name: STEP 7 Professional
+  Version: V21
+  TechnicalVersion: 21.00.00.00
+- Name: Totally Integrated Automation Portal
+  Version: V21
+  TechnicalVersion: 21.00.00.00
+- Name: WinCC Unified Basic
+  Version: V21 Update 1
+  TechnicalVersion: 21.00.01.00
+
+UsedSupportPackages:
+- Name: gsdml-v2.3-smc-ex600-20130220.xml
+  Version: 1.0
+  TechnicalVersion: 11.0.0.0.0
+- Name: gsdml-v2.33-amci-sd-smd-20171214.xml
+  Version: 1.0
+  TechnicalVersion: 11.0.0.0.0
+- Name: gsdml-v2.33-nti-30145-pn_pd-v1.0-20220204.xml
+  Version: 1.0
+  TechnicalVersion: 11.0.0.0.0

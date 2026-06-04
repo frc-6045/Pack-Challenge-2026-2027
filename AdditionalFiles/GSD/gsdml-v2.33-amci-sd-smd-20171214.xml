@@ -1,0 +1,1788 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<?xml-stylesheet href="GSDML-Stylesheet-HTML-V2.33.xsl" type="text/xsl"?>
+<ISO15745Profile xmlns="http://www.profibus.com/GSDML/2003/11/DeviceProfile" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.profibus.com/GSDML/2003/11/DeviceProfile ..\xsd\GSDML-DeviceProfile-v2.33.xsd">
+  <ProfileHeader>
+    <ProfileIdentification>PROFINET Device Profile</ProfileIdentification>
+    <ProfileRevision>1.00</ProfileRevision>
+    <ProfileName>Device Profile for PROFINET Devices</ProfileName>
+    <ProfileSource>PROFIBUS Nutzerorganisation e. V. (PNO)</ProfileSource>
+    <ProfileClassID>Device</ProfileClassID>
+    <ISO15745Reference>
+      <ISO15745Part>4</ISO15745Part>
+      <ISO15745Edition>1</ISO15745Edition>
+      <ProfileTechnology>GSDML</ProfileTechnology>
+    </ISO15745Reference>
+  </ProfileHeader>
+  <ProfileBody>
+    <DeviceIdentity VendorID="0x0402" DeviceID="0x0001">
+      <InfoText TextId="IDT_DevIdent_InfoText" />
+      <VendorName Value="Advanced Micro Controls, Inc." />
+    </DeviceIdentity>
+    <DeviceFunction>
+      <Family MainFamily="I/O" ProductFamily="AMCI_Products" />
+    </DeviceFunction>
+    <ApplicationProcess>
+      <!-- ====================================================================== -->
+      <!-- 								List of Device Access Points (DAP) 										  -->
+      <!-- ====================================================================== -->
+      <DeviceAccessPointList>
+        <!-- DAP 1 - SD17060x2-->
+        <DeviceAccessPointItem ID="DAP 1" PhysicalSlots="0..2" ModuleIdentNumber="0x00000001" MinDeviceInterval="32" ImplementationType="ATMEL MCU" DNS_CompatibleName="sd17060x2" FixedInSlots="0" ObjectUUID_LocalIndex="1" RequiredSchemaVersion="V2.2" MaxSupportedRecordSize="4068" NameOfStationNotTransferable="true" ParameterizationSpeedupSupported="false" PowerOnToCommReady="0" DeviceAccessSupported="true" NumberOfDeviceAccessAR="1" PNIO_Version="V2.33" ResetToFactoryModes="2" CheckDeviceID_Allowed="true" MultipleWriteSupported="true" LLDP_NoD_Supported="true">
+          <ModuleInfo CategoryRef="ID_IODEV_SD17060x2">
+            <Name TextId="SD17060x2" />
+            <InfoText TextId="IDT_ModInfo_InfoTextId_DAP1" />
+            <VendorName Value="Advanced Micro Controls, Inc." />
+            <OrderNumber Value="sd17060x2" />
+            <HardwareRelease Value="1.00" />
+            <SoftwareRelease Value="1.0.16" />
+          </ModuleInfo>
+          <CertificationInfo ConformanceClass="B" ApplicationClass="" NetloadClass="I" />
+          <SubslotList>
+            <SubslotItem SubslotNumber="32768" TextId="IDT_SS_INTERFACE" />
+            <SubslotItem SubslotNumber="32769" TextId="IDT_SS_PORT1" />
+            <SubslotItem SubslotNumber="32770" TextId="IDT_SS_PORT2" />
+          </SubslotList>
+          <IOConfigData MaxInputLength="40" MaxOutputLength="40" />
+          <UseableModules>
+            <!-- References to the ModuleList -->
+            <ModuleItemRef ModuleItemTarget="ID_Mod_11" AllowedInSlots="1" />
+            <ModuleItemRef ModuleItemTarget="ID_Mod_12" AllowedInSlots="2" />
+          </UseableModules>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="DAP 1" SubmoduleIdentNumber="0x0001" Writeable_IM_Records="1 2 3 4" MayIssueProcessAlarm="false">
+              <IOData></IOData>
+              <RecordDataList>
+                <ParameterRecordDataItem Index="1" Length="22">
+                  <Name TextId="IDT_RECORD_NAME_Configuration_Parameters" />
+                  <!---->
+                  <!--Configuration Word 01-->
+                  <Ref ValueItemTarget="IDV_Input1Function" ByteOffset="0" BitOffset="0" DataType="BitArea" BitLength="3" DefaultValue="0" AllowedValues="0..7" Changeable="true" Visible="true" TextId="IDT_REF_Input1Function" />
+                  <Ref ValueItemTarget="IDV_Input2Function" ByteOffset="0" BitOffset="3" DataType="BitArea" BitLength="3" DefaultValue="0" AllowedValues="0..7" Changeable="true" Visible="true" TextId="IDT_REF_Input2Function" />
+                  <Ref ByteOffset="0" BitOffset="6" DataType="BitArea" BitLength="2" DefaultValue="0" Changeable="false" Visible="false" TextId="IDT_REF_Reserved" />
+                  <Ref ValueItemTarget="IDV_Input3Function" ByteOffset="1" BitOffset="0" DataType="BitArea" BitLength="3" DefaultValue="0" AllowedValues="0..6" Changeable="true" Visible="true" TextId="IDT_REF_Input3Function" />
+                  <Ref ByteOffset="1" BitOffset="3" DataType="BitArea" BitLength="5" DefaultValue="0" Changeable="false" Visible="false" TextId="IDT_REF_Reserved" />
+                  <!---->
+                  <!--Configuration Word 02-->
+                  <Ref ByteOffset="2" BitOffset="0" DataType="BitArea" BitLength="8" DefaultValue="0" Changeable="false" Visible="false" TextId="IDT_REF_Reserved" />
+                  <Ref ByteOffset="3" BitOffset="0" DataType="BitArea" BitLength="2" DefaultValue="0" Changeable="false" Visible="false" TextId="IDT_REF_Reserved" />
+                  <Ref ValueItemTarget="IDV_UseEncoderExt" ByteOffset="3" BitOffset="2" DataType="Bit" DefaultValue="0" AllowedValues="0..1" Changeable="true" Visible="true" TextId="IDT_REF_UseEncoderExt" />
+                  <Ref ValueItemTarget="IDV_UseBProx" ByteOffset="3" BitOffset="3" DataType="Bit" DefaultValue="0" AllowedValues="0..1" Changeable="true" Visible="true" TextId="IDT_REF_UseBProx" />
+                  <Ref ByteOffset="3" BitOffset="4" DataType="Bit" DefaultValue="0" Changeable="false" Visible="false" TextId="IDT_REF_Reserved" />
+                  <Ref ValueItemTarget="IDV_EnStall" ByteOffset="3" BitOffset="5" DataType="Bit" DefaultValue="0" AllowedValues="0..1" Changeable="true" Visible="true" TextId="IDT_REF_EnStall" />
+                  <Ref ValueItemTarget="IDV_DisAR" ByteOffset="3" BitOffset="6" DataType="Bit" DefaultValue="0" AllowedValues="0..1" Changeable="true" Visible="true" TextId="IDT_REF_DisAR" />
+                  <Ref ByteOffset="3" BitOffset="7" DataType="Bit" DefaultValue="0" Changeable="false" Visible="false" TextId="IDT_REF_Reserved" />
+                  <!---->
+                  <!--Configuration Word 1-->
+                  <Ref ValueItemTarget="IDV_IN1ActiveLevel" ByteOffset="4" BitOffset="0" DataType="Bit" DefaultValue="1" AllowedValues="0..1" Changeable="true" Visible="true" TextId="IDT_REF_IN1ActiveLevel" />
+                  <Ref ValueItemTarget="IDV_IN2ActiveLevel" ByteOffset="4" BitOffset="1" DataType="Bit" DefaultValue="1" AllowedValues="0..1" Changeable="true" Visible="true" TextId="IDT_REF_IN2ActiveLevel" />
+                  <Ref ValueItemTarget="IDV_IN3ActiveLevel" ByteOffset="4" BitOffset="2" DataType="Bit" DefaultValue="1" AllowedValues="0..1" Changeable="true" Visible="true" TextId="IDT_REF_IN3ActiveLevel" />
+                  <Ref ByteOffset="4" BitOffset="3" DataType="BitArea" BitLength="4" DefaultValue="0" Changeable="false" Visible="false" TextId="IDT_REF_Reserved" />
+                  <Ref ValueItemTarget="IDV_DataEndian" ByteOffset="4" BitOffset="7" DataType="Bit" DefaultValue="1" AllowedValues="0..1" Changeable="true" Visible="true" TextId="IDT_REF_DataEndian" />
+                  <Ref ValueItemTarget="IDV_BinOutFrmt" ByteOffset="5" BitOffset="0" DataType="Bit" DefaultValue="1" AllowedValues="0..1" Changeable="true" Visible="true" TextId="IDT_REF_BinOutFrmt" />
+                  <Ref ValueItemTarget="IDV_BinInFrmt" ByteOffset="5" BitOffset="1" DataType="Bit" DefaultValue="1" AllowedValues="0..1" Changeable="true" Visible="true" TextId="IDT_REF_BinInFrmt" />
+                  <Ref ByteOffset="5" BitOffset="2" DataType="BitArea" BitLength="2" DefaultValue="0" Changeable="false" Visible="false" TextId="IDT_REF_Reserved" />
+                  <Ref ValueItemTarget="IDV_Out1SACL" ByteOffset="5" BitOffset="4" DataType="Bit" DefaultValue="0" AllowedValues="0..1" Changeable="true" Visible="true" TextId="IDT_REF_Out1SACL" />
+                  <Ref ValueItemTarget="IDV_Out1AOCL" ByteOffset="5" BitOffset="5" DataType="Bit" DefaultValue="0" AllowedValues="0..1" Changeable="true" Visible="true" TextId="IDT_REF_Out1AOCL" />
+                  <Ref ValueItemTarget="IDV_Out1Fcn" ByteOffset="5" BitOffset="6" DataType="Bit" DefaultValue="0" AllowedValues="0..1" Changeable="true" Visible="true" TextId="IDT_REF_Out1Fcn" />
+                  <Ref ByteOffset="5" BitOffset="7" DataType="Bit" DefaultValue="0" Changeable="false" Visible="false" TextId="IDT_REF_Reserved" />
+                  <!---->
+                  <!--starting speed-->
+                  <Ref ValueItemTarget="IDV_StartingSpeed" ByteOffset="6" DataType="Unsigned32" DefaultValue="50" AllowedValues="1..1999999" Changeable="true" Visible="true" TextId="IDT_REF_StartingSpeed" />
+                  <!---->
+                  <!--motor steps per revolution-->
+                  <Ref ByteOffset="10" ValueItemTarget="IDV_MotorStepsPerTurn" DataType="Unsigned16" DefaultValue="1000" AllowedValues="200..32767" Changeable="true" Visible="true" TextId="IDT_REF_MotorStepsPerTurn" />
+                  <!---->
+                  <!--hybrid control gain-->
+                  <Ref ValueItemTarget="IDV_HybridControlGain" ByteOffset="12" DataType="Unsigned16" DefaultValue="0" AllowedValues="0..3" Changeable="true" Visible="true" TextId="IDT_REF_HybridControlGain"></Ref>
+                  <!---->
+                  <!--encoder resolution-->
+                  <Ref ValueItemTarget="IDV_EncoderResolutionExt" ByteOffset="14" DataType="Unsigned16" DefaultValue="1024" AllowedValues="0..32768" Changeable="true" Visible="true" TextId="IDT_REF_EncoderResolutionExt"></Ref>
+                  <!---->
+                  <!--idle current percentage-->
+                  <Ref ValueItemTarget="IDV_IdleCurrentPercentage" ByteOffset="16" DataType="Unsigned16" DefaultValue="20" AllowedValues="0..100" Changeable="true" Visible="true" TextId="IDT_REF_IdleCurrentPercentage" />
+                  <!---->
+                  <!--motor current-->
+                  <Ref ValueItemTarget="IDV_MotorCurrentX10" ByteOffset="18" DataType="Unsigned16" DefaultValue="28" AllowedValues="10..60" Changeable="true" Visible="true" TextId="IDT_REF_MotorCurrentX10" />
+                  <!---->
+                  <!--current loop gain-->
+                  <Ref ValueItemTarget="IDV_CurrentLoopGain" ByteOffset="20" DataType="Unsigned16" DefaultValue="1" AllowedValues="1..40" Changeable="true" Visible="true" TextId="IDT_REF_CurrentLoopGain" />
+                </ParameterRecordDataItem>
+              </RecordDataList>
+              <ModuleInfo>
+                <Name TextId="SD17060x2" />
+                <InfoText TextId="IDT_ModInfo_InfoTextId_DAP1" />
+              </ModuleInfo>
+            </VirtualSubmoduleItem>
+          </VirtualSubmoduleList>
+          <SystemDefinedSubmoduleList>
+            <InterfaceSubmoduleItem ID="IDS_1I" SubslotNumber="32768" SubmoduleIdentNumber="0x8000" SupportedRT_Classes="RT_CLASS_1" TextId="IDT_DAP_InterfaceModule" IsochroneModeSupported="false" SupportedProtocols="SNMP;LLDP" NetworkComponentDiagnosisSupported="false" PTP_BoundarySupported="true" DCP_BoundarySupported="true">
+              <ApplicationRelations NumberOfAdditionalInputCR="0" NumberOfAdditionalMulticastProviderCR="0" NumberOfAdditionalOutputCR="0" NumberOfMulticastConsumerCR="0" PullModuleAlarmSupported="true" StartupMode="Advanced;Legacy">
+                <TimingProperties SendClock="32" ReductionRatio="1 2 4 8 16 32 64 128 256 512" />
+              </ApplicationRelations>
+              <MediaRedundancy SupportedRole="Client" MaxMRP_Instances="1" />
+            </InterfaceSubmoduleItem>
+            <PortSubmoduleItem ID="IDS_1P1" SubslotNumber="32769" SubmoduleIdentNumber="0x8001" MAUTypes="10 11 15 16 29 30" TextId="IDT_Port1" MaxPortRxDelay="378" MaxPortTxDelay="1212" PortDeactivationSupported="true" LinkStateDiagnosisCapability="Up+Down" SupportsRingportConfig="true" IsDefaultRingport="true" CheckMAUTypeSupported="true">
+              <MAUTypeList>
+                <MAUTypeItem Value="10" AdjustSupported="true" />
+                <MAUTypeItem Value="11" AdjustSupported="true" />
+                <MAUTypeItem Value="15" AdjustSupported="true" />
+                <MAUTypeItem Value="16" AdjustSupported="true" />
+                <MAUTypeItem Value="29" AdjustSupported="true" />
+                <MAUTypeItem Value="30" AdjustSupported="true" />
+              </MAUTypeList>
+            </PortSubmoduleItem>
+            <PortSubmoduleItem ID="IDS_1P2" SubslotNumber="32770" SubmoduleIdentNumber="0x8002" MAUTypes="10 11 15 16 29 30" TextId="IDT_Port2" MaxPortRxDelay="378" MaxPortTxDelay="1212" PortDeactivationSupported="true" LinkStateDiagnosisCapability="Up+Down" SupportsRingportConfig="true" IsDefaultRingport="true" CheckMAUTypeSupported="true">
+              <MAUTypeList>
+                <MAUTypeItem Value="10" AdjustSupported="true" />
+                <MAUTypeItem Value="11" AdjustSupported="true" />
+                <MAUTypeItem Value="15" AdjustSupported="true" />
+                <MAUTypeItem Value="16" AdjustSupported="true" />
+                <MAUTypeItem Value="29" AdjustSupported="true" />
+                <MAUTypeItem Value="30" AdjustSupported="true" />
+              </MAUTypeList>
+            </PortSubmoduleItem>
+          </SystemDefinedSubmoduleList>
+          <Graphics>
+            <GraphicItemRef Type="DeviceSymbol" GraphicItemTarget="ID_Graph_1" />
+          </Graphics>
+        </DeviceAccessPointItem>
+        <!--DAP 2 - SD31045x2-->
+        <DeviceAccessPointItem ID="DAP 2" PhysicalSlots="0..2" ModuleIdentNumber="0x00000002" MinDeviceInterval="32" ImplementationType="ATMEL MCU" DNS_CompatibleName="sd31045x2" FixedInSlots="0" ObjectUUID_LocalIndex="1" RequiredSchemaVersion="V2.2" MaxSupportedRecordSize="4068" NameOfStationNotTransferable="true" ParameterizationSpeedupSupported="false" PowerOnToCommReady="0" DeviceAccessSupported="true" NumberOfDeviceAccessAR="1" PNIO_Version="V2.33" ResetToFactoryModes="2" CheckDeviceID_Allowed="true" MultipleWriteSupported="true" LLDP_NoD_Supported="true">
+          <ModuleInfo CategoryRef="ID_IODEV_SD31045x2">
+            <Name TextId="SD31045x2" />
+            <InfoText TextId="IDT_ModInfo_InfoTextId_DAP2" />
+            <VendorName Value="Advanced Micro Controls, Inc." />
+            <OrderNumber Value="sd31045x2" />
+            <HardwareRelease Value="1.00" />
+            <SoftwareRelease Value="1.0.16" />
+          </ModuleInfo>
+          <CertificationInfo ConformanceClass="B" ApplicationClass="" NetloadClass="I" />
+          <SubslotList>
+            <SubslotItem SubslotNumber="32768" TextId="IDT_SS_INTERFACE" />
+            <SubslotItem SubslotNumber="32769" TextId="IDT_SS_PORT1" />
+            <SubslotItem SubslotNumber="32770" TextId="IDT_SS_PORT2" />
+          </SubslotList>
+          <IOConfigData MaxInputLength="40" MaxOutputLength="40" />
+          <UseableModules>
+            <!-- References to the ModuleList -->
+            <ModuleItemRef ModuleItemTarget="ID_Mod_11" AllowedInSlots="1" />
+            <ModuleItemRef ModuleItemTarget="ID_Mod_12" AllowedInSlots="2" />
+          </UseableModules>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="DAP 2" SubmoduleIdentNumber="0x0001" Writeable_IM_Records="1 2 3 4" MayIssueProcessAlarm="false">
+              <IOData></IOData>
+              <RecordDataList>
+                <ParameterRecordDataItem Index="1" Length="22">
+                  <Name TextId="IDT_RECORD_NAME_Configuration_Parameters" />
+                  <!---->
+                  <!--Configuration Word 01-->
+                  <Ref ValueItemTarget="IDV_Input1Function" ByteOffset="0" BitOffset="0" DataType="BitArea" BitLength="3" DefaultValue="0" AllowedValues="0..7" Changeable="true" Visible="true" TextId="IDT_REF_Input1Function" />
+                  <Ref ValueItemTarget="IDV_Input2Function" ByteOffset="0" BitOffset="3" DataType="BitArea" BitLength="3" DefaultValue="0" AllowedValues="0..7" Changeable="true" Visible="true" TextId="IDT_REF_Input2Function" />
+                  <Ref ByteOffset="0" BitOffset="6" DataType="BitArea" BitLength="2" DefaultValue="0" Changeable="false" Visible="false" TextId="IDT_REF_Reserved" />
+                  <Ref ValueItemTarget="IDV_Input3Function" ByteOffset="1" BitOffset="0" DataType="BitArea" BitLength="3" DefaultValue="0" AllowedValues="0..6" Changeable="true" Visible="true" TextId="IDT_REF_Input3Function" />
+                  <Ref ByteOffset="1" BitOffset="3" DataType="BitArea" BitLength="5" DefaultValue="0" Changeable="false" Visible="false" TextId="IDT_REF_Reserved" />
+                  <!---->
+                  <!--Configuration Word 02-->
+                  <Ref ByteOffset="2" BitOffset="0" DataType="BitArea" BitLength="8" DefaultValue="0" Changeable="false" Visible="false" TextId="IDT_REF_Reserved" />
+                  <Ref ByteOffset="3" BitOffset="0" DataType="BitArea" BitLength="2" DefaultValue="0" Changeable="false" Visible="false" TextId="IDT_REF_Reserved" />
+                  <Ref ValueItemTarget="IDV_UseEncoderExt" ByteOffset="3" BitOffset="2" DataType="Bit" DefaultValue="0" AllowedValues="0..1" Changeable="true" Visible="true" TextId="IDT_REF_UseEncoderExt" />
+                  <Ref ValueItemTarget="IDV_UseBProx" ByteOffset="3" BitOffset="3" DataType="Bit" DefaultValue="0" AllowedValues="0..1" Changeable="true" Visible="true" TextId="IDT_REF_UseBProx" />
+                  <Ref ByteOffset="3" BitOffset="4" DataType="Bit" DefaultValue="0" Changeable="false" Visible="false" TextId="IDT_REF_Reserved" />
+                  <Ref ValueItemTarget="IDV_EnStall" ByteOffset="3" BitOffset="5" DataType="Bit" DefaultValue="0" AllowedValues="0..1" Changeable="true" Visible="true" TextId="IDT_REF_EnStall" />
+                  <Ref ValueItemTarget="IDV_DisAR" ByteOffset="3" BitOffset="6" DataType="Bit" DefaultValue="0" AllowedValues="0..1" Changeable="true" Visible="true" TextId="IDT_REF_DisAR" />
+                  <Ref ByteOffset="3" BitOffset="7" DataType="Bit" DefaultValue="0" Changeable="false" Visible="false" TextId="IDT_REF_Reserved" />
+                  <!---->
+                  <!--Configuration Word 1-->
+                  <Ref ValueItemTarget="IDV_IN1ActiveLevel" ByteOffset="4" BitOffset="0" DataType="Bit" DefaultValue="1" AllowedValues="0..1" Changeable="true" Visible="true" TextId="IDT_REF_IN1ActiveLevel" />
+                  <Ref ValueItemTarget="IDV_IN2ActiveLevel" ByteOffset="4" BitOffset="1" DataType="Bit" DefaultValue="1" AllowedValues="0..1" Changeable="true" Visible="true" TextId="IDT_REF_IN2ActiveLevel" />
+                  <Ref ValueItemTarget="IDV_IN3ActiveLevel" ByteOffset="4" BitOffset="2" DataType="Bit" DefaultValue="1" AllowedValues="0..1" Changeable="true" Visible="true" TextId="IDT_REF_IN3ActiveLevel" />
+                  <Ref ByteOffset="4" BitOffset="3" DataType="BitArea" BitLength="4" DefaultValue="0" Changeable="false" Visible="false" TextId="IDT_REF_Reserved" />
+                  <Ref ValueItemTarget="IDV_DataEndian" ByteOffset="4" BitOffset="7" DataType="Bit" DefaultValue="1" AllowedValues="0..1" Changeable="true" Visible="true" TextId="IDT_REF_DataEndian" />
+                  <Ref ValueItemTarget="IDV_BinOutFrmt" ByteOffset="5" BitOffset="0" DataType="Bit" DefaultValue="1" AllowedValues="0..1" Changeable="true" Visible="true" TextId="IDT_REF_BinOutFrmt" />
+                  <Ref ValueItemTarget="IDV_BinInFrmt" ByteOffset="5" BitOffset="1" DataType="Bit" DefaultValue="1" AllowedValues="0..1" Changeable="true" Visible="true" TextId="IDT_REF_BinInFrmt" />
+                  <Ref ByteOffset="5" BitOffset="2" DataType="BitArea" BitLength="2" DefaultValue="0" Changeable="false" Visible="false" TextId="IDT_REF_Reserved" />
+                  <Ref ValueItemTarget="IDV_Out1SACL" ByteOffset="5" BitOffset="4" DataType="Bit" DefaultValue="0" AllowedValues="0..1" Changeable="true" Visible="true" TextId="IDT_REF_Out1SACL" />
+                  <Ref ValueItemTarget="IDV_Out1AOCL" ByteOffset="5" BitOffset="5" DataType="Bit" DefaultValue="0" AllowedValues="0..1" Changeable="true" Visible="true" TextId="IDT_REF_Out1AOCL" />
+                  <Ref ValueItemTarget="IDV_Out1Fcn" ByteOffset="5" BitOffset="6" DataType="Bit" DefaultValue="0" AllowedValues="0..1" Changeable="true" Visible="true" TextId="IDT_REF_Out1Fcn" />
+                  <Ref ByteOffset="5" BitOffset="7" DataType="Bit" DefaultValue="0" Changeable="false" Visible="false" TextId="IDT_REF_Reserved" />
+                  <!---->
+                  <!--starting speed-->
+                  <Ref ValueItemTarget="IDV_StartingSpeed" ByteOffset="6" DataType="Unsigned32" DefaultValue="50" AllowedValues="1..1999999" Changeable="true" Visible="true" TextId="IDT_REF_StartingSpeed" />
+                  <!---->
+                  <!--motor steps per revolution-->
+                  <Ref ValueItemTarget="IDV_MotorStepsPerTurn" ByteOffset="10" DataType="Unsigned16" DefaultValue="1000" AllowedValues="200..32767" Changeable="true" Visible="true" TextId="IDT_REF_MotorStepsPerTurn" />
+                  <!---->
+                  <!--hybrid control gain-->
+                  <Ref ValueItemTarget="IDV_HybridControlGain" ByteOffset="12" DataType="Unsigned16" DefaultValue="0" AllowedValues="0..3" Changeable="true" Visible="true" TextId="IDT_REF_HybridControlGain" />
+                  <!---->
+                  <!--encoder resolution-->
+                  <Ref ValueItemTarget="IDV_EncoderResolutionExt" ByteOffset="14" DataType="Unsigned16" DefaultValue="1024" AllowedValues="0..32768" Changeable="true" Visible="true" TextId="IDT_REF_EncoderResolutionExt" />
+                  <!---->
+                  <!--idle current percentage-->
+                  <Ref ValueItemTarget="IDV_IdleCurrentPercentage" ByteOffset="16" DataType="Unsigned16" DefaultValue="20" AllowedValues="0..100" Changeable="true" Visible="true" TextId="IDT_REF_IdleCurrentPercentage" />
+                  <!---->
+                  <!--motor current-->
+                  <Ref ValueItemTarget="IDV_MotorCurrentX10" ByteOffset="18" DataType="Unsigned16" DefaultValue="28" AllowedValues="10..44" Changeable="true" Visible="true" TextId="IDT_REF_MotorCurrentX10"></Ref>
+                  <!---->
+                  <!--current loop gain-->
+                  <Ref ValueItemTarget="IDV_CurrentLoopGain" ByteOffset="20" DataType="Unsigned16" DefaultValue="1" AllowedValues="1..40" Changeable="true" Visible="true" TextId="IDT_REF_CurrentLoopGain" />
+                </ParameterRecordDataItem>
+              </RecordDataList>
+              <ModuleInfo>
+                <Name TextId="SD31045x2" />
+                <InfoText TextId="IDT_ModInfo_InfoTextId_DAP2" />
+              </ModuleInfo>
+            </VirtualSubmoduleItem>
+          </VirtualSubmoduleList>
+          <SystemDefinedSubmoduleList>
+            <InterfaceSubmoduleItem ID="IDS_2I" SubslotNumber="32768" SubmoduleIdentNumber="0x8000" SupportedRT_Classes="RT_CLASS_1" TextId="IDT_DAP_InterfaceModule" IsochroneModeSupported="false" SupportedProtocols="SNMP;LLDP" NetworkComponentDiagnosisSupported="false" PTP_BoundarySupported="true" DCP_BoundarySupported="true">
+              <ApplicationRelations NumberOfAdditionalInputCR="0" NumberOfAdditionalMulticastProviderCR="0" NumberOfAdditionalOutputCR="0" NumberOfMulticastConsumerCR="0" PullModuleAlarmSupported="true" StartupMode="Advanced;Legacy">
+                <TimingProperties SendClock="32" ReductionRatio="1 2 4 8 16 32 64 128 256 512" />
+              </ApplicationRelations>
+              <MediaRedundancy SupportedRole="Client" MaxMRP_Instances="1" />
+            </InterfaceSubmoduleItem>
+            <PortSubmoduleItem ID="IDS_2P1" SubslotNumber="32769" SubmoduleIdentNumber="0x8001" MAUTypes="10 11 15 16 29 30" TextId="IDT_Port1" MaxPortRxDelay="378" MaxPortTxDelay="1212" PortDeactivationSupported="true" LinkStateDiagnosisCapability="Up+Down" SupportsRingportConfig="true" IsDefaultRingport="true" CheckMAUTypeSupported="true">
+              <MAUTypeList>
+                <MAUTypeItem Value="10" AdjustSupported="true" />
+                <MAUTypeItem Value="11" AdjustSupported="true" />
+                <MAUTypeItem Value="15" AdjustSupported="true" />
+                <MAUTypeItem Value="16" AdjustSupported="true" />
+                <MAUTypeItem Value="29" AdjustSupported="true" />
+                <MAUTypeItem Value="30" AdjustSupported="true" />
+              </MAUTypeList>
+            </PortSubmoduleItem>
+            <PortSubmoduleItem ID="IDS_2P2" SubslotNumber="32770" SubmoduleIdentNumber="0x8002" MAUTypes="10 11 15 16 29 30" TextId="IDT_Port2" MaxPortRxDelay="378" MaxPortTxDelay="1212" PortDeactivationSupported="true" LinkStateDiagnosisCapability="Up+Down" SupportsRingportConfig="true" IsDefaultRingport="true" CheckMAUTypeSupported="true">
+              <MAUTypeList>
+                <MAUTypeItem Value="10" AdjustSupported="true" />
+                <MAUTypeItem Value="11" AdjustSupported="true" />
+                <MAUTypeItem Value="15" AdjustSupported="true" />
+                <MAUTypeItem Value="16" AdjustSupported="true" />
+                <MAUTypeItem Value="29" AdjustSupported="true" />
+                <MAUTypeItem Value="30" AdjustSupported="true" />
+              </MAUTypeList>
+            </PortSubmoduleItem>
+          </SystemDefinedSubmoduleList>
+          <Graphics>
+            <GraphicItemRef Type="DeviceSymbol" GraphicItemTarget="ID_Graph_2" />
+          </Graphics>
+        </DeviceAccessPointItem>
+        <!--DAP 3 - SMD23x2-->
+        <DeviceAccessPointItem ID="DAP 3" PhysicalSlots="0..2" ModuleIdentNumber="0x00000003" MinDeviceInterval="32" ImplementationType="ATMEL MCU" DNS_CompatibleName="smd23x2" FixedInSlots="0" ObjectUUID_LocalIndex="1" RequiredSchemaVersion="V2.2" MaxSupportedRecordSize="4068" NameOfStationNotTransferable="true" ParameterizationSpeedupSupported="false" PowerOnToCommReady="0" DeviceAccessSupported="true" NumberOfDeviceAccessAR="1" PNIO_Version="V2.33" ResetToFactoryModes="2" CheckDeviceID_Allowed="true" MultipleWriteSupported="true" LLDP_NoD_Supported="true">
+          <ModuleInfo CategoryRef="ID_IODEV_SMD23x2">
+            <Name TextId="SMD23x2" />
+            <InfoText TextId="IDT_ModInfo_InfoTextId_DAP3" />
+            <VendorName Value="Advanced Micro Controls, Inc." />
+            <OrderNumber Value="smd23x2" />
+            <HardwareRelease Value="1.00" />
+            <SoftwareRelease Value="1.0.16" />
+          </ModuleInfo>
+          <CertificationInfo ConformanceClass="B" ApplicationClass="" NetloadClass="I" />
+          <SubslotList>
+            <SubslotItem SubslotNumber="32768" TextId="IDT_SS_INTERFACE" />
+            <SubslotItem SubslotNumber="32769" TextId="IDT_SS_PORT1" />
+            <SubslotItem SubslotNumber="32770" TextId="IDT_SS_PORT2" />
+          </SubslotList>
+          <IOConfigData MaxInputLength="40" MaxOutputLength="40" />
+          <UseableModules>
+            <!-- References to the ModuleList -->
+            <ModuleItemRef ModuleItemTarget="ID_Mod_11" AllowedInSlots="1" />
+            <ModuleItemRef ModuleItemTarget="ID_Mod_12" AllowedInSlots="2" />
+          </UseableModules>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="DAP 3" SubmoduleIdentNumber="0x0001" Writeable_IM_Records="1 2 3 4" MayIssueProcessAlarm="false">
+              <IOData></IOData>
+              <RecordDataList>
+                <ParameterRecordDataItem Index="1" Length="16">
+                  <Name TextId="IDT_RECORD_NAME_Configuration_Parameters" />
+                  <!---->
+                  <!--Configuration Word 0-->
+                  <Ref ValueItemTarget="IDV_Input1Function" ByteOffset="0" BitOffset="0" DataType="BitArea" BitLength="3" DefaultValue="0" AllowedValues="0..6" Changeable="true" Visible="true" TextId="IDT_REF_Input1Function" />
+                  <Ref ValueItemTarget="IDV_Input2Function" ByteOffset="0" BitOffset="3" DataType="BitArea" BitLength="3" DefaultValue="0" AllowedValues="0..6" Changeable="true" Visible="true" TextId="IDT_REF_Input2Function" />
+                  <Ref ByteOffset="0" BitOffset="6" DataType="BitArea" BitLength="2" DefaultValue="0" Changeable="false" Visible="false" TextId="IDT_REF_Reserved" />
+                  <Ref ByteOffset="1" BitOffset="0" DataType="BitArea" BitLength="2" DefaultValue="0" Changeable="false" Visible="false" TextId="IDT_REF_Reserved" />
+                  <Ref ValueItemTarget="IDV_UseEncoderInt" ByteOffset="1" BitOffset="2" DataType="Bit" DefaultValue="1" AllowedValues="0..1" Changeable="true" Visible="true" TextId="IDT_REF_UseEncoderInt" />
+                  <Ref ValueItemTarget="IDV_UseBProx" ByteOffset="1" BitOffset="3" DataType="Bit" DefaultValue="0" AllowedValues="0..1" Changeable="true" Visible="true" TextId="IDT_REF_UseBProx" />
+                  <Ref ByteOffset="1" BitOffset="4" DataType="Bit" DefaultValue="0" Changeable="false" Visible="false" TextId="IDT_REF_Reserved" />
+                  <Ref ValueItemTarget="IDV_EnStall" ByteOffset="1" BitOffset="5" DataType="Bit" DefaultValue="0" AllowedValues="0..1" Changeable="true" Visible="true" TextId="IDT_REF_EnStall" />
+                  <Ref ValueItemTarget="IDV_DisAR" ByteOffset="1" BitOffset="6" DataType="Bit" DefaultValue="0" AllowedValues="0..1" Changeable="true" Visible="true" TextId="IDT_REF_DisAR" />
+                  <Ref ByteOffset="1" BitOffset="7" DataType="Bit" DefaultValue="0" Changeable="false" Visible="false" TextId="IDT_REF_Reserved" />
+                  <!---->
+                  <!--Configuration Word 1-->
+                  <Ref ValueItemTarget="IDV_IN1ActiveLevel" ByteOffset="2" BitOffset="0" DataType="Bit" DefaultValue="1" AllowedValues="0..1" Changeable="true" Visible="true" TextId="IDT_REF_IN1ActiveLevel" />
+                  <Ref ValueItemTarget="IDV_IN2ActiveLevel" ByteOffset="2" BitOffset="1" DataType="Bit" DefaultValue="1" AllowedValues="0..1" Changeable="true" Visible="true" TextId="IDT_REF_IN2ActiveLevel" />
+                  <Ref ByteOffset="2" BitOffset="2" DataType="BitArea" BitLength="5" DefaultValue="0" Changeable="false" Visible="false" TextId="IDT_REF_Reserved" />
+                  <Ref ValueItemTarget="IDV_DataEndian" ByteOffset="2" BitOffset="7" DataType="Bit" DefaultValue="1" AllowedValues="0..1" Changeable="true" Visible="true" TextId="IDT_REF_DataEndian" />
+                  <Ref ValueItemTarget="IDV_BinOutFrmt" ByteOffset="3" BitOffset="0" DataType="Bit" DefaultValue="1" AllowedValues="0..1" Changeable="true" Visible="true" TextId="IDT_REF_BinOutFrmt" />
+                  <Ref ValueItemTarget="IDV_BinInFrmt" ByteOffset="3" BitOffset="1" DataType="Bit" DefaultValue="1" AllowedValues="0..1" Changeable="true" Visible="true" TextId="IDT_REF_BinInFrmt" />
+                  <Ref ByteOffset="3" BitOffset="2" DataType="BitArea" BitLength="6" DefaultValue="0" Changeable="false" Visible="false" TextId="IDT_REF_Reserved" />
+                  <!---->
+                  <!--starting speed-->
+                  <Ref ValueItemTarget="IDV_StartingSpeed" ByteOffset="4" DataType="Unsigned32" DefaultValue="50" AllowedValues="1..1999999" Changeable="true" Visible="true" TextId="IDT_REF_StartingSpeed" />
+                  <!---->
+                  <!--motor steps per revolution-->
+                  <Ref ValueItemTarget="IDV_MotorStepsPerTurn" ByteOffset="8" DataType="Unsigned16" DefaultValue="2048" AllowedValues="200..32767" Changeable="true" Visible="true" TextId="IDT_REF_MotorStepsPerTurn" />
+                  <!---->
+                  <!--encoder resolution-->
+                  <Ref ValueItemTarget="IDV_EncoderResolutionInt" ByteOffset="10" DataType="Unsigned16" DefaultValue="2048" AllowedValues="1024 2048 4096" Changeable="true" Visible="true" TextId="IDT_REF_EncoderResolutionInt" />
+                  <!---->
+                  <!--idle current percentage-->
+                  <Ref ValueItemTarget="IDV_IdleCurrentPercentage" ByteOffset="12" DataType="Unsigned16" DefaultValue="20" AllowedValues="0..100" Changeable="true" Visible="true" TextId="IDT_REF_IdleCurrentPercentage" />
+                  <!---->
+                  <!--motor current-->
+                  <Ref ValueItemTarget="IDV_MotorCurrentX10" ByteOffset="14" DataType="Unsigned16" DefaultValue="28" AllowedValues="1..34" Changeable="true" Visible="true" TextId="IDT_REF_MotorCurrentX10" />
+                </ParameterRecordDataItem>
+              </RecordDataList>
+              <ModuleInfo>
+                <Name TextId="SMD23x2" />
+                <InfoText TextId="IDT_ModInfo_InfoTextId_DAP3" />
+              </ModuleInfo>
+            </VirtualSubmoduleItem>
+          </VirtualSubmoduleList>
+          <SystemDefinedSubmoduleList>
+            <InterfaceSubmoduleItem ID="IDS_3I" SubslotNumber="32768" SubmoduleIdentNumber="0x8000" SupportedRT_Classes="RT_CLASS_1" TextId="IDT_DAP_InterfaceModule" IsochroneModeSupported="false" SupportedProtocols="SNMP;LLDP" NetworkComponentDiagnosisSupported="false" PTP_BoundarySupported="true" DCP_BoundarySupported="true">
+              <ApplicationRelations NumberOfAdditionalInputCR="0" NumberOfAdditionalMulticastProviderCR="0" NumberOfAdditionalOutputCR="0" NumberOfMulticastConsumerCR="0" PullModuleAlarmSupported="true" StartupMode="Advanced;Legacy">
+                <TimingProperties SendClock="32" ReductionRatio="1 2 4 8 16 32 64 128 256 512" />
+              </ApplicationRelations>
+              <MediaRedundancy SupportedRole="Client" MaxMRP_Instances="1" />
+            </InterfaceSubmoduleItem>
+            <PortSubmoduleItem ID="IDS_3P1" SubslotNumber="32769" SubmoduleIdentNumber="0x8001" MAUTypes="10 11 15 16 29 30" TextId="IDT_Port1" MaxPortRxDelay="378" MaxPortTxDelay="1212" PortDeactivationSupported="true" LinkStateDiagnosisCapability="Up+Down" SupportsRingportConfig="true" IsDefaultRingport="true" CheckMAUTypeSupported="true">
+              <MAUTypeList>
+                <MAUTypeItem Value="10" AdjustSupported="true" />
+                <MAUTypeItem Value="11" AdjustSupported="true" />
+                <MAUTypeItem Value="15" AdjustSupported="true" />
+                <MAUTypeItem Value="16" AdjustSupported="true" />
+                <MAUTypeItem Value="29" AdjustSupported="true" />
+                <MAUTypeItem Value="30" AdjustSupported="true" />
+              </MAUTypeList>
+            </PortSubmoduleItem>
+            <PortSubmoduleItem ID="IDS_3P2" SubslotNumber="32770" SubmoduleIdentNumber="0x8002" MAUTypes="10 11 15 16 29 30" TextId="IDT_Port2" MaxPortRxDelay="378" MaxPortTxDelay="1212" PortDeactivationSupported="true" LinkStateDiagnosisCapability="Up+Down" SupportsRingportConfig="true" IsDefaultRingport="true" CheckMAUTypeSupported="true">
+              <MAUTypeList>
+                <MAUTypeItem Value="10" AdjustSupported="true" />
+                <MAUTypeItem Value="11" AdjustSupported="true" />
+                <MAUTypeItem Value="15" AdjustSupported="true" />
+                <MAUTypeItem Value="16" AdjustSupported="true" />
+                <MAUTypeItem Value="29" AdjustSupported="true" />
+                <MAUTypeItem Value="30" AdjustSupported="true" />
+              </MAUTypeList>
+            </PortSubmoduleItem>
+          </SystemDefinedSubmoduleList>
+          <Graphics>
+            <GraphicItemRef Type="DeviceSymbol" GraphicItemTarget="ID_Graph_3" />
+          </Graphics>
+        </DeviceAccessPointItem>
+        <!--DAP 4 - SMD34x2-->
+        <DeviceAccessPointItem ID="DAP 4" PhysicalSlots="0..2" ModuleIdentNumber="0x00000004" MinDeviceInterval="32" ImplementationType="ATMEL MCU" DNS_CompatibleName="smd34x2" FixedInSlots="0" ObjectUUID_LocalIndex="1" RequiredSchemaVersion="V2.2" MaxSupportedRecordSize="4068" NameOfStationNotTransferable="true" ParameterizationSpeedupSupported="false" PowerOnToCommReady="0" DeviceAccessSupported="true" NumberOfDeviceAccessAR="1" PNIO_Version="V2.33" ResetToFactoryModes="2" CheckDeviceID_Allowed="true" MultipleWriteSupported="true" LLDP_NoD_Supported="true">
+          <ModuleInfo CategoryRef="ID_IODEV_SMD34x2">
+            <Name TextId="SMD34x2" />
+            <InfoText TextId="IDT_ModInfo_InfoTextId_DAP4" />
+            <VendorName Value="Advanced Micro Controls, Inc." />
+            <OrderNumber Value="smd34x2" />
+            <HardwareRelease Value="1.00" />
+            <SoftwareRelease Value="1.0.16" />
+          </ModuleInfo>
+          <CertificationInfo ConformanceClass="B" ApplicationClass="" NetloadClass="I" />
+          <SubslotList>
+            <SubslotItem SubslotNumber="32768" TextId="IDT_SS_INTERFACE" />
+            <SubslotItem SubslotNumber="32769" TextId="IDT_SS_PORT1" />
+            <SubslotItem SubslotNumber="32770" TextId="IDT_SS_PORT2" />
+          </SubslotList>
+          <IOConfigData MaxInputLength="40" MaxOutputLength="40" />
+          <UseableModules>
+            <!-- References to the ModuleList -->
+            <ModuleItemRef ModuleItemTarget="ID_Mod_11" AllowedInSlots="1" />
+            <ModuleItemRef ModuleItemTarget="ID_Mod_12" AllowedInSlots="2" />
+          </UseableModules>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="DAP 4" SubmoduleIdentNumber="0x0001" Writeable_IM_Records="1 2 3 4" MayIssueProcessAlarm="false">
+              <IOData></IOData>
+              <RecordDataList>
+                <ParameterRecordDataItem Index="1" Length="18">
+                  <Name TextId="IDT_RECORD_NAME_Configuration_Parameters" />
+                  <!---->
+                  <!--Configuration Word 01-->
+                  <Ref ValueItemTarget="IDV_Input1Function" ByteOffset="0" BitOffset="0" DataType="BitArea" BitLength="3" DefaultValue="0" AllowedValues="0..6" Changeable="true" Visible="true" TextId="IDT_REF_Input1Function" />
+                  <Ref ValueItemTarget="IDV_Input2Function" ByteOffset="0" BitOffset="3" DataType="BitArea" BitLength="3" DefaultValue="0" AllowedValues="0..6" Changeable="true" Visible="true" TextId="IDT_REF_Input2Function" />
+                  <Ref ByteOffset="0" BitOffset="6" DataType="BitArea" BitLength="2" DefaultValue="0" Changeable="false" Visible="false" TextId="IDT_REF_Reserved" />
+                  <Ref ValueItemTarget="IDV_Input3Function" ByteOffset="1" BitOffset="0" DataType="BitArea" BitLength="3" DefaultValue="0" AllowedValues="0..6" Changeable="true" Visible="true" TextId="IDT_REF_Input3Function" />
+                  <Ref ByteOffset="1" BitOffset="3" DataType="BitArea" BitLength="5" DefaultValue="0" Changeable="false" Visible="false" TextId="IDT_REF_Reserved" />
+                  <!---->
+                  <!--Configuration Word 02-->
+                  <Ref ByteOffset="2" BitOffset="0" DataType="BitArea" BitLength="8" DefaultValue="0" Changeable="false" Visible="false" TextId="IDT_REF_Reserved" />
+                  <Ref ByteOffset="3" BitOffset="0" DataType="BitArea" BitLength="2" DefaultValue="0" Changeable="false" Visible="false" TextId="IDT_REF_Reserved" />
+                  <Ref ValueItemTarget="IDV_UseEncoderInt" ByteOffset="3" BitOffset="2" DataType="Bit" DefaultValue="1" AllowedValues="0..1" Changeable="true" Visible="true" TextId="IDT_REF_UseEncoderInt" />
+                  <Ref ValueItemTarget="IDV_UseBProx" ByteOffset="3" BitOffset="3" DataType="Bit" DefaultValue="0" AllowedValues="0..1" Changeable="true" Visible="true" TextId="IDT_REF_UseBProx" />
+                  <Ref ByteOffset="3" BitOffset="4" DataType="Bit" DefaultValue="0" Changeable="false" Visible="false" TextId="IDT_REF_Reserved" />
+                  <Ref ValueItemTarget="IDV_EnStall" ByteOffset="3" BitOffset="5" DataType="Bit" DefaultValue="0" AllowedValues="0..1" Changeable="true" Visible="true" TextId="IDT_REF_EnStall" />
+                  <Ref ValueItemTarget="IDV_DisAR" ByteOffset="3" BitOffset="6" DataType="Bit" DefaultValue="0" AllowedValues="0..1" Changeable="true" Visible="true" TextId="IDT_REF_DisAR" />
+                  <Ref ByteOffset="3" BitOffset="7" DataType="Bit" DefaultValue="0" Changeable="false" Visible="false" TextId="IDT_REF_Reserved" />
+                  <!---->
+                  <!--Configuration Word 1-->
+                  <Ref ValueItemTarget="IDV_IN1ActiveLevel" ByteOffset="4" BitOffset="0" DataType="Bit" DefaultValue="1" AllowedValues="0..1" Changeable="true" Visible="true" TextId="IDT_REF_IN1ActiveLevel" />
+                  <Ref ValueItemTarget="IDV_IN2ActiveLevel" ByteOffset="4" BitOffset="1" DataType="Bit" DefaultValue="1" AllowedValues="0..1" Changeable="true" Visible="true" TextId="IDT_REF_IN2ActiveLevel" />
+                  <Ref ValueItemTarget="IDV_IN3ActiveLevel" ByteOffset="4" BitOffset="2" DataType="Bit" DefaultValue="1" AllowedValues="0..1" Changeable="true" Visible="true" TextId="IDT_REF_IN3ActiveLevel" />
+                  <Ref ByteOffset="4" BitOffset="3" DataType="BitArea" BitLength="4" DefaultValue="0" Changeable="false" Visible="false" TextId="IDT_REF_Reserved" />
+                  <Ref ValueItemTarget="IDV_DataEndian" ByteOffset="4" BitOffset="7" DataType="Bit" DefaultValue="1" AllowedValues="0..1" Changeable="true" Visible="true" TextId="IDT_REF_DataEndian" />
+                  <Ref ValueItemTarget="IDV_BinOutFrmt" ByteOffset="5" BitOffset="0" DataType="Bit" DefaultValue="1" AllowedValues="0..1" Changeable="true" Visible="true" TextId="IDT_REF_BinOutFrmt" />
+                  <Ref ValueItemTarget="IDV_BinInFrmt" ByteOffset="5" BitOffset="1" DataType="Bit" DefaultValue="1" AllowedValues="0..1" Changeable="true" Visible="true" TextId="IDT_REF_BinInFrmt" />
+                  <Ref ByteOffset="5" BitOffset="2" DataType="BitArea" BitLength="6" DefaultValue="0" Changeable="false" Visible="false" TextId="IDT_REF_Reserved" />
+                  <!---->
+                  <!--starting speed-->
+                  <Ref ValueItemTarget="IDV_StartingSpeed" ByteOffset="6" DataType="Unsigned32" DefaultValue="50" AllowedValues="1..1999999" Changeable="true" Visible="true" TextId="IDT_REF_StartingSpeed"></Ref>
+                  <!---->
+                  <!--motor steps per revolution-->
+                  <Ref ValueItemTarget="IDV_MotorStepsPerTurn" ByteOffset="10" DataType="Unsigned16" DefaultValue="2048" AllowedValues="200..32767" Changeable="true" Visible="true" TextId="IDT_REF_MotorStepsPerTurn" />
+                  <!---->
+                  <!--encoder resolution-->
+                  <Ref ValueItemTarget="IDV_EncoderResolutionInt" ByteOffset="12" DataType="Unsigned16" DefaultValue="2048" AllowedValues="1024 2048 4096" Changeable="true" Visible="true" TextId="IDT_REF_EncoderResolutionInt" />
+                  <!---->
+                  <!--idle current percentage-->
+                  <Ref ValueItemTarget="IDV_IdleCurrentPercentage" ByteOffset="14" DataType="Unsigned16" DefaultValue="20" AllowedValues="0..100" Changeable="true" Visible="true" TextId="IDT_REF_IdleCurrentPercentage" />
+                  <!---->
+                  <!--motor current-->
+                  <Ref ValueItemTarget="IDV_MotorCurrentX10" ByteOffset="16" DataType="Unsigned16" DefaultValue="45" AllowedValues="1..54" Changeable="true" Visible="true" TextId="IDT_REF_MotorCurrentX10" />
+                </ParameterRecordDataItem>
+              </RecordDataList>
+              <ModuleInfo>
+                <Name TextId="SMD34x2" />
+                <InfoText TextId="IDT_ModInfo_InfoTextId_DAP4" />
+              </ModuleInfo>
+            </VirtualSubmoduleItem>
+          </VirtualSubmoduleList>
+          <SystemDefinedSubmoduleList>
+            <InterfaceSubmoduleItem ID="IDS_4I" SubslotNumber="32768" SubmoduleIdentNumber="0x8000" SupportedRT_Classes="RT_CLASS_1" TextId="IDT_DAP_InterfaceModule" IsochroneModeSupported="false" SupportedProtocols="SNMP;LLDP" NetworkComponentDiagnosisSupported="false" PTP_BoundarySupported="true" DCP_BoundarySupported="true">
+              <ApplicationRelations NumberOfAdditionalInputCR="0" NumberOfAdditionalMulticastProviderCR="0" NumberOfAdditionalOutputCR="0" NumberOfMulticastConsumerCR="0" PullModuleAlarmSupported="true" StartupMode="Advanced;Legacy">
+                <TimingProperties SendClock="32" ReductionRatio="1 2 4 8 16 32 64 128 256 512" />
+              </ApplicationRelations>
+              <MediaRedundancy SupportedRole="Client" MaxMRP_Instances="1" />
+            </InterfaceSubmoduleItem>
+            <PortSubmoduleItem ID="IDS_4P1" SubslotNumber="32769" SubmoduleIdentNumber="0x8001" MAUTypes="10 11 15 16 29 30" TextId="IDT_Port1" MaxPortRxDelay="378" MaxPortTxDelay="1212" PortDeactivationSupported="true" LinkStateDiagnosisCapability="Up+Down" SupportsRingportConfig="true" IsDefaultRingport="true" CheckMAUTypeSupported="true">
+              <MAUTypeList>
+                <MAUTypeItem Value="10" AdjustSupported="true" />
+                <MAUTypeItem Value="11" AdjustSupported="true" />
+                <MAUTypeItem Value="15" AdjustSupported="true" />
+                <MAUTypeItem Value="16" AdjustSupported="true" />
+                <MAUTypeItem Value="29" AdjustSupported="true" />
+                <MAUTypeItem Value="30" AdjustSupported="true" />
+              </MAUTypeList>
+            </PortSubmoduleItem>
+            <PortSubmoduleItem ID="IDS_4P2" SubslotNumber="32770" SubmoduleIdentNumber="0x8002" MAUTypes="10 11 15 16 29 30" TextId="IDT_Port2" MaxPortRxDelay="378" MaxPortTxDelay="1212" PortDeactivationSupported="true" LinkStateDiagnosisCapability="Up+Down" SupportsRingportConfig="true" IsDefaultRingport="true" CheckMAUTypeSupported="true">
+              <MAUTypeList>
+                <MAUTypeItem Value="10" AdjustSupported="true" />
+                <MAUTypeItem Value="11" AdjustSupported="true" />
+                <MAUTypeItem Value="15" AdjustSupported="true" />
+                <MAUTypeItem Value="16" AdjustSupported="true" />
+                <MAUTypeItem Value="29" AdjustSupported="true" />
+                <MAUTypeItem Value="30" AdjustSupported="true" />
+              </MAUTypeList>
+            </PortSubmoduleItem>
+          </SystemDefinedSubmoduleList>
+          <Graphics>
+            <GraphicItemRef Type="DeviceSymbol" GraphicItemTarget="ID_Graph_4" />
+          </Graphics>
+        </DeviceAccessPointItem>
+        <!-- DAP 5 - SMD17x2-->
+        <DeviceAccessPointItem ID="DAP 5" PhysicalSlots="0..2" ModuleIdentNumber="0x00000005" MinDeviceInterval="32" ImplementationType="ATMEL MCU" DNS_CompatibleName="smd17x2" FixedInSlots="0" ObjectUUID_LocalIndex="1" RequiredSchemaVersion="V2.2" MaxSupportedRecordSize="4068" NameOfStationNotTransferable="true" ParameterizationSpeedupSupported="false" PowerOnToCommReady="0" DeviceAccessSupported="true" NumberOfDeviceAccessAR="1" PNIO_Version="V2.33" ResetToFactoryModes="2" CheckDeviceID_Allowed="true" MultipleWriteSupported="true" LLDP_NoD_Supported="true">
+          <ModuleInfo CategoryRef="ID_IODEV_SMD17x2">
+            <Name TextId="SMD17x2" />
+            <InfoText TextId="IDT_ModInfo_InfoTextId_DAP5" />
+            <VendorName Value="Advanced Micro Controls, Inc." />
+            <OrderNumber Value="smd17x2" />
+            <HardwareRelease Value="1.00" />
+            <SoftwareRelease Value="1.0.16" />
+          </ModuleInfo>
+          <CertificationInfo ConformanceClass="B" ApplicationClass="" NetloadClass="I" />
+          <SubslotList>
+            <SubslotItem SubslotNumber="32768" TextId="IDT_SS_INTERFACE" />
+            <SubslotItem SubslotNumber="32769" TextId="IDT_SS_PORT1" />
+            <SubslotItem SubslotNumber="32770" TextId="IDT_SS_PORT2" />
+          </SubslotList>
+          <IOConfigData MaxInputLength="40" MaxOutputLength="40" />
+          <UseableModules>
+            <!-- References to the ModuleList -->
+            <ModuleItemRef ModuleItemTarget="ID_Mod_11" AllowedInSlots="1" />
+            <ModuleItemRef ModuleItemTarget="ID_Mod_12" AllowedInSlots="2" />
+          </UseableModules>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="DAP 5" SubmoduleIdentNumber="0x0001" Writeable_IM_Records="1 2 3 4" MayIssueProcessAlarm="false">
+              <IOData></IOData>
+              <RecordDataList>
+                <ParameterRecordDataItem Index="1" Length="16">
+                  <Name TextId="IDT_RECORD_NAME_Configuration_Parameters" />
+                  <!---->
+                  <!--Configuration Word 0-->
+                  <Ref ValueItemTarget="IDV_Input1Function" ByteOffset="0" BitOffset="0" DataType="BitArea" BitLength="3" DefaultValue="0" AllowedValues="0..6" Changeable="true" Visible="true" TextId="IDT_REF_Input1Function" />
+                  <Ref ValueItemTarget="IDV_Input2Function" ByteOffset="0" BitOffset="3" DataType="BitArea" BitLength="3" DefaultValue="0" AllowedValues="0..6" Changeable="true" Visible="true" TextId="IDT_REF_Input2Function" />
+                  <Ref ByteOffset="0" BitOffset="6" DataType="BitArea" BitLength="2" DefaultValue="0" Changeable="false" Visible="false" TextId="IDT_REF_Reserved" />
+                  <Ref ByteOffset="1" BitOffset="0" DataType="BitArea" BitLength="2" DefaultValue="0" Changeable="false" Visible="false" TextId="IDT_REF_Reserved" />
+                  <Ref ValueItemTarget="IDV_UseEncoderInt" ByteOffset="1" BitOffset="2" DataType="Bit" DefaultValue="1" AllowedValues="0..1" Changeable="true" Visible="true" TextId="IDT_REF_UseEncoderInt" />
+                  <Ref ValueItemTarget="IDV_UseBProx" ByteOffset="1" BitOffset="3" DataType="Bit" DefaultValue="0" AllowedValues="0..1" Changeable="true" Visible="true" TextId="IDT_REF_UseBProx" />
+                  <Ref ByteOffset="1" BitOffset="4" DataType="Bit" DefaultValue="0" Changeable="false" Visible="false" TextId="IDT_REF_Reserved" />
+                  <Ref ValueItemTarget="IDV_EnStall" ByteOffset="1" BitOffset="5" DataType="Bit" DefaultValue="0" AllowedValues="0..1" Changeable="true" Visible="true" TextId="IDT_REF_EnStall" />
+                  <Ref ValueItemTarget="IDV_DisAR" ByteOffset="1" BitOffset="6" DataType="Bit" DefaultValue="0" AllowedValues="0..1" Changeable="true" Visible="true" TextId="IDT_REF_DisAR" />
+                  <Ref ByteOffset="1" BitOffset="7" DataType="Bit" DefaultValue="0" Changeable="false" Visible="false" TextId="IDT_REF_Reserved" />
+                  <!---->
+                  <!--Configuration Word 1-->
+                  <Ref ValueItemTarget="IDV_IN1ActiveLevel" ByteOffset="2" BitOffset="0" DataType="Bit" DefaultValue="1" AllowedValues="0..1" Changeable="true" Visible="true" TextId="IDT_REF_IN1ActiveLevel" />
+                  <Ref ValueItemTarget="IDV_IN2ActiveLevel" ByteOffset="2" BitOffset="1" DataType="Bit" DefaultValue="1" AllowedValues="0..1" Changeable="true" Visible="true" TextId="IDT_REF_IN2ActiveLevel" />
+                  <Ref ByteOffset="2" BitOffset="2" DataType="BitArea" BitLength="5" DefaultValue="0" Changeable="false" Visible="false" TextId="IDT_REF_Reserved" />
+                  <Ref ValueItemTarget="IDV_DataEndian" ByteOffset="2" BitOffset="7" DataType="Bit" DefaultValue="1" AllowedValues="0..1" Changeable="true" Visible="true" TextId="IDT_REF_DataEndian" />
+                  <Ref ValueItemTarget="IDV_BinOutFrmt" ByteOffset="3" BitOffset="0" DataType="Bit" DefaultValue="1" AllowedValues="0..1" Changeable="true" Visible="true" TextId="IDT_REF_BinOutFrmt" />
+                  <Ref ValueItemTarget="IDV_BinInFrmt" ByteOffset="3" BitOffset="1" DataType="Bit" DefaultValue="1" AllowedValues="0..1" Changeable="true" Visible="true" TextId="IDT_REF_BinInFrmt" />
+                  <Ref ByteOffset="3" BitOffset="2" DataType="BitArea" BitLength="6" DefaultValue="0" Changeable="false" Visible="false" TextId="IDT_REF_Reserved" />
+                  <!---->
+                  <!--starting speed-->
+                  <Ref ValueItemTarget="IDV_StartingSpeed" ByteOffset="4" DataType="Unsigned32" DefaultValue="50" AllowedValues="1..1999999" Changeable="true" Visible="true" TextId="IDT_REF_StartingSpeed" />
+                  <!---->
+                  <!--motor steps per revolution-->
+                  <Ref ValueItemTarget="IDV_MotorStepsPerTurn" ByteOffset="8" DataType="Unsigned16" DefaultValue="2048" AllowedValues="200..32767" Changeable="true" Visible="true" TextId="IDT_REF_MotorStepsPerTurn" />
+                  <!---->
+                  <!--encoder resolution-->
+                  <Ref ValueItemTarget="IDV_EncoderResolutionInt" ByteOffset="10" DataType="Unsigned16" DefaultValue="2048" AllowedValues="1024 2048 4096" Changeable="true" Visible="true" TextId="IDT_REF_EncoderResolutionInt" />
+                  <!---->
+                  <!--idle current percentage-->
+                  <Ref ValueItemTarget="IDV_IdleCurrentPercentage" ByteOffset="12" DataType="Unsigned16" DefaultValue="20" AllowedValues="0..100" Changeable="true" Visible="true" TextId="IDT_REF_IdleCurrentPercentage" />
+                  <!---->
+                  <!--motor current-->
+                  <Ref ValueItemTarget="IDV_MotorCurrentX10" ByteOffset="14" DataType="Unsigned16" DefaultValue="17" AllowedValues="1..20" Changeable="true" Visible="true" TextId="IDT_REF_MotorCurrentX10" />
+                </ParameterRecordDataItem>
+              </RecordDataList>
+              <ModuleInfo>
+                <Name TextId="SMD17x2" />
+                <InfoText TextId="IDT_ModInfo_InfoTextId_DAP5" />
+              </ModuleInfo>
+            </VirtualSubmoduleItem>
+          </VirtualSubmoduleList>
+          <SystemDefinedSubmoduleList>
+            <InterfaceSubmoduleItem ID="IDS_5I" SubslotNumber="32768" SubmoduleIdentNumber="0x8000" SupportedRT_Classes="RT_CLASS_1" TextId="IDT_DAP_InterfaceModule" IsochroneModeSupported="false" SupportedProtocols="SNMP;LLDP" NetworkComponentDiagnosisSupported="false" PTP_BoundarySupported="true" DCP_BoundarySupported="true">
+              <ApplicationRelations NumberOfAdditionalInputCR="0" NumberOfAdditionalMulticastProviderCR="0" NumberOfAdditionalOutputCR="0" NumberOfMulticastConsumerCR="0" PullModuleAlarmSupported="true" StartupMode="Advanced;Legacy">
+                <TimingProperties SendClock="32" ReductionRatio="1 2 4 8 16 32 64 128 256 512" />
+              </ApplicationRelations>
+              <MediaRedundancy SupportedRole="Client" MaxMRP_Instances="1" />
+            </InterfaceSubmoduleItem>
+            <PortSubmoduleItem ID="IDS_5P1" SubslotNumber="32769" SubmoduleIdentNumber="0x8001" MAUTypes="10 11 15 16 29 30" TextId="IDT_Port1" MaxPortRxDelay="378" MaxPortTxDelay="1212" PortDeactivationSupported="true" LinkStateDiagnosisCapability="Up+Down" SupportsRingportConfig="true" IsDefaultRingport="true" CheckMAUTypeSupported="true">
+              <MAUTypeList>
+                <MAUTypeItem Value="10" AdjustSupported="true" />
+                <MAUTypeItem Value="11" AdjustSupported="true" />
+                <MAUTypeItem Value="15" AdjustSupported="true" />
+                <MAUTypeItem Value="16" AdjustSupported="true" />
+                <MAUTypeItem Value="29" AdjustSupported="true" />
+                <MAUTypeItem Value="30" AdjustSupported="true" />
+              </MAUTypeList>
+            </PortSubmoduleItem>
+            <PortSubmoduleItem ID="IDS_5P2" SubslotNumber="32770" SubmoduleIdentNumber="0x8002" MAUTypes="10 11 15 16 29 30" TextId="IDT_Port2" MaxPortRxDelay="378" MaxPortTxDelay="1212" PortDeactivationSupported="true" LinkStateDiagnosisCapability="Up+Down" SupportsRingportConfig="true" IsDefaultRingport="true" CheckMAUTypeSupported="true">
+              <MAUTypeList>
+                <MAUTypeItem Value="10" AdjustSupported="true" />
+                <MAUTypeItem Value="11" AdjustSupported="true" />
+                <MAUTypeItem Value="15" AdjustSupported="true" />
+                <MAUTypeItem Value="16" AdjustSupported="true" />
+                <MAUTypeItem Value="29" AdjustSupported="true" />
+                <MAUTypeItem Value="30" AdjustSupported="true" />
+              </MAUTypeList>
+            </PortSubmoduleItem>
+          </SystemDefinedSubmoduleList>
+          <Graphics>
+            <GraphicItemRef Type="DeviceSymbol" GraphicItemTarget="ID_Graph_5" />
+          </Graphics>
+        </DeviceAccessPointItem>
+        <!--DAP 6 - SD4840x2-->
+        <DeviceAccessPointItem ID="DAP 6" PhysicalSlots="0..2" ModuleIdentNumber="0x00000006" MinDeviceInterval="32" ImplementationType="ATMEL MCU" DNS_CompatibleName="sd4840x2" FixedInSlots="0" ObjectUUID_LocalIndex="1" RequiredSchemaVersion="V2.2" MaxSupportedRecordSize="4068" NameOfStationNotTransferable="true" ParameterizationSpeedupSupported="false" PowerOnToCommReady="0" DeviceAccessSupported="true" NumberOfDeviceAccessAR="1" PNIO_Version="V2.33" ResetToFactoryModes="2" CheckDeviceID_Allowed="true" MultipleWriteSupported="true" LLDP_NoD_Supported="true">
+          <ModuleInfo CategoryRef="ID_IODEV_SD4840x2">
+            <Name TextId="SD4840x2" />
+            <InfoText TextId="IDT_ModInfo_InfoTextId_DAP6" />
+            <VendorName Value="Advanced Micro Controls, Inc." />
+            <OrderNumber Value="sd4840x2" />
+            <HardwareRelease Value="1.00" />
+            <SoftwareRelease Value="1.0.16" />
+          </ModuleInfo>
+          <CertificationInfo ConformanceClass="B" ApplicationClass="" NetloadClass="I" />
+          <SubslotList>
+            <SubslotItem SubslotNumber="32768" TextId="IDT_SS_INTERFACE" />
+            <SubslotItem SubslotNumber="32769" TextId="IDT_SS_PORT1" />
+            <SubslotItem SubslotNumber="32770" TextId="IDT_SS_PORT2" />
+          </SubslotList>
+          <IOConfigData MaxInputLength="40" MaxOutputLength="40" />
+          <UseableModules>
+            <!-- References to the ModuleList -->
+            <ModuleItemRef ModuleItemTarget="ID_Mod_11" AllowedInSlots="1" />
+            <ModuleItemRef ModuleItemTarget="ID_Mod_12" AllowedInSlots="2" />
+          </UseableModules>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="DAP 6" SubmoduleIdentNumber="0x0001" Writeable_IM_Records="1 2 3 4" MayIssueProcessAlarm="false">
+              <IOData></IOData>
+              <RecordDataList>
+                <ParameterRecordDataItem Index="1" Length="22">
+                  <Name TextId="IDT_RECORD_NAME_Configuration_Parameters" />
+                  <!---->
+                  <!--Configuration Word 01-->
+                  <Ref ValueItemTarget="IDV_Input1Function" ByteOffset="0" BitOffset="0" DataType="BitArea" BitLength="3" DefaultValue="0" AllowedValues="0..6" Changeable="true" Visible="true" TextId="IDT_REF_Input1Function" />
+                  <Ref ValueItemTarget="IDV_Input2Function" ByteOffset="0" BitOffset="3" DataType="BitArea" BitLength="3" DefaultValue="0" AllowedValues="0..6" Changeable="true" Visible="true" TextId="IDT_REF_Input2Function" />
+                  <Ref ByteOffset="0" BitOffset="6" DataType="BitArea" BitLength="2" DefaultValue="0" Changeable="false" Visible="false" TextId="IDT_REF_Reserved" />
+                  <Ref ValueItemTarget="IDV_Input3Function" ByteOffset="1" BitOffset="0" DataType="BitArea" BitLength="3" DefaultValue="0" AllowedValues="0..6" Changeable="true" Visible="true" TextId="IDT_REF_Input3Function" />
+                  <Ref ByteOffset="1" BitOffset="3" DataType="BitArea" BitLength="5" DefaultValue="0" Changeable="false" Visible="false" TextId="IDT_REF_Reserved" />
+                  <!---->
+                  <!--Configuration Word 02-->
+                  <Ref ByteOffset="2" BitOffset="0" DataType="BitArea" BitLength="8" DefaultValue="0" Changeable="false" Visible="false" TextId="IDT_REF_Reserved" />
+                  <Ref ByteOffset="3" BitOffset="0" DataType="Bit" DefaultValue="0" Changeable="false" Visible="false" TextId="IDT_REF_Reserved" />
+                  <Ref ValueItemTarget="IDV_HomeToZ" ByteOffset="3" BitOffset="1" DataType="Bit" DefaultValue="0" AllowedValues="0..1" Changeable="true" Visible="true" TextId="IDT_REF_HomeToZ" />
+                  <Ref ValueItemTarget="IDV_UseEncoderExt" ByteOffset="3" BitOffset="2" DataType="Bit" DefaultValue="0" AllowedValues="0..1" Changeable="true" Visible="true" TextId="IDT_REF_UseEncoderExt" />
+                  <Ref ValueItemTarget="IDV_UseBProx" ByteOffset="3" BitOffset="3" DataType="Bit" DefaultValue="0" AllowedValues="0..1" Changeable="true" Visible="true" TextId="IDT_REF_UseBProx" />
+                  <Ref ByteOffset="3" BitOffset="4" DataType="Bit" DefaultValue="0" Changeable="false" Visible="false" TextId="IDT_REF_Reserved" />
+                  <Ref ValueItemTarget="IDV_EnStall" ByteOffset="3" BitOffset="5" DataType="Bit" DefaultValue="0" AllowedValues="0..1" Changeable="true" Visible="true" TextId="IDT_REF_EnStall" />
+                  <Ref ValueItemTarget="IDV_DisAR" ByteOffset="3" BitOffset="6" DataType="Bit" DefaultValue="0" AllowedValues="0..1" Changeable="true" Visible="true" TextId="IDT_REF_DisAR" />
+                  <Ref ByteOffset="3" BitOffset="7" DataType="Bit" DefaultValue="0" Changeable="false" Visible="false" TextId="IDT_REF_Reserved" />
+                  <!---->
+                  <!--Configuration Word 1-->
+                  <Ref ValueItemTarget="IDV_IN1ActiveLevel" ByteOffset="4" BitOffset="0" DataType="Bit" DefaultValue="1" AllowedValues="0..1" Changeable="true" Visible="true" TextId="IDT_REF_IN1ActiveLevel" />
+                  <Ref ValueItemTarget="IDV_IN2ActiveLevel" ByteOffset="4" BitOffset="1" DataType="Bit" DefaultValue="1" AllowedValues="0..1" Changeable="true" Visible="true" TextId="IDT_REF_IN2ActiveLevel" />
+                  <Ref ValueItemTarget="IDV_IN3ActiveLevel" ByteOffset="4" BitOffset="2" DataType="Bit" DefaultValue="1" AllowedValues="0..1" Changeable="true" Visible="true" TextId="IDT_REF_IN3ActiveLevel" />
+                  <Ref ByteOffset="4" BitOffset="3" DataType="BitArea" BitLength="4" DefaultValue="0" Changeable="false" Visible="false" TextId="IDT_REF_Reserved" />
+                  <Ref ValueItemTarget="IDV_DataEndian" ByteOffset="4" BitOffset="7" DataType="Bit" DefaultValue="1" AllowedValues="0..1" Changeable="true" Visible="true" TextId="IDT_REF_DataEndian" />
+                  <Ref ValueItemTarget="IDV_BinOutFrmt" ByteOffset="5" BitOffset="0" DataType="Bit" DefaultValue="1" AllowedValues="0..1" Changeable="true" Visible="true" TextId="IDT_REF_BinOutFrmt" />
+                  <Ref ValueItemTarget="IDV_BinInFrmt" ByteOffset="5" BitOffset="1" DataType="Bit" DefaultValue="1" AllowedValues="0..1" Changeable="true" Visible="true" TextId="IDT_REF_BinInFrmt" />
+                  <Ref ByteOffset="5" BitOffset="2" DataType="BitArea" BitLength="2" DefaultValue="0" Changeable="false" Visible="false" TextId="IDT_REF_Reserved" />
+                  <Ref ValueItemTarget="IDV_Out1SACL" ByteOffset="5" BitOffset="4" DataType="Bit" DefaultValue="0" AllowedValues="0..1" Changeable="true" Visible="true" TextId="IDT_REF_Out1SACL" />
+                  <Ref ValueItemTarget="IDV_Out1AOCL" ByteOffset="5" BitOffset="5" DataType="Bit" DefaultValue="0" AllowedValues="0..1" Changeable="true" Visible="true" TextId="IDT_REF_Out1AOCL" />
+                  <Ref ValueItemTarget="IDV_Out1Fcn" ByteOffset="5" BitOffset="6" DataType="Bit" DefaultValue="0" AllowedValues="0..1" Changeable="true" Visible="true" TextId="IDT_REF_Out1Fcn" />
+                  <Ref ByteOffset="5" BitOffset="7" DataType="Bit" DefaultValue="0" Changeable="false" Visible="false" TextId="IDT_REF_Reserved" />
+                  <!---->
+                  <!--starting speed-->
+                  <Ref ValueItemTarget="IDV_StartingSpeed" ByteOffset="6" DataType="Unsigned32" DefaultValue="50" AllowedValues="1..1999999" Changeable="true" Visible="true" TextId="IDT_REF_StartingSpeed"></Ref>
+                  <!---->
+                  <!--motor steps per revolution-->
+                  <Ref ValueItemTarget="IDV_MotorStepsPerTurn" ByteOffset="10" DataType="Unsigned16" DefaultValue="1000" AllowedValues="200..32767" Changeable="true" Visible="true" TextId="IDT_REF_MotorStepsPerTurn" />
+                  <!---->
+                  <!--hybrid control gain-->
+                  <Ref ValueItemTarget="IDV_HybridControlGain" ByteOffset="12" DataType="Unsigned16" DefaultValue="0" AllowedValues="0..3" Changeable="true" Visible="true" TextId="IDT_REF_HybridControlGain" />
+                  <!---->
+                  <!--encoder resolution-->
+                  <Ref ValueItemTarget="IDV_EncoderResolutionExt" ByteOffset="14" DataType="Unsigned16" DefaultValue="1024" AllowedValues="0..32768" Changeable="true" Visible="true" TextId="IDT_REF_EncoderResolutionExt" />
+                  <!---->
+                  <!--idle current percentage-->
+                  <Ref ValueItemTarget="IDV_IdleCurrentPercentage" ByteOffset="16" DataType="Unsigned16" DefaultValue="20" AllowedValues="0..100" Changeable="true" Visible="true" TextId="IDT_REF_IdleCurrentPercentage" />
+                  <!---->
+                  <!--motor current-->
+                  <Ref ValueItemTarget="IDV_IdleCurrentPercentage" ByteOffset="18" DataType="Unsigned16" DefaultValue="20" AllowedValues="1..40" Changeable="true" Visible="true" TextId="IDT_REF_MotorCurrentX10" />
+                  <!---->
+                  <!--current loop gain-->
+                  <Ref ValueItemTarget="IDV_CurrentLoopGain" ByteOffset="20" DataType="Unsigned16" DefaultValue="5" AllowedValues="1..80" Changeable="true" Visible="true" TextId="IDT_REF_CurrentLoopGain" />
+                </ParameterRecordDataItem>
+              </RecordDataList>
+              <ModuleInfo>
+                <Name TextId="SD4840x2" />
+                <InfoText TextId="IDT_ModInfo_InfoTextId_DAP6" />
+              </ModuleInfo>
+            </VirtualSubmoduleItem>
+          </VirtualSubmoduleList>
+          <SystemDefinedSubmoduleList>
+            <InterfaceSubmoduleItem ID="IDS_6I" SubslotNumber="32768" SubmoduleIdentNumber="0x8000" SupportedRT_Classes="RT_CLASS_1" TextId="IDT_DAP_InterfaceModule" IsochroneModeSupported="false" SupportedProtocols="SNMP;LLDP" NetworkComponentDiagnosisSupported="false" PTP_BoundarySupported="true" DCP_BoundarySupported="true">
+              <ApplicationRelations NumberOfAdditionalInputCR="0" NumberOfAdditionalMulticastProviderCR="0" NumberOfAdditionalOutputCR="0" NumberOfMulticastConsumerCR="0" PullModuleAlarmSupported="true" StartupMode="Advanced;Legacy">
+                <TimingProperties SendClock="32" ReductionRatio="1 2 4 8 16 32 64 128 256 512" />
+              </ApplicationRelations>
+              <MediaRedundancy SupportedRole="Client" MaxMRP_Instances="1" />
+            </InterfaceSubmoduleItem>
+            <PortSubmoduleItem ID="IDS_6P1" SubslotNumber="32769" SubmoduleIdentNumber="0x8001" MAUTypes="10 11 15 16 29 30" TextId="IDT_Port1" MaxPortRxDelay="378" MaxPortTxDelay="1212" PortDeactivationSupported="true" LinkStateDiagnosisCapability="Up+Down" SupportsRingportConfig="true" IsDefaultRingport="true" CheckMAUTypeSupported="true">
+              <MAUTypeList>
+                <MAUTypeItem Value="10" AdjustSupported="true" />
+                <MAUTypeItem Value="11" AdjustSupported="true" />
+                <MAUTypeItem Value="15" AdjustSupported="true" />
+                <MAUTypeItem Value="16" AdjustSupported="true" />
+                <MAUTypeItem Value="29" AdjustSupported="true" />
+                <MAUTypeItem Value="30" AdjustSupported="true" />
+              </MAUTypeList>
+            </PortSubmoduleItem>
+            <PortSubmoduleItem ID="IDS_6P2" SubslotNumber="32770" SubmoduleIdentNumber="0x8002" MAUTypes="10 11 15 16 29 30" TextId="IDT_Port2" MaxPortRxDelay="378" MaxPortTxDelay="1212" PortDeactivationSupported="true" LinkStateDiagnosisCapability="Up+Down" SupportsRingportConfig="true" IsDefaultRingport="true" CheckMAUTypeSupported="true">
+              <MAUTypeList>
+                <MAUTypeItem Value="10" AdjustSupported="true" />
+                <MAUTypeItem Value="11" AdjustSupported="true" />
+                <MAUTypeItem Value="15" AdjustSupported="true" />
+                <MAUTypeItem Value="16" AdjustSupported="true" />
+                <MAUTypeItem Value="29" AdjustSupported="true" />
+                <MAUTypeItem Value="30" AdjustSupported="true" />
+              </MAUTypeList>
+            </PortSubmoduleItem>
+          </SystemDefinedSubmoduleList>
+          <Graphics>
+            <GraphicItemRef Type="DeviceSymbol" GraphicItemTarget="ID_Graph_6" />
+          </Graphics>
+        </DeviceAccessPointItem>
+        <!--DAP 7 - SV160x2-->
+        <DeviceAccessPointItem ID="DAP 7" PhysicalSlots="0..2" ModuleIdentNumber="0x00000007" MinDeviceInterval="32" ImplementationType="ATMEL MCU" DNS_CompatibleName="sv160x2" FixedInSlots="0" ObjectUUID_LocalIndex="1" RequiredSchemaVersion="V2.2" MaxSupportedRecordSize="4068" NameOfStationNotTransferable="true" ParameterizationSpeedupSupported="false" PowerOnToCommReady="0" DeviceAccessSupported="true" NumberOfDeviceAccessAR="1" PNIO_Version="V2.33" ResetToFactoryModes="2" CheckDeviceID_Allowed="true" MultipleWriteSupported="true" LLDP_NoD_Supported="true">
+          <ModuleInfo CategoryRef="ID_IODEV_SV160x2">
+            <Name TextId="SV160x2" />
+            <InfoText TextId="IDT_ModInfo_InfoTextId_DAP7" />
+            <VendorName Value="Advanced Micro Controls, Inc." />
+            <OrderNumber Value="sv160x2" />
+            <HardwareRelease Value="1.00" />
+            <SoftwareRelease Value="1.0.16" />
+          </ModuleInfo>
+          <CertificationInfo ConformanceClass="B" ApplicationClass="" NetloadClass="I" />
+          <SubslotList>
+            <SubslotItem SubslotNumber="32768" TextId="IDT_SS_INTERFACE" />
+            <SubslotItem SubslotNumber="32769" TextId="IDT_SS_PORT1" />
+            <SubslotItem SubslotNumber="32770" TextId="IDT_SS_PORT2" />
+          </SubslotList>
+          <IOConfigData MaxInputLength="40" MaxOutputLength="40" />
+          <UseableModules>
+            <!-- References to the ModuleList -->
+            <ModuleItemRef ModuleItemTarget="ID_Mod_11" AllowedInSlots="1" />
+            <ModuleItemRef ModuleItemTarget="ID_Mod_12" AllowedInSlots="2" />
+          </UseableModules>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="DAP 7" SubmoduleIdentNumber="0x0001" Writeable_IM_Records="1 2 3 4" MayIssueProcessAlarm="false">
+              <IOData></IOData>
+              <RecordDataList>
+                <ParameterRecordDataItem Index="1" Length="48">
+                  <Name TextId="IDT_RECORD_NAME_Configuration_Parameters" />
+                  <!---->
+                  <!--Data Configuration Block: Data Endian-->
+                  <Ref ValueItemTarget="IDV_DataEndianSV" ByteOffset="1" BitOffset="0" DataType="Bit" DefaultValue="1" AllowedValues="0..1" Changeable="true" Visible="true" TextId="IDT_REF_DataEndianSV"></Ref>
+                  <Ref ByteOffset="1" BitOffset="1" DataType="BitArea" BitLength="7" DefaultValue="0" Changeable="false" Visible="false" TextId="IDT_REF_Reserved" />
+                  <Ref ByteOffset="0" BitOffset="0" DataType="BitArea" BitLength="8" DefaultValue="0" Changeable="false" Visible="false" TextId="IDT_REF_Reserved" />
+                  <!---->
+                  <!--I/O Configuration Block 1: Input 1 Configuration-->
+                  <Ref ValueItemTarget="IDV_Input1Function" ByteOffset="3" BitOffset="0" DataType="BitArea" BitLength="3" DefaultValue="0" AllowedValues="0..6" Changeable="true" Visible="true" TextId="IDT_REF_Input1Function"></Ref>
+                  <Ref ByteOffset="3" BitOffset="3" DataType="BitArea" BitLength="5" DefaultValue="0" Changeable="false" Visible="false" TextId="IDT_REF_Reserved" />
+                  <Ref ValueItemTarget="IDV_IN1ActiveLevel" ByteOffset="2" BitOffset="0" DataType="Bit" DefaultValue="1" AllowedValues="0..1" Changeable="true" Visible="true" TextId="IDT_REF_IN1ActiveLevel"></Ref>
+                  <Ref ByteOffset="2" BitOffset="1" DataType="BitArea" BitLength="7" DefaultValue="0" Changeable="false" Visible="false" TextId="IDT_REF_Reserved" />
+                  <!---->
+                  <!--I/O Configuration Block 2: Input 2 Configuration-->
+                  <Ref ValueItemTarget="IDV_Input2Function" ByteOffset="5" BitOffset="0" DataType="BitArea" BitLength="3" DefaultValue="0" AllowedValues="0..6" Changeable="true" Visible="true" TextId="IDT_REF_Input2Function"></Ref>
+                  <Ref ByteOffset="5" BitOffset="3" DataType="BitArea" BitLength="5" DefaultValue="0" Changeable="false" Visible="false" TextId="IDT_REF_Reserved" />
+                  <Ref ValueItemTarget="IDV_IN2ActiveLevel" ByteOffset="4" BitOffset="0" DataType="Bit" DefaultValue="1" AllowedValues="0..1" Changeable="true" Visible="true" TextId="IDT_REF_IN2ActiveLevel"></Ref>
+                  <Ref ByteOffset="4" BitOffset="1" DataType="BitArea" BitLength="7" DefaultValue="0" Changeable="false" Visible="false" TextId="IDT_REF_Reserved" />
+                  <!---->
+                  <!--I/O Configuration Block 3: Input 3 Configuration-->
+                  <Ref ValueItemTarget="IDV_Input3Function_SV" ByteOffset="7" BitOffset="0" DataType="BitArea" BitLength="3" DefaultValue="0" AllowedValues="0..6" Changeable="true" Visible="true" TextId="IDT_REF_Input3Function"></Ref>
+                  <Ref ByteOffset="7" BitOffset="3" DataType="BitArea" BitLength="5" DefaultValue="0" Changeable="false" Visible="false" TextId="IDT_REF_Reserved" />
+                  <Ref ValueItemTarget="IDV_IN3ActiveLevel_SV" ByteOffset="6" BitOffset="0" DataType="Bit" DefaultValue="1" AllowedValues="0..1" Changeable="true" Visible="true" TextId="IDT_REF_IN3ActiveLevel_SV"></Ref>
+                  <Ref ByteOffset="6" BitOffset="1" DataType="BitArea" BitLength="7" DefaultValue="0" Changeable="false" Visible="false" TextId="IDT_REF_Reserved" />
+                  <!---->
+                  <!--I/O Configuration Block 4: Input 4 Configuration-->
+                  <Ref ValueItemTarget="IDV_Input4Function_SV" ByteOffset="9" BitOffset="0" DataType="BitArea" BitLength="3" DefaultValue="0" AllowedValues="0..6" Changeable="true" Visible="true" TextId="IDT_REF_Input4Function"></Ref>
+                  <Ref ByteOffset="9" BitOffset="3" DataType="BitArea" BitLength="5" DefaultValue="0" Changeable="false" Visible="false" TextId="IDT_REF_Reserved" />
+                  <Ref ValueItemTarget="IDV_IN4ActiveLevel_SV" ByteOffset="8" BitOffset="0" DataType="Bit" DefaultValue="1" AllowedValues="0..1" Changeable="true" Visible="true" TextId="IDT_REF_IN4ActiveLevel_SV"></Ref>
+                  <Ref ByteOffset="8" BitOffset="1" DataType="BitArea" BitLength="7" DefaultValue="0" Changeable="false" Visible="false" TextId="IDT_REF_Reserved"></Ref>
+                  <!---->
+                  <!--Reserved Word-->
+                  <Ref ByteOffset="10" BitOffset="0" DataType="BitArea" BitLength="8" DefaultValue="0" Changeable="false" Visible="false" TextId="IDT_REF_Reserved" />
+                  <Ref ByteOffset="11" BitOffset="0" DataType="BitArea" BitLength="8" DefaultValue="0" Changeable="false" Visible="false" TextId="IDT_REF_Reserved"></Ref>
+                  <!---->
+                  <!--Motor Configuration Block 1: Counts Per Revolution-->
+                  <Ref ValueItemTarget="IDV_CountsPerRevolution" ByteOffset="12" DataType="Unsigned16" DefaultValue="16384" AllowedValues="16384" Changeable="false" Visible="true" TextId="IDT_REF_CountsPerRevolution"></Ref>
+                  <!---->
+                  <!--Motor Configuration Block 2: Immediate Stop Deceleration-->
+                  <Ref ValueItemTarget="IDV_ImmediateStopDeceleration" ByteOffset="14" DataType="Unsigned16" DefaultValue="0" AllowedValues="0 1500..15999" Changeable="true" Visible="true" TextId="IDT_REF_ImmediateStopDeceleration"></Ref>
+                  <!---->
+                  <!--Motor Configuration Block 3: Continuous Torque Limit-->
+                  <Ref ValueItemTarget="IDV_ContinuousTorqueLimit" ByteOffset="16" DataType="Unsigned16" DefaultValue="50" AllowedValues="10..55" Changeable="true" Visible="true" TextId="IDT_REF_ContinuousTorqueLimit"></Ref>
+                  <!---->
+                  <!--Motor Configuration Block 4: Peak Torque Limit-->
+                  <Ref ValueItemTarget="IDV_PeakTorqueLimit" ByteOffset="18" DataType="Unsigned16" DefaultValue="130" AllowedValues="10..130" Changeable="true" Visible="true" TextId="IDT_REF_PeakTorqueLimit"></Ref>
+                  <!---->
+                  <!--Motor Configuration Block 5: Overvoltage Treshold-->
+                  <Ref ValueItemTarget="IDV_OvervoltageTreshold" ByteOffset="20" DataType="Unsigned16" DefaultValue="0" AllowedValues="0 550..1000" Changeable="true" Visible="true" TextId="IDT_REF_OvervoltageTreshold"></Ref>
+                  <!---->
+                  <!--Velocity Loop Configuration Block 1: Proportional Gain-->
+                  <Ref ValueItemTarget="IDV_VelocityLoopProportionalGain" ByteOffset="22" DataType="Unsigned16" DefaultValue="1854" AllowedValues="0..32767" Changeable="true" Visible="true" TextId="IDT_REF_VelocityLoopProportionalGain"></Ref>
+                  <!---->
+                  <!--Velocity Loop Configuration Block 2: Integral Gain-->
+                  <Ref ValueItemTarget="IDV_VelocityLoopIntegralGain" ByteOffset="24" DataType="Unsigned16" DefaultValue="0" AllowedValues="0..32767" Changeable="true" Visible="true" TextId="IDT_REF_VelocityLoopIntegralGain"></Ref>
+                  <!---->
+                  <!--Velocity Loop Configuration Block 3: Feedback Lowpass Filter-->
+                  <Ref ValueItemTarget="IDV_VelocityFeedbackLowpassFilter" ByteOffset="26" DataType="Unsigned16" DefaultValue="2" AllowedValues="0..5" Changeable="true" Visible="true" TextId="IDT_REF_VelocityFeedbackLowpassFilter"></Ref>
+                  <!---->
+                  <!--Position Loop Configuration Block 1: Proportional Gain-->
+                  <Ref ValueItemTarget="IDV_PositionLoopProportionalGain" ByteOffset="28" DataType="Unsigned16" DefaultValue="2185" AllowedValues="0..32767" Changeable="true" Visible="true" TextId="IDT_REF_PositionLoopProportionalGain"></Ref>
+                  <!---->
+                  <!--Position Loop Configuration Block 2: Integral Gain-->
+                  <Ref ValueItemTarget="IDV_PositionLoopIntegralGain" ByteOffset="30" DataType="Unsigned16" DefaultValue="485" AllowedValues="0..32767" Changeable="true" Visible="true" TextId="IDT_REF_PositionLoopIntegralGain"></Ref>
+                  <!---->
+                  <!--Position Loop Configuration Block 3: Derivative Gain-->
+                  <Ref ValueItemTarget="IDV_PositionLoopDerivativeGain" ByteOffset="32" DataType="Unsigned16" DefaultValue="0" AllowedValues="0..32767" Changeable="true" Visible="true" TextId="IDT_REF_PositionLoopDerivativeGain"></Ref>
+                  <!---->
+                  <!--Position Loop Configuration Block 4: Maximum Position Error Limit-->
+                  <Ref ValueItemTarget="IDV_MaximumPositionErrorLimit" ByteOffset="34" DataType="Unsigned16" DefaultValue="4096" AllowedValues="0..32767" Changeable="true" Visible="true" TextId="IDT_REF_MaximumPositionErrorLimit"></Ref>
+                  <!---->
+                  <!--STO Discrepancy Time-->
+                  <Ref ValueItemTarget="IDV_STODiscrepancyTime" ByteOffset="36" DataType="Unsigned16" DefaultValue="0" AllowedValues="0 50..3000" Changeable="true" Visible="true" TextId="IDT_REF_STODiscrepancyTime" />
+                  <!---->
+                  <!--At Rest Proportional Gain-->
+                  <Ref ValueItemTarget="IDV_AtRestProportionalGain" ByteOffset="38" DataType="Unsigned16" DefaultValue="0" AllowedValues="0..32768" Changeable="true" Visible="true" TextId="IDT_REF_AtRestProportionalGain" />
+                  <!---->
+                  <!--At Rest Integral Gain-->
+                  <Ref ValueItemTarget="IDV_AtRestIntegralGain" ByteOffset="40" DataType="Unsigned16" DefaultValue="0" AllowedValues="0..32768" Changeable="true" Visible="true" TextId="IDT_REF_AtRestIntegralGain" />
+                  <!---->
+                  <!--Reserved-->
+                  <Ref ByteOffset="42" DataType="Unsigned16" DefaultValue="0" AllowedValues="0" Changeable="false" Visible="false" TextId="IDT_REF_Reserved" />
+                  <!---->
+                  <!--Reserved-->
+                  <Ref ByteOffset="44" DataType="Unsigned16" DefaultValue="0" AllowedValues="0" Changeable="false" Visible="false" TextId="IDT_REF_Reserved" />
+                  <!---->
+                  <!--Reserved-->
+                  <Ref ByteOffset="46" DataType="Unsigned16" DefaultValue="0" AllowedValues="0" Changeable="false" Visible="false" TextId="IDT_REF_Reserved" />
+                </ParameterRecordDataItem>
+              </RecordDataList>
+              <ModuleInfo>
+                <Name TextId="SV160x2" />
+                <InfoText TextId="IDT_ModInfo_InfoTextId_DAP7" />
+              </ModuleInfo>
+            </VirtualSubmoduleItem>
+          </VirtualSubmoduleList>
+          <SystemDefinedSubmoduleList>
+            <InterfaceSubmoduleItem ID="IDS_7I" SubslotNumber="32768" SubmoduleIdentNumber="0x8000" SupportedRT_Classes="RT_CLASS_1" TextId="IDT_DAP_InterfaceModule" IsochroneModeSupported="false" SupportedProtocols="SNMP;LLDP" NetworkComponentDiagnosisSupported="false" PTP_BoundarySupported="true" DCP_BoundarySupported="true">
+              <ApplicationRelations NumberOfAdditionalInputCR="0" NumberOfAdditionalMulticastProviderCR="0" NumberOfAdditionalOutputCR="0" NumberOfMulticastConsumerCR="0" PullModuleAlarmSupported="true" StartupMode="Advanced;Legacy">
+                <TimingProperties SendClock="32" ReductionRatio="1 2 4 8 16 32 64 128 256 512" />
+              </ApplicationRelations>
+              <MediaRedundancy SupportedRole="Client" MaxMRP_Instances="1" />
+            </InterfaceSubmoduleItem>
+            <PortSubmoduleItem ID="IDS_7P1" SubslotNumber="32769" SubmoduleIdentNumber="0x8001" MAUTypes="10 11 15 16 29 30" TextId="IDT_Port1" MaxPortRxDelay="378" MaxPortTxDelay="1212" PortDeactivationSupported="true" LinkStateDiagnosisCapability="Up+Down" SupportsRingportConfig="true" IsDefaultRingport="true" CheckMAUTypeSupported="true">
+              <MAUTypeList>
+                <MAUTypeItem Value="10" AdjustSupported="true" />
+                <MAUTypeItem Value="11" AdjustSupported="true" />
+                <MAUTypeItem Value="15" AdjustSupported="true" />
+                <MAUTypeItem Value="16" AdjustSupported="true" />
+                <MAUTypeItem Value="29" AdjustSupported="true" />
+                <MAUTypeItem Value="30" AdjustSupported="true" />
+              </MAUTypeList>
+            </PortSubmoduleItem>
+            <PortSubmoduleItem ID="IDS_7P2" SubslotNumber="32770" SubmoduleIdentNumber="0x8002" MAUTypes="10 11 15 16 29 30" TextId="IDT_Port2" MaxPortRxDelay="378" MaxPortTxDelay="1212" PortDeactivationSupported="true" LinkStateDiagnosisCapability="Up+Down" SupportsRingportConfig="true" IsDefaultRingport="true" CheckMAUTypeSupported="true">
+              <MAUTypeList>
+                <MAUTypeItem Value="10" AdjustSupported="true" />
+                <MAUTypeItem Value="11" AdjustSupported="true" />
+                <MAUTypeItem Value="15" AdjustSupported="true" />
+                <MAUTypeItem Value="16" AdjustSupported="true" />
+                <MAUTypeItem Value="29" AdjustSupported="true" />
+                <MAUTypeItem Value="30" AdjustSupported="true" />
+              </MAUTypeList>
+            </PortSubmoduleItem>
+          </SystemDefinedSubmoduleList>
+          <Graphics>
+            <GraphicItemRef Type="DeviceSymbol" GraphicItemTarget="ID_Graph_7" />
+          </Graphics>
+        </DeviceAccessPointItem>
+        <!--DAP 8 - SV400x2-->
+        <DeviceAccessPointItem ID="DAP 8" PhysicalSlots="0..2" ModuleIdentNumber="0x00000008" MinDeviceInterval="32" ImplementationType="ATMEL MCU" DNS_CompatibleName="sv400x2" FixedInSlots="0" ObjectUUID_LocalIndex="1" RequiredSchemaVersion="V2.2" MaxSupportedRecordSize="4068" NameOfStationNotTransferable="true" ParameterizationSpeedupSupported="false" PowerOnToCommReady="0" DeviceAccessSupported="true" NumberOfDeviceAccessAR="1" PNIO_Version="V2.33" ResetToFactoryModes="2" CheckDeviceID_Allowed="true" MultipleWriteSupported="true" LLDP_NoD_Supported="true">
+          <ModuleInfo CategoryRef="ID_IODEV_SV400x2">
+            <Name TextId="SV400x2" />
+            <InfoText TextId="IDT_ModInfo_InfoTextId_DAP8" />
+            <VendorName Value="Advanced Micro Controls, Inc." />
+            <OrderNumber Value="sv400x2" />
+            <HardwareRelease Value="1.00" />
+            <SoftwareRelease Value="1.0.16" />
+          </ModuleInfo>
+          <CertificationInfo ConformanceClass="B" ApplicationClass="" NetloadClass="I" />
+          <SubslotList>
+            <SubslotItem SubslotNumber="32768" TextId="IDT_SS_INTERFACE" />
+            <SubslotItem SubslotNumber="32769" TextId="IDT_SS_PORT1" />
+            <SubslotItem SubslotNumber="32770" TextId="IDT_SS_PORT2" />
+          </SubslotList>
+          <IOConfigData MaxInputLength="40" MaxOutputLength="40" />
+          <UseableModules>
+            <!-- References to the ModuleList -->
+            <ModuleItemRef ModuleItemTarget="ID_Mod_11" AllowedInSlots="1" />
+            <ModuleItemRef ModuleItemTarget="ID_Mod_12" AllowedInSlots="2" />
+          </UseableModules>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="DAP8" SubmoduleIdentNumber="0x0001" Writeable_IM_Records="1 2 3 4" MayIssueProcessAlarm="false">
+              <IOData></IOData>
+              <RecordDataList>
+                <ParameterRecordDataItem Index="1" Length="48">
+                  <Name TextId="IDT_RECORD_NAME_Configuration_Parameters" />
+                  <!---->
+                  <!--Data Configuration Block: Data Endian-->
+                  <Ref ValueItemTarget="IDV_DataEndianSV" ByteOffset="1" BitOffset="0" DataType="Bit" DefaultValue="1" AllowedValues="0..1" Changeable="true" Visible="true" TextId="IDT_REF_DataEndianSV"></Ref>
+                  <Ref ByteOffset="1" BitOffset="1" DataType="BitArea" BitLength="7" DefaultValue="0" Changeable="false" Visible="false" TextId="IDT_REF_Reserved" />
+                  <Ref ByteOffset="0" BitOffset="0" DataType="BitArea" BitLength="8" DefaultValue="0" Changeable="false" Visible="false" TextId="IDT_REF_Reserved" />
+                  <!---->
+                  <!--I/O Configuration Block 1: Input 1 Configuration-->
+                  <Ref ValueItemTarget="IDV_Input1Function" ByteOffset="3" BitOffset="0" DataType="BitArea" BitLength="3" DefaultValue="0" AllowedValues="0..6" Changeable="true" Visible="true" TextId="IDT_REF_Input1Function"></Ref>
+                  <Ref ByteOffset="3" BitOffset="3" DataType="BitArea" BitLength="5" DefaultValue="0" Changeable="false" Visible="false" TextId="IDT_REF_Reserved" />
+                  <Ref ValueItemTarget="IDV_IN1ActiveLevel" ByteOffset="2" BitOffset="0" DataType="Bit" DefaultValue="1" AllowedValues="0..1" Changeable="true" Visible="true" TextId="IDT_REF_IN1ActiveLevel"></Ref>
+                  <Ref ByteOffset="2" BitOffset="1" DataType="BitArea" BitLength="7" DefaultValue="0" Changeable="false" Visible="false" TextId="IDT_REF_Reserved" />
+                  <!---->
+                  <!--I/O Configuration Block 2: Input 2 Configuration-->
+                  <Ref ValueItemTarget="IDV_Input2Function" ByteOffset="5" BitOffset="0" DataType="BitArea" BitLength="3" DefaultValue="0" AllowedValues="0..6" Changeable="true" Visible="true" TextId="IDT_REF_Input2Function"></Ref>
+                  <Ref ByteOffset="5" BitOffset="3" DataType="BitArea" BitLength="5" DefaultValue="0" Changeable="false" Visible="false" TextId="IDT_REF_Reserved" />
+                  <Ref ValueItemTarget="IDV_IN2ActiveLevel" ByteOffset="4" BitOffset="0" DataType="Bit" DefaultValue="1" AllowedValues="0..1" Changeable="true" Visible="true" TextId="IDT_REF_IN2ActiveLevel"></Ref>
+                  <Ref ByteOffset="4" BitOffset="1" DataType="BitArea" BitLength="7" DefaultValue="0" Changeable="false" Visible="false" TextId="IDT_REF_Reserved" />
+                  <!---->
+                  <!--I/O Configuration Block 3: Input 3 Configuration-->
+                  <Ref ValueItemTarget="IDV_Input3Function_SV" ByteOffset="7" BitOffset="0" DataType="BitArea" BitLength="3" DefaultValue="0" AllowedValues="0..6" Changeable="true" Visible="true" TextId="IDT_REF_Input3Function"></Ref>
+                  <Ref ByteOffset="7" BitOffset="3" DataType="BitArea" BitLength="5" DefaultValue="0" Changeable="false" Visible="false" TextId="IDT_REF_Reserved" />
+                  <Ref ValueItemTarget="IDV_IN3ActiveLevel_SV" ByteOffset="6" BitOffset="0" DataType="Bit" DefaultValue="1" AllowedValues="0..1" Changeable="true" Visible="true" TextId="IDT_REF_IN3ActiveLevel_SV"></Ref>
+                  <Ref ByteOffset="6" BitOffset="1" DataType="BitArea" BitLength="7" DefaultValue="0" Changeable="false" Visible="false" TextId="IDT_REF_Reserved" />
+                  <!---->
+                  <!--I/O Configuration Block 4: Input 4 Configuration-->
+                  <Ref ValueItemTarget="IDV_Input4Function_SV" ByteOffset="9" BitOffset="0" DataType="BitArea" BitLength="3" DefaultValue="0" AllowedValues="0..6" Changeable="true" Visible="true" TextId="IDT_REF_Input4Function"></Ref>
+                  <Ref ByteOffset="9" BitOffset="3" DataType="BitArea" BitLength="5" DefaultValue="0" Changeable="false" Visible="false" TextId="IDT_REF_Reserved" />
+                  <Ref ValueItemTarget="IDV_IN4ActiveLevel_SV" ByteOffset="8" BitOffset="0" DataType="Bit" DefaultValue="1" AllowedValues="0..1" Changeable="true" Visible="true" TextId="IDT_REF_IN4ActiveLevel_SV"></Ref>
+                  <Ref ByteOffset="8" BitOffset="1" DataType="BitArea" BitLength="7" DefaultValue="0" Changeable="false" Visible="false" TextId="IDT_REF_Reserved"></Ref>
+                  <!---->
+                  <!--Reserved Word-->
+                  <Ref ByteOffset="10" BitOffset="0" DataType="BitArea" BitLength="8" DefaultValue="0" Changeable="false" Visible="false" TextId="IDT_REF_Reserved" />
+                  <Ref ByteOffset="11" BitOffset="0" DataType="BitArea" BitLength="8" DefaultValue="0" Changeable="false" Visible="false" TextId="IDT_REF_Reserved"></Ref>
+                  <!---->
+                  <!--Motor Configuration Block 1: Counts Per Revolution-->
+                  <Ref ValueItemTarget="IDV_CountsPerRevolution" ByteOffset="12" DataType="Unsigned16" DefaultValue="16384" AllowedValues="16384" Changeable="false" Visible="true" TextId="IDT_REF_CountsPerRevolution"></Ref>
+                  <!---->
+                  <!--Motor Configuration Block 2: Immediate Stop Deceleration-->
+                  <Ref ValueItemTarget="IDV_ImmediateStopDeceleration" ByteOffset="14" DataType="Unsigned16" DefaultValue="0" AllowedValues="0 1500..15999" Changeable="true" Visible="true" TextId="IDT_REF_ImmediateStopDeceleration"></Ref>
+                  <!---->
+                  <!--Motor Configuration Block 3: Continuous Torque Limit-->
+                  <Ref ValueItemTarget="IDV_ContinuousTorqueLimit" ByteOffset="16" DataType="Unsigned16" DefaultValue="128" AllowedValues="25..140" Changeable="true" Visible="true" TextId="IDT_REF_ContinuousTorqueLimit"></Ref>
+                  <!---->
+                  <!--Motor Configuration Block 4: Peak Torque Limit-->
+                  <Ref ValueItemTarget="IDV_PeakTorqueLimit" ByteOffset="18" DataType="Unsigned16" DefaultValue="350" AllowedValues="25..350" Changeable="true" Visible="true" TextId="IDT_REF_PeakTorqueLimit"></Ref>
+                  <!---->
+                  <!--Motor Configuration Block 5: Overvoltage Treshold-->
+                  <Ref ValueItemTarget="IDV_OvervoltageTreshold" ByteOffset="20" DataType="Unsigned16" DefaultValue="0" AllowedValues="0 550..1000" Changeable="true" Visible="true" TextId="IDT_REF_OvervoltageTreshold"></Ref>
+                  <!---->
+                  <!--Velocity Loop Configuration Block 1: Proportional Gain-->
+                  <Ref ValueItemTarget="IDV_VelocityLoopProportionalGain" ByteOffset="22" DataType="Unsigned16" DefaultValue="391" AllowedValues="0..32767" Changeable="true" Visible="true" TextId="IDT_REF_VelocityLoopProportionalGain"></Ref>
+                  <!---->
+                  <!--Velocity Loop Configuration Block 2: Integral Gain-->
+                  <Ref ValueItemTarget="IDV_VelocityLoopIntegralGain" ByteOffset="24" DataType="Unsigned16" DefaultValue="0" AllowedValues="0..32767" Changeable="true" Visible="true" TextId="IDT_REF_VelocityLoopIntegralGain"></Ref>
+                  <!---->
+                  <!--Velocity Loop Configuration Block 3: Feedback Lowpass Filter-->
+                  <Ref ValueItemTarget="IDV_VelocityFeedbackLowpassFilter" ByteOffset="26" DataType="Unsigned16" DefaultValue="2" AllowedValues="0..5" Changeable="true" Visible="true" TextId="IDT_REF_VelocityFeedbackLowpassFilter"></Ref>
+                  <!---->
+                  <!--Position Loop Configuration Block 1: Proportional Gain-->
+                  <Ref ValueItemTarget="IDV_PositionLoopProportionalGain" ByteOffset="28" DataType="Unsigned16" DefaultValue="2185" AllowedValues="0..32767" Changeable="true" Visible="true" TextId="IDT_REF_PositionLoopProportionalGain"></Ref>
+                  <!---->
+                  <!--Position Loop Configuration Block 2: Integral Gain-->
+                  <Ref ValueItemTarget="IDV_PositionLoopIntegralGain" ByteOffset="30" DataType="Unsigned16" DefaultValue="485" AllowedValues="0..32767" Changeable="true" Visible="true" TextId="IDT_REF_PositionLoopIntegralGain"></Ref>
+                  <!---->
+                  <!--Position Loop Configuration Block 3: Derivative Gain-->
+                  <Ref ValueItemTarget="IDV_PositionLoopDerivativeGain" ByteOffset="32" DataType="Unsigned16" DefaultValue="0" AllowedValues="0..32767" Changeable="true" Visible="true" TextId="IDT_REF_PositionLoopDerivativeGain"></Ref>
+                  <!---->
+                  <!--Position Loop Configuration Block 4: Maximum Position Error Limit-->
+                  <Ref ValueItemTarget="IDV_MaximumPositionErrorLimit" ByteOffset="34" DataType="Unsigned16" DefaultValue="4096" AllowedValues="0..32767" Changeable="true" Visible="true" TextId="IDT_REF_MaximumPositionErrorLimit"></Ref>
+                  <!---->
+                  <!--STO Discrepancy Time-->
+                  <Ref ValueItemTarget="IDV_STODiscrepancyTime" ByteOffset="36" DataType="Unsigned16" DefaultValue="0" AllowedValues="0 50..3000" Changeable="true" Visible="true" TextId="IDT_REF_STODiscrepancyTime" />
+                  <!---->
+                  <!--At Rest Proportional Gain-->
+                  <Ref ValueItemTarget="IDV_AtRestProportionalGain" ByteOffset="38" DataType="Unsigned16" DefaultValue="0" AllowedValues="0..32768" Changeable="true" Visible="true" TextId="IDT_REF_AtRestProportionalGain" />
+                  <!---->
+                  <!--At Rest Integral Gain-->
+                  <Ref ValueItemTarget="IDV_AtRestIntegralGain" ByteOffset="40" DataType="Unsigned16" DefaultValue="0" AllowedValues="0..32768" Changeable="true" Visible="true" TextId="IDT_REF_AtRestIntegralGain" />
+                  <!---->
+                  <!--Reserved-->
+                  <Ref ByteOffset="42" DataType="Unsigned16" DefaultValue="0" AllowedValues="0" Changeable="false" Visible="false" TextId="IDT_REF_Reserved" />
+                  <!---->
+                  <!--Reserved-->
+                  <Ref ByteOffset="44" DataType="Unsigned16" DefaultValue="0" AllowedValues="0" Changeable="false" Visible="false" TextId="IDT_REF_Reserved" />
+                  <!---->
+                  <!--Reserved-->
+                  <Ref ByteOffset="46" DataType="Unsigned16" DefaultValue="0" AllowedValues="0" Changeable="false" Visible="false" TextId="IDT_REF_Reserved" />
+                </ParameterRecordDataItem>
+              </RecordDataList>
+              <ModuleInfo>
+                <Name TextId="SV400x2" />
+                <InfoText TextId="IDT_ModInfo_InfoTextId_DAP8" />
+              </ModuleInfo>
+            </VirtualSubmoduleItem>
+          </VirtualSubmoduleList>
+          <SystemDefinedSubmoduleList>
+            <InterfaceSubmoduleItem ID="IDS_8I" SubslotNumber="32768" SubmoduleIdentNumber="0x8000" SupportedRT_Classes="RT_CLASS_1" TextId="IDT_DAP_InterfaceModule" IsochroneModeSupported="false" SupportedProtocols="SNMP;LLDP" NetworkComponentDiagnosisSupported="false" PTP_BoundarySupported="true" DCP_BoundarySupported="true">
+              <ApplicationRelations NumberOfAdditionalInputCR="0" NumberOfAdditionalMulticastProviderCR="0" NumberOfAdditionalOutputCR="0" NumberOfMulticastConsumerCR="0" PullModuleAlarmSupported="true" StartupMode="Advanced;Legacy">
+                <TimingProperties SendClock="32" ReductionRatio="1 2 4 8 16 32 64 128 256 512" />
+              </ApplicationRelations>
+              <MediaRedundancy SupportedRole="Client" MaxMRP_Instances="1" />
+            </InterfaceSubmoduleItem>
+            <PortSubmoduleItem ID="IDS_8P1" SubslotNumber="32769" SubmoduleIdentNumber="0x8001" MAUTypes="10 11 15 16 29 30" TextId="IDT_Port1" MaxPortRxDelay="378" MaxPortTxDelay="1212" PortDeactivationSupported="true" LinkStateDiagnosisCapability="Up+Down" SupportsRingportConfig="true" IsDefaultRingport="true" CheckMAUTypeSupported="true">
+              <MAUTypeList>
+                <MAUTypeItem Value="10" AdjustSupported="true" />
+                <MAUTypeItem Value="11" AdjustSupported="true" />
+                <MAUTypeItem Value="15" AdjustSupported="true" />
+                <MAUTypeItem Value="16" AdjustSupported="true" />
+                <MAUTypeItem Value="29" AdjustSupported="true" />
+                <MAUTypeItem Value="30" AdjustSupported="true" />
+              </MAUTypeList>
+            </PortSubmoduleItem>
+            <PortSubmoduleItem ID="IDS_8P2" SubslotNumber="32770" SubmoduleIdentNumber="0x8002" MAUTypes="10 11 15 16 29 30" TextId="IDT_Port2" MaxPortRxDelay="378" MaxPortTxDelay="1212" PortDeactivationSupported="true" LinkStateDiagnosisCapability="Up+Down" SupportsRingportConfig="true" IsDefaultRingport="true" CheckMAUTypeSupported="true">
+              <MAUTypeList>
+                <MAUTypeItem Value="10" AdjustSupported="true" />
+                <MAUTypeItem Value="11" AdjustSupported="true" />
+                <MAUTypeItem Value="15" AdjustSupported="true" />
+                <MAUTypeItem Value="16" AdjustSupported="true" />
+                <MAUTypeItem Value="29" AdjustSupported="true" />
+                <MAUTypeItem Value="30" AdjustSupported="true" />
+              </MAUTypeList>
+            </PortSubmoduleItem>
+          </SystemDefinedSubmoduleList>
+          <Graphics>
+            <GraphicItemRef Type="DeviceSymbol" GraphicItemTarget="ID_Graph_8" />
+          </Graphics>
+        </DeviceAccessPointItem>
+      </DeviceAccessPointList>
+      <!-- ==================================================================== -->
+      <!-- 									List of Modules 													    -->
+      <!-- ==================================================================== -->
+      <ModuleList>
+        <!-- SMD Input Module -->
+        <ModuleItem ID="ID_Mod_11" ModuleIdentNumber="0x00000030">
+          <ModuleInfo CategoryRef="Input Module">
+            <Name TextId="IDT_TextId_Module_20I" />
+            <InfoText TextId="IDT_InfoTextId_Module_20I" />
+            <HardwareRelease Value="1.0" />
+            <SoftwareRelease Value="1.0.16" />
+          </ModuleInfo>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="11" SubmoduleIdentNumber="0x0001" API="0" MayIssueProcessAlarm="false">
+              <IOData>
+                <Input Consistency="All items consistency">
+                  <DataItem DataType="OctetString" TextId="IDT_Input_DataItem_20" Length="20" UseAsBits="false" />
+                </Input>
+              </IOData>
+              <ModuleInfo>
+                <Name TextId="IDT_TextId_Module_20I" />
+                <InfoText TextId="IDT_InfoTextId_Module_20I" />
+              </ModuleInfo>
+            </VirtualSubmoduleItem>
+          </VirtualSubmoduleList>
+        </ModuleItem>
+        <!--SMD Output Module -->
+        <ModuleItem ID="ID_Mod_12" ModuleIdentNumber="0x00000031">
+          <ModuleInfo CategoryRef="Output Module">
+            <Name TextId="IDT_TextId_Module_20O" />
+            <InfoText TextId="IDT_InfoTextId_Module_20O" />
+            <HardwareRelease Value="1.0" />
+            <SoftwareRelease Value="1.0.16" />
+          </ModuleInfo>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="12" SubmoduleIdentNumber="0x0001" API="0" MayIssueProcessAlarm="false">
+              <IOData>
+                <Output Consistency="All items consistency">
+                  <DataItem DataType="OctetString" TextId="IDT_Output_DataItem_20" Length="20" UseAsBits="false" />
+                </Output>
+              </IOData>
+              <ModuleInfo>
+                <Name TextId="IDT_TextId_Module_20O" />
+                <InfoText TextId="IDT_InfoTextId_Module_20O" />
+              </ModuleInfo>
+            </VirtualSubmoduleItem>
+          </VirtualSubmoduleList>
+        </ModuleItem>
+      </ModuleList>
+      <!--=====================================================================-->
+      <!--List of Values-->
+      <!--=====================================================================-->
+      <ValueList>
+        <ValueItem ID="IDV_Input1Function">
+          <Help TextId="Help_Input1Function" />
+          <Assignments>
+            <Assign Content="0" TextId="IDT_ASSIGN_GenPurpInput" />
+            <Assign Content="1" TextId="IDT_ASSIGN_CWLimit" />
+            <Assign Content="2" TextId="IDT_ASSIGN_CCWLimit" />
+            <Assign Content="3" TextId="IDT_ASSIGN_StartInexMove" />
+            <Assign Content="4" TextId="IDT_ASSIGN_StopJog" />
+            <Assign Content="5" TextId="IDT_ASSIGN_EmStop" />
+            <Assign Content="6" TextId="IDT_ASSIGN_Home" />
+            <Assign Content="7" TextId="IDT_ASSIGN_QuadEncInputA" />
+          </Assignments>
+        </ValueItem>
+        <ValueItem ID="IDV_Input2Function">
+          <Help TextId="Help_Input2Function" />
+          <Assignments>
+            <Assign Content="0" TextId="IDT_ASSIGN_GenPurpInput" />
+            <Assign Content="1" TextId="IDT_ASSIGN_CWLimit" />
+            <Assign Content="2" TextId="IDT_ASSIGN_CCWLimit" />
+            <Assign Content="3" TextId="IDT_ASSIGN_StartInexMove" />
+            <Assign Content="4" TextId="IDT_ASSIGN_StopJog" />
+            <Assign Content="5" TextId="IDT_ASSIGN_EmStop" />
+            <Assign Content="6" TextId="IDT_ASSIGN_Home" />
+            <Assign Content="7" TextId="IDT_ASSIGN_QuadEncInputB" />
+          </Assignments>
+        </ValueItem>
+        <ValueItem ID="IDV_Input3Function">
+          <Help TextId="Help_Input3Function" />
+          <Assignments>
+            <Assign Content="0" TextId="IDT_ASSIGN_GenPurpInput" />
+            <Assign Content="1" TextId="IDT_ASSIGN_CWLimit" />
+            <Assign Content="2" TextId="IDT_ASSIGN_CCWLimit" />
+            <Assign Content="3" TextId="IDT_ASSIGN_StartInexMove" />
+            <Assign Content="4" TextId="IDT_ASSIGN_StopJog" />
+            <Assign Content="5" TextId="IDT_ASSIGN_EmStop" />
+            <Assign Content="6" TextId="IDT_ASSIGN_Home" />
+          </Assignments>
+        </ValueItem>
+        <ValueItem ID="IDV_Input3Function_SV">
+          <Help TextId="Help_Input3Function_SV" />
+          <Assignments>
+            <Assign Content="0" TextId="IDT_ASSIGN_GenPurpInput_3SV" />
+            <Assign Content="1" TextId="IDT_ASSIGN_CWLimit" />
+            <Assign Content="2" TextId="IDT_ASSIGN_CCWLimit" />
+            <Assign Content="3" TextId="IDT_ASSIGN_StartInexMove" />
+            <Assign Content="4" TextId="IDT_ASSIGN_StopJog" />
+            <Assign Content="5" TextId="IDT_ASSIGN_EmStop" />
+            <Assign Content="6" TextId="IDT_ASSIGN_Home" />
+          </Assignments>
+        </ValueItem>
+        <ValueItem ID="IDV_Input4Function">
+          <Help TextId="Help_Input4Function" />
+          <Assignments>
+            <Assign Content="0" TextId="IDT_ASSIGN_GenPurpInput" />
+            <Assign Content="1" TextId="IDT_ASSIGN_CWLimit" />
+            <Assign Content="2" TextId="IDT_ASSIGN_CCWLimit" />
+            <Assign Content="3" TextId="IDT_ASSIGN_StartInexMove" />
+            <Assign Content="4" TextId="IDT_ASSIGN_StopJog" />
+            <Assign Content="5" TextId="IDT_ASSIGN_EmStop" />
+            <Assign Content="6" TextId="IDT_ASSIGN_Home" />
+          </Assignments>
+        </ValueItem>
+        <ValueItem ID="IDV_Input4Function_SV">
+          <Help TextId="Help_Input4Function_SV" />
+          <Assignments>
+            <Assign Content="0" TextId="IDT_ASSIGN_GenPurpInput_4SV" />
+            <Assign Content="1" TextId="IDT_ASSIGN_CWLimit" />
+            <Assign Content="2" TextId="IDT_ASSIGN_CCWLimit" />
+            <Assign Content="3" TextId="IDT_ASSIGN_StartInexMove" />
+            <Assign Content="4" TextId="IDT_ASSIGN_StopJog" />
+            <Assign Content="5" TextId="IDT_ASSIGN_EmStop" />
+            <Assign Content="6" TextId="IDT_ASSIGN_Home" />
+          </Assignments>
+        </ValueItem>
+        <ValueItem ID="IDV_HomeToZ">
+          <Help TextId="Help_HomeToZ" />
+          <Assignments>
+            <Assign Content="0" TextId="IDT_ASSIGN_HomeNotToZ" />
+            <Assign Content="1" TextId="IDT_ASSIGN_HomeToZ" />
+          </Assignments>
+        </ValueItem>
+        <ValueItem ID="IDV_UseEncoderExt">
+          <Help TextId="Help_UseEncoderExt" />
+          <Assignments>
+            <Assign Content="0" TextId="IDT_ASSIGN_EncoderNotUsed" />
+            <Assign Content="1" TextId="IDT_ASSIGN_EncoderIsUsed" />
+          </Assignments>
+        </ValueItem>
+        <ValueItem ID="IDV_UseEncoderInt">
+          <Help TextId="Help_UseEncoderInt" />
+          <Assignments>
+            <Assign Content="0" TextId="IDT_ASSIGN_EncoderNotUsed" />
+            <Assign Content="1" TextId="IDT_ASSIGN_EncoderIsUsed" />
+          </Assignments>
+        </ValueItem>
+        <ValueItem ID="IDV_UseBProx">
+          <Help TextId="Help_UseBProx" />
+          <Assignments>
+            <Assign Content="0" TextId="IDT_ASSIGN_BPlainProxNotUsed" />
+            <Assign Content="1" TextId="IDT_ASSIGN_BPlainProxIsUsed" />
+          </Assignments>
+        </ValueItem>
+        <ValueItem ID="IDV_EnStall">
+          <Help TextId="Help_EnStall" />
+          <Assignments>
+            <Assign Content="0" TextId="IDT_ASSIGN_StallDetectionDisabled" />
+            <Assign Content="1" TextId="IDT_ASSIGN_StallDetectionEnabled" />
+          </Assignments>
+        </ValueItem>
+        <ValueItem ID="IDV_DisAR">
+          <Help TextId="Help_DisAR" />
+          <Assignments>
+            <Assign Content="0" TextId="IDT_ASSIGN_AREnabled" />
+            <Assign Content="1" TextId="IDT_ASSIGN_ARDisabled" />
+          </Assignments>
+        </ValueItem>
+        <ValueItem ID="IDV_IN1ActiveLevel">
+          <Help TextId="Help_IN1ActiveLevel" />
+          <Assignments>
+            <Assign Content="0" TextId="IDT_ASSIGN_ActiveLow" />
+            <Assign Content="1" TextId="IDT_ASSIGN_ActiveHigh" />
+          </Assignments>
+        </ValueItem>
+        <ValueItem ID="IDV_IN2ActiveLevel">
+          <Help TextId="Help_IN2ActiveLevel" />
+          <Assignments>
+            <Assign Content="0" TextId="IDT_ASSIGN_ActiveLow" />
+            <Assign Content="1" TextId="IDT_ASSIGN_ActiveHigh" />
+          </Assignments>
+        </ValueItem>
+        <ValueItem ID="IDV_IN3ActiveLevel">
+          <Help TextId="Help_IN3ActiveLevel" />
+          <Assignments>
+            <Assign Content="0" TextId="IDT_ASSIGN_ActiveLow" />
+            <Assign Content="1" TextId="IDT_ASSIGN_ActiveHigh" />
+          </Assignments>
+        </ValueItem>
+        <ValueItem ID="IDV_IN3ActiveLevel_SV">
+          <Help TextId="Help_IN3ActiveLevel_SV" />
+          <Assignments>
+            <Assign Content="0" TextId="IDT_ASSIGN_ActiveLow_SV" />
+            <Assign Content="1" TextId="IDT_ASSIGN_ActiveHigh_SV" />
+          </Assignments>
+        </ValueItem>
+        <ValueItem ID="IDV_IN4ActiveLevel">
+          <Help TextId="Help_IN4ActiveLevel" />
+          <Assignments>
+            <Assign Content="0" TextId="IDT_ASSIGN_ActiveLow" />
+            <Assign Content="1" TextId="IDT_ASSIGN_ActiveHigh" />
+          </Assignments>
+        </ValueItem>
+        <ValueItem ID="IDV_IN4ActiveLevel_SV">
+          <Help TextId="Help_IN4ActiveLevel_SV" />
+          <Assignments>
+            <Assign Content="0" TextId="IDT_ASSIGN_ActiveLow_SV" />
+            <Assign Content="1" TextId="IDT_ASSIGN_ActiveHigh_SV" />
+          </Assignments>
+        </ValueItem>
+        <ValueItem ID="IDV_DataEndian">
+          <Help TextId="Help_DataEndian" />
+          <Assignments>
+            <Assign Content="0" TextId="IDT_ASSIGN_LittleEndian" />
+            <Assign Content="1" TextId="IDT_ASSIGN_BigEndian" />
+          </Assignments>
+        </ValueItem>
+        <ValueItem ID="IDV_DataEndianSV">
+          <Help TextId="Help_DataEndianSV" />
+          <Assignments>
+            <Assign Content="0" TextId="IDT_ASSIGN_LittleEndian" />
+            <Assign Content="1" TextId="IDT_ASSIGN_BigEndian" />
+          </Assignments>
+        </ValueItem>
+        <ValueItem ID="IDV_BinOutFrmt">
+          <Help TextId="Help_BinOutFrmt" />
+          <Assignments>
+            <Assign Content="0" TextId="IDT_ASSIGN_MultiWordFormat" />
+            <Assign Content="1" TextId="IDT_ASSIGN_Signed32BitIntegerFormat" />
+          </Assignments>
+        </ValueItem>
+        <ValueItem ID="IDV_BinInFrmt">
+          <Help TextId="Help_BinInFrmt" />
+          <Assignments>
+            <Assign Content="0" TextId="IDT_ASSIGN_MultiWordFormat" />
+            <Assign Content="1" TextId="IDT_ASSIGN_Signed32BitIntegerFormat" />
+          </Assignments>
+        </ValueItem>
+        <ValueItem ID="IDV_Out1SACL">
+          <Help TextId="Help_Out1SACL" />
+          <Assignments>
+            <Assign Content="0" TextId="IDT_ASSIGN_LowOutput" />
+            <Assign Content="1" TextId="IDT_ASSIGN_HighOutput" />
+          </Assignments>
+        </ValueItem>
+        <ValueItem ID="IDV_Out1AOCL">
+          <Help TextId="Help_Out1AOCL" />
+          <Assignments>
+            <Assign Content="0" TextId="IDT_ASSIGN_OldOutput1" />
+            <Assign Content="1" TextId="IDT_ASSIGN_SetOutput1toBit12" />
+          </Assignments>
+        </ValueItem>
+        <ValueItem ID="IDV_Out1Fcn">
+          <Help TextId="Help_Out1Fcn" />
+          <Assignments>
+            <Assign Content="0" TextId="IDT_ASSIGN_FaultOutput" />
+            <Assign Content="1" TextId="IDT_ASSIGN_GenPurpOutput" />
+          </Assignments>
+        </ValueItem>
+        <ValueItem ID="IDV_EncoderResolutionInt">
+          <Help TextId="Help_EncoderResolutionInt" />
+          <Assignments>
+            <Assign Content="1024" TextId="IDT_ASSIGN_1024" />
+            <Assign Content="2048" TextId="IDT_ASSIGN_2048" />
+            <Assign Content="4096" TextId="IDT_ASSIGN_4096" />
+          </Assignments>
+        </ValueItem>
+        <ValueItem ID="IDV_EncoderResolutionExt">
+          <Help TextId="Help_EncoderResolutionExt" />
+        </ValueItem>
+        <ValueItem ID="IDV_StartingSpeed">
+          <Help TextId="Help_StartingSpeed" />
+        </ValueItem>
+        <ValueItem ID="IDV_MotorStepsPerTurn">
+          <Help TextId="Help_MotorStepsPerTurn" />
+        </ValueItem>
+        <ValueItem ID="IDV_IdleCurrentPercentage">
+          <Help TextId="Help_IdleCurrentPercentage" />
+        </ValueItem>
+        <ValueItem ID="IDV_MotorCurrentX10">
+          <Help TextId="Help_MotorCurrentX10" />
+        </ValueItem>
+        <ValueItem ID="IDV_CurrentLoopGain">
+          <Help TextId="Help_CurrentLoopGain" />
+        </ValueItem>
+        <ValueItem ID="IDV_HybridControlGain">
+          <Help TextId="Help_HybridControlGain" />
+        </ValueItem>
+        <ValueItem ID="IDV_CountsPerRevolution">
+          <Help TextId="Help_CountsPerRevolution" />
+        </ValueItem>
+        <ValueItem ID="IDV_ImmediateStopDeceleration">
+          <Help TextId="Help_ImmediateStopDeceleration" />
+        </ValueItem>
+        <ValueItem ID="IDV_ContinuousTorqueLimit">
+          <Help TextId="Help_ContinuousTorqueLimit" />
+        </ValueItem>
+        <ValueItem ID="IDV_PeakTorqueLimit">
+          <Help TextId="Help_PeakTorqueLimit" />
+        </ValueItem>
+        <ValueItem ID="IDV_OvervoltageTreshold">
+          <Help TextId="Help_OvervoltageTreshold" />
+        </ValueItem>
+        <ValueItem ID="IDV_VelocityLoopProportionalGain">
+          <Help TextId="Help_VelocityLoopProportionalGain" />
+        </ValueItem>
+        <ValueItem ID="IDV_VelocityLoopIntegralGain">
+          <Help TextId="Help_VelocityLoopIntegralGain" />
+        </ValueItem>
+        <ValueItem ID="IDV_VelocityFeedbackLowpassFilter">
+          <Help TextId="Help_VelocityFeedbackLowpassFilter" />
+        </ValueItem>
+        <ValueItem ID="IDV_PositionLoopProportionalGain">
+          <Help TextId="Help_PositionLoopProportionalGain" />
+        </ValueItem>
+        <ValueItem ID="IDV_PositionLoopIntegralGain">
+          <Help TextId="Help_PositionLoopIntegralGain" />
+        </ValueItem>
+        <ValueItem ID="IDV_PositionLoopDerivativeGain">
+          <Help TextId="Help_PositionLoopDerivativeGain" />
+        </ValueItem>
+        <ValueItem ID="IDV_MaximumPositionErrorLimit">
+          <Help TextId="Help_MaximumPositionErrorLimit" />
+        </ValueItem>
+        <ValueItem ID="IDV_STODiscrepancyTime">
+          <Help TextId="Help_STODiscrepancyTime" />
+        </ValueItem>
+        <ValueItem ID="IDV_AtRestProportionalGain">
+          <Help TextId="Help_AtRestProportionalGain" />
+        </ValueItem>
+        <ValueItem ID="IDV_AtRestIntegralGain">
+          <Help TextId="Help_AtRestIntegralGain" />
+        </ValueItem>
+      </ValueList>
+      <!-- ======================================================================= -->
+      <!-- 									List of Graphics 														     -->
+      <!-- ======================================================================= -->
+      <GraphicsList>
+        <GraphicItem ID="ID_Graph_1" GraphicFile="GSDML-0402-0001-SD17060x2" />
+        <GraphicItem ID="ID_Graph_2" GraphicFile="GSDML-0402-0002-SD31045x2" />
+        <GraphicItem ID="ID_Graph_3" GraphicFile="GSDML-0402-0003-SMD23x2" />
+        <GraphicItem ID="ID_Graph_4" GraphicFile="GSDML-0402-0004-SMD34x2" />
+        <GraphicItem ID="ID_Graph_5" GraphicFile="GSDML-0402-0005-SMD17x2" />
+        <GraphicItem ID="ID_Graph_6" GraphicFile="GSDML-0402-0006-SD4840x2" />
+        <GraphicItem ID="ID_Graph_7" GraphicFile="GSDML-0402-0007-SV160x2" />
+        <GraphicItem ID="ID_Graph_8" GraphicFile="GSDML-0402-0008-SV400x2" />
+      </GraphicsList>
+      <!-- ======================================================================== -->
+      <!-- 									List of Categories 														 -->
+      <!-- ======================================================================== -->
+      <CategoryList>
+        <CategoryItem ID="Input Module" TextId="Input Module" />
+        <CategoryItem ID="Output Module" TextId="Output Module" />
+        <CategoryItem ID="ID_IODEV_SD17060x2" TextId="IDT_Category_IODEV_SD17060x2" />
+        <CategoryItem ID="ID_IODEV_SD31045x2" TextId="IDT_Category_IODEV_SD31045x2" />
+        <CategoryItem ID="ID_IODEV_SMD23x2" TextId="IDT_Category_IODEV_SMD23x2" />
+        <CategoryItem ID="ID_IODEV_SMD34x2" TextId="IDT_Category_IODEV_SMD34x2" />
+        <CategoryItem ID="ID_IODEV_SMD17x2" TextId="IDT_Category_IODEV_SMD17x2" />
+        <CategoryItem ID="ID_IODEV_SD4840x2" TextId="IDT_Category_IODEV_SD4840x2" />
+        <CategoryItem ID="ID_IODEV_SV160x2" TextId="IDT_Category_IODEV_SV160x2" />
+        <CategoryItem ID="ID_IODEV_SV400x2" TextId="IDT_Category_IODEV_SV400x2" />
+      </CategoryList>
+      <!-- ======================================================================== -->
+      <!-- 									External Text List 														 -->
+      <!-- ======================================================================== -->
+      <ExternalTextList>
+        <PrimaryLanguage>
+          <!--english-->
+          <Text TextId="IDT_DevIdent_InfoText" Value="ProfiNet - IO Drive" />
+          <!--DAP1 - port IO device -->
+          <Text TextId="IDT_Category_IODEV_SD17060x2" Value="AMCI Drives" />
+          <Text TextId="SD17060x2" Value="SD17060x2" />
+          <Text TextId="IDT_ModInfo_InfoTextId_DAP1" Value="IO device, for PNIO controller with PDev" />
+          <!--DAP2 - port IO device-->
+          <Text TextId="IDT_Category_IODEV_SD31045x2" Value="AMCI Drives" />
+          <Text TextId="SD31045x2" Value="SD31045x2" />
+          <Text TextId="IDT_ModInfo_InfoTextId_DAP2" Value="IO device, for PNIO controller with PDev" />
+          <!--DAP3 - port IO device -->
+          <Text TextId="IDT_Category_IODEV_SMD23x2" Value="AMCI Drives" />
+          <Text TextId="SMD23x2" Value="SMD23x2" />
+          <Text TextId="IDT_ModInfo_InfoTextId_DAP3" Value="IO device, for PNIO controller with PDev" />
+          <!--DAP4 port IO device-->
+          <Text TextId="IDT_Category_IODEV_SMD34x2" Value="AMCI Drives" />
+          <Text TextId="SMD34x2" Value="SMD34x2" />
+          <Text TextId="IDT_ModInfo_InfoTextId_DAP4" Value="IO device, for PNIO controller with PDev" />
+          <!--DAP5 - port IO device -->
+          <Text TextId="IDT_Category_IODEV_SMD17x2" Value="AMCI Drives" />
+          <Text TextId="SMD17x2" Value="SMD17x2" />
+          <Text TextId="IDT_ModInfo_InfoTextId_DAP5" Value="IO device, for PNIO controller with PDev" />
+          <!--DAP6 - port IO device-->
+          <Text TextId="IDT_Category_IODEV_SD4840x2" Value="AMCI Drives" />
+          <Text TextId="SD4840x2" Value="SD4840x2" />
+          <Text TextId="IDT_ModInfo_InfoTextId_DAP6" Value="IO device, for PNIO controller with PDev" />
+          <!--DAP7 - port IO device-->
+          <Text TextId="IDT_Category_IODEV_SV160x2" Value="AMCI Drives" />
+          <Text TextId="SV160x2" Value="SV160x2" />
+          <Text TextId="IDT_ModInfo_InfoTextId_DAP7" Value="IO device, for PNIO controller with PDev" />
+          <!--DAP8 - port IO device-->
+          <Text TextId="IDT_Category_IODEV_SV400x2" Value="AMCI Drives" />
+          <Text TextId="SV400x2" Value="SV400x2" />
+          <Text TextId="IDT_ModInfo_InfoTextId_DAP8" Value="IO device, for PNIO controller with PDev" />
+          <!--modules -->
+          <Text TextId="Input Module" Value="Input modules" />
+          <Text TextId="Output Module" Value="Output modules" />
+          <!--port name-->
+          <Text TextId="IDT_SS_INTERFACE" Value="X1" />
+          <Text TextId="IDT_SS_PORT1" Value="X1P1" />
+          <Text TextId="IDT_SS_PORT2" Value="X1P2" />
+          <Text TextId="IDT_DAP_InterfaceModule" Value="PN-IO" />
+          <Text TextId="IDT_Port1" Value="Port 1" />
+          <Text TextId="IDT_Port2" Value="Port 2" />
+          <!--module name-->
+          <Text TextId="IDT_TextId_Module_20I" Value="20 bytes IN" />
+          <Text TextId="IDT_TextId_Module_20O" Value="20 bytes OUT" />
+          <!--module info name-->
+          <Text TextId="IDT_InfoTextId_Module_20I" Value="20 bytes Input Module" />
+          <Text TextId="IDT_InfoTextId_Module_20O" Value="20 bytes Output Module" />
+          <!--data item name-->
+          <Text TextId="IDT_Input_DataItem_20" Value="Input 20 bytes" />
+          <Text TextId="IDT_Output_DataItem_20" Value="Output 20 bytes" />
+          <!--error type name-->
+          <Text TextId="IDT_Name_ErrorType16" Value="parameter assignment error" />
+          <Text TextId="IDT_HelpName_ErrorType16" Value="parameter assignment error" />
+          <!-- record data item name  -->
+          <Text TextId="IDT_RECORD_NAME_rec1" Value="Record Data Item1" />
+          <Text TextId="IDT_RECORD_NAME_rec2" Value="Record Data Item2" />
+          <!--configuration record data item name-->
+          <Text TextId="IDT_RECORD_NAME_Configuration_Parameters" Value="Configuration Parameters" />
+          <Text TextId="IDT_REF_Input1Function" Value="Input 1 Function" />
+          <Text TextId="IDT_REF_Input2Function" Value="Input 2 Function" />
+          <Text TextId="IDT_REF_Input3Function" Value="Input 3 Function" />
+          <Text TextId="IDT_REF_Input3Function_SV" Value="Input 3 Function" />
+          <Text TextId="IDT_REF_Input4Function" Value="Input 4 Function" />
+          <Text TextId="IDT_REF_Input4Function_SV" Value="Input 4 Function" />
+          <Text TextId="IDT_ASSIGN_GenPurpInput" Value="General Purpose Input [000]" />
+          <Text TextId="IDT_ASSIGN_GenPurpInput_3SV" Value="General Purpose Input / STOA Input [000]" />
+          <Text TextId="IDT_ASSIGN_GenPurpInput_4SV" Value="General Purpose Input / STOB Input [000]" />
+          <Text TextId="IDT_ASSIGN_CWLimit" Value="CW Limit [001]" />
+          <Text TextId="IDT_ASSIGN_CCWLimit" Value="CCW Limit [010]" />
+          <Text TextId="IDT_ASSIGN_StartInexMove" Value="Start Indexed Move / Capt. Enc. Value [011]" />
+          <Text TextId="IDT_ASSIGN_StopJog" Value="Stop Jog or Reg. Move &amp; Capt. Enc. Value [100]" />
+          <Text TextId="IDT_ASSIGN_EmStop" Value="Emergency Stop [101]" />
+          <Text TextId="IDT_ASSIGN_Home" Value="Home [110]" />
+          <Text TextId="IDT_ASSIGN_QuadEncInputA" Value="Quadrature Encoder Input channel A [111]" />
+          <Text TextId="IDT_ASSIGN_QuadEncInputB" Value="Quadrature Encoder Input channel B [111]" />
+          <Text TextId="IDT_REF_HomeToZ" Value="Home To Z Pulse" />
+          <Text TextId="IDT_ASSIGN_HomeNotToZ" Value="Home Not To Z Pulse [0]" />
+          <Text TextId="IDT_ASSIGN_HomeToZ" Value="Home To Z Pulse [1]" />
+          <Text TextId="IDT_REF_UseEncoderExt" Value="Use Encoder" />
+          <Text TextId="IDT_REF_UseEncoderInt" Value="Use Encoder" />
+          <Text TextId="IDT_ASSIGN_EncoderNotUsed" Value="Encoder Not Used [0]" />
+          <Text TextId="IDT_ASSIGN_EncoderIsUsed" Value="Encoder Is Used [1]" />
+          <Text TextId="IDT_REF_UseBProx" Value="Use Backplane Proximity" />
+          <Text TextId="IDT_ASSIGN_BPlainProxNotUsed" Value="Backplane Proximity Not Used [0]" />
+          <Text TextId="IDT_ASSIGN_BPlainProxIsUsed" Value="Backplane Proximity Is Used [1]" />
+          <Text TextId="IDT_REF_EnStall" Value="Enable Stall Detection" />
+          <Text TextId="IDT_ASSIGN_StallDetectionDisabled" Value="Stall Detection Disabled [0]" />
+          <Text TextId="IDT_ASSIGN_StallDetectionEnabled" Value="Stall Detection Enabled [1]" />
+          <Text TextId="IDT_REF_DisAR" Value="Disable Antiresonance" />
+          <Text TextId="IDT_ASSIGN_AREnabled" Value="Antiresonance Enabled [0]" />
+          <Text TextId="IDT_ASSIGN_ARDisabled" Value="Antiresonance Disabled [1]" />
+          <Text TextId="IDT_REF_IN1ActiveLevel" Value="Input 1 Active Level" />
+          <Text TextId="IDT_REF_IN2ActiveLevel" Value="Input 2 Active Level" />
+          <Text TextId="IDT_REF_IN3ActiveLevel" Value="Input 3 Active Level" />
+          <Text TextId="IDT_REF_IN3ActiveLevel_SV" Value="Input 3 Active Level" />
+          <Text TextId="IDT_REF_IN4ActiveLevel" Value="Input 4 Active Level" />
+          <Text TextId="IDT_REF_IN4ActiveLevel_SV" Value="Input 4 Active Level" />
+          <Text TextId="IDT_ASSIGN_ActiveLow" Value="Input Active Low [0]" />
+          <Text TextId="IDT_ASSIGN_ActiveLow_SV" Value="Input Active Low [0]" />
+          <Text TextId="IDT_ASSIGN_ActiveHigh" Value="Input Active High [1]" />
+          <Text TextId="IDT_ASSIGN_ActiveHigh_SV" Value="Input Active High / STO [1]" />
+          <Text TextId="IDT_REF_DataEndian" Value="Binary Endian" />
+          <Text TextId="IDT_REF_DataEndianSV" Value="Data Endian" />
+          <Text TextId="IDT_ASSIGN_LittleEndian" Value="Little Endian [0]" />
+          <Text TextId="IDT_ASSIGN_BigEndian" Value="Big Endian [1]" />
+          <Text TextId="IDT_REF_BinOutFrmt" Value="Binary Output Format" />
+          <Text TextId="IDT_REF_BinInFrmt" Value="Binary Input Format" />
+          <Text TextId="IDT_ASSIGN_MultiWordFormat" Value="Multi-Word Format [0]" />
+          <Text TextId="IDT_ASSIGN_Signed32BitIntegerFormat" Value="Signed 32-bit Integer Format [1]" />
+          <Text TextId="IDT_REF_Out1SACL" Value="Output 1 State at Connection Lost" />
+          <Text TextId="IDT_ASSIGN_LowOutput" Value="Low Output [0]" />
+          <Text TextId="IDT_ASSIGN_HighOutput" Value="High Output [1]" />
+          <Text TextId="IDT_REF_Out1AOCL" Value="Output 1 Action at Connection Lost" />
+          <Text TextId="IDT_ASSIGN_OldOutput1" Value="Keep Output 1 at its last value [0]" />
+          <Text TextId="IDT_ASSIGN_SetOutput1toBit12" Value="Set Output 1 to the State defined at Connection Lost [1]" />
+          <Text TextId="IDT_REF_Out1Fcn" Value="Output 1 Function" />
+          <Text TextId="IDT_ASSIGN_FaultOutput" Value="Fault Output [0]" />
+          <Text TextId="IDT_ASSIGN_GenPurpOutput" Value="General Purpose Output [1]" />
+          <Text TextId="IDT_REF_StartingSpeed" Value="Starting Speed" />
+          <Text TextId="IDT_REF_MotorStepsPerTurn" Value="Motor Steps Per Turn" />
+          <Text TextId="IDT_REF_IdleCurrentPercentage" Value="Idle Current Percentage" />
+          <Text TextId="IDT_REF_MotorCurrentX10" Value="Motor Current X 10" />
+          <Text TextId="IDT_REF_HybridControlGain" Value="Hybrid Control Gain" />
+          <Text TextId="IDT_REF_CurrentLoopGain" Value="Current Loop Gain" />
+          <Text TextId="IDT_REF_EncoderResolutionExt" Value="Encoder Resolution" />
+          <Text TextId="IDT_REF_EncoderResolutionInt" Value="Encoder Resolution" />
+          <Text TextId="IDT_ASSIGN_1024" Value="1024 [incremental]" />
+          <Text TextId="IDT_ASSIGN_2048" Value="2048 [incremental or absolute]" />
+          <Text TextId="IDT_ASSIGN_4096" Value="4096 [incremental]" />
+          <Text TextId="IDT_REF_CountsPerRevolution" Value="Counts Per Revolution" />
+          <Text TextId="IDT_REF_ImmediateStopDeceleration" Value="Immediate Stop Deceleration" />
+          <Text TextId="IDT_REF_ContinuousTorqueLimit" Value="Continuous Torque Limit" />
+          <Text TextId="IDT_REF_PeakTorqueLimit" Value="Peak Torque Limit" />
+          <Text TextId="IDT_REF_OvervoltageTreshold" Value="Overvoltage Treshold" />
+          <Text TextId="IDT_REF_VelocityLoopProportionalGain" Value="Velocity Loop Proportional Gain" />
+          <Text TextId="IDT_REF_VelocityLoopIntegralGain" Value="Velocity Loop Integral Gain" />
+          <Text TextId="IDT_REF_VelocityFeedbackLowpassFilter" Value="Velocity Feedback Low-Pass Filter" />
+          <Text TextId="IDT_REF_PositionLoopProportionalGain" Value="Position Loop Proportional Gain" />
+          <Text TextId="IDT_REF_PositionLoopIntegralGain" Value="Position Loop Integral Gain" />
+          <Text TextId="IDT_REF_PositionLoopDerivativeGain" Value="Position Loop Derivative Gain" />
+          <Text TextId="IDT_REF_MaximumPositionErrorLimit" Value="Maximum Position Error Limit" />
+          <Text TextId="IDT_REF_STODiscrepancyTime" Value="STO Discrepancy Time" />
+          <Text TextId="IDT_REF_AtRestProportionalGain" Value="At Rest Proportional Gain" />
+          <Text TextId="IDT_REF_AtRestIntegralGain" Value="At Rest Integral Gain" />
+          <Text TextId="IDT_REF_Reserved" Value="Reserved" />
+          <!--Help Parmeter Text -->
+          <Text TextId="Help_Input1Function" Value="Select one of the listed functions for the Input 1." />
+          <Text TextId="Help_Input2Function" Value="Select one of the listed functions for the Input 2." />
+          <Text TextId="Help_Input3Function" Value="Select one of the listed functions for the Input 3." />
+          <Text TextId="Help_Input3Function_SV" Value="Select one of the listed functions for the Input 3. ***NOTE: If the unit is SV160x2-STO, a General Purpose Input / STOA Input [000] option must be selected. Any other option will cause Configuration Error.***" />
+          <Text TextId="Help_Input4Function" Value="Select one of the listed functions for the Input 4." />
+          <Text TextId="Help_Input4Function_SV" Value="Select one of the listed functions for the Input 4. ***NOTE: If the unit is SV160x2-STO, a General Purpose Input / STOB Input [000] option must be selected. Any other option will cause Configuration Error.***" />
+          <Text TextId="Help_HomeToZ" Value="Select 'Home To Z Pulse [1]' option to home the machine to the encoder's Z pulse. Also, the 'Encoder Is Used [1]' option must be selected with &quot;Use Encoder&quot; parameter." />
+          <Text TextId="Help_UseEncoderExt" Value="If the quadrature encoder is used, select 'Enocoder Is Used [1]' to enable encoder inputs. Also, enter a valid value for the encoder resolution to &quot;Encoder Resolution&quot; parameter. If the quadrature encoder is not used, select 'Encoder Not Used [0]' option." />
+          <Text TextId="Help_UseEncoderInt" Value="Select 'Encoder Is Used [1]' to enable the built-in absolute or quadrature encoder. Also, select encoder resolution from &quot;Encoder Resolution&quot; parameter. If the built-in encoder is not used or not available, select 'Encoder Not Used [0]' option." />
+          <Text TextId="Help_UseBProx" Value="Select 'Backplane Proximity Not Used' if the Backplane Proximity bit is not used when homing the module. If the Backplane Proximity bit is used when homing the module, select 'Backplane Proximity Used [1]'. For more info see the User Manual." />
+          <Text TextId="Help_EnStall" Value="Select 'Stall Detection Disabled [0]' to disable motor stall detection. Select 'Stall Detection Enabled [1]' to enable motor stall detection. This functionality is valid only if encoder is used with valid encoder resolution." />
+          <Text TextId="Help_DisAR" Value="To disable unit's antiresonance feature select 'Antiresonance Disabled [1]' option. To enable unit's antiresonance select 'Antiresonance Enabled [0]' option." />
+          <Text TextId="Help_IN1ActiveLevel" Value="It determines the active state of Input 1. Select 'Input Active Low [0]' if your sensor has Normally Closed (NC) contacts and the input is active when there is no current flow through it. Select 'Input Active High [1]' if your sensor has Normally Open (NO) contacts and the input is active when current flows through the input." />
+          <Text TextId="Help_IN2ActiveLevel" Value="It determines the active state of Input 2. Select 'Input Active Low [0]' if your sensor has Normally Closed (NC) contacts and the input is active when there is no current flow through it. Select 'Input Active High [1]' if your sensor has Normally Open (NO) contacts and the input is active when current flows through the input." />
+          <Text TextId="Help_IN3ActiveLevel" Value="It determines the active state of Input 3. Select 'Input Active Low [0]' if your sensor has Normally Closed (NC) contacts and the input is active when there is no current flow through it. Select 'Input Active High [1]' if your sensor has Normally Open (NO) contacts and the input is active when current flows through the input." />
+          <Text TextId="Help_IN3ActiveLevel_SV" Value="It determines the active state of Input 3. Select 'Input Active Low [0]' if your sensor has Normally Closed (NC) contacts and the input is active when there is no current flow through it. Select 'Input Active High / STO [1]' if your sensor has Normally Open (NO) contacts and the input is active when current flows through the input, or if you are configuring the SV160x2-STO unit." />
+          <Text TextId="Help_IN4ActiveLevel" Value="It determines the active state of Input 4. Select 'Input Active Low [0]' if your sensor has Normally Closed (NC) contacts and the input is active when there is no current flow through it. Select 'Input Active High [1]' if your sensor has Normally Open (NO) contacts and the input is active when current flows through the input." />
+          <Text TextId="Help_IN4ActiveLevel_SV" Value="It determines the active state of Input 4. Select 'Input Active Low [0]' if your sensor has Normally Closed (NC) contacts and the input is active when there is no current flow through it. Select 'Input Active High / STO [1]' if your sensor has Normally Open (NO) contacts and the input is active when current flows through the input, or if you are configuring the SV160x2-STO unit." />
+          <Text TextId="Help_DataEndian" Value="Only used when &quot;Binary Iput Format&quot; and/or &quot;Binary Output Format&quot; parameters are set to [1]. Select 'Little Endian [0]' to have 32-bit values transmitted in little endian format. Select 'Big Endian [1]' to have the 32-bit values transmitted in big endian format." />
+          <Text TextId="Help_DataEndianSV" Value="Select 'Little Endian [0]' to have 32-bit values transmitted in little endian format. Select 'Big Endian [1]' to have the 32-bit values transmitted in big endian format." />
+          <Text TextId="Help_BinOutFrmt" Value="Select 'Multi-Word Format [0]' to program the Target Position and Programmed Speed parameters in Multi-Word Format. Select 'Signed 32-bit Integer Format [1]' to program the Target Position and Programmed Speed parameters in signed 32-bit integer format with the location of LSB determined by the &quot;Binary Endian&quot; parameter." />
+          <Text TextId="Help_BinInFrmt" Value="Select 'Multi-Word Format [0]' to have the Motor Position, Encoder Position, and Trapped Encoder Position reported in the Multi-Word Format. Select 'Signed 32-bit Integer Format [1]' to have the Motor Position, Encoder Position, and Trapped Encoder Position reported in signed 32-bit integer format with the location of LSB determined by the &quot;Binary Endian&quot; parameter." />
+          <Text TextId="Help_Out1SACL" Value="When &quot;Output 1 Action at Connection Lost&quot; parameter is selected to be 'Set Output 1 to the State defined at Connection Lost [1]', Output 1 will be set to the state of this parameter: 'Low Output [0]' or 'High Output [1]'." />
+          <Text TextId="Help_Out1AOCL" Value="Either select 'Keep Output 1 at its last value [0]' or select 'Set Output 1 to the State defined at Connection Lost [1]' that is specified in the &quot;Output 1 State at Connection Lost&quot; parameter." />
+          <Text TextId="Help_Out1Fcn" Value="Select 'Fault Output [0]' to configure Output 1 to be a Fault Output. Select 'General Purpose Output [1]' to configure Output 1 to be a general purpose output whose state is determined by a bit in the Command Mode Network Output Data." />
+          <Text TextId="Help_StartingSpeed" Value="Commanded motion jumps from rest to the Starting Speed and then accelerates to the programmed speed. This value must be lower than velocity value of all performed moves." />
+          <Text TextId="Help_MotorStepsPerTurn" Value="Defines the number of steps needed to move motor's shaft by one turn." />
+          <Text TextId="Help_EncoderResolutionExt" Value="Enter the value for the &quot;Encoder Resolution&quot; for the encoder that is attached to the motor. Must be set to four times the encoder's resolution." />
+          <Text TextId="Help_EncoderResolutionInt" Value="Must be 2048 for built in absolute encoders, or 1024, 2048, or 4096 for built in incremental encoders." />
+          <Text TextId="Help_IdleCurrentPercentage" Value="Enter the value for the &quot;Idle Current Percentage&quot;, from the given value range, that is suitable for your application. The value determines percentage of the &quot;Motor Current X 10&quot; parameter value when the motor is idling." />
+          <Text TextId="Help_MotorCurrentX10" Value="Enter the value for the &quot;Motor Current X 10&quot; parameter, from the given value range, that is suitable for your application." />
+          <Text TextId="Help_CurrentLoopGain" Value="Matches the driver to the motor. The motor may stall during high speed and/or high acceleration moves if the value is too low. The motor will make a high pitch noise while idling if the value is too high." />
+          <Text TextId="Help_HybridControlGain" Value="Enter the value for the &quot;Hybrid Control Gain&quot; parameter, from the given value range, that is suitable for your application." />
+          <Text TextId="Help_CountsPerRevolution" Value="Counts Per Revolution is a fixed number (16384) that cannot be changed." />
+          <Text TextId="Help_ImmediateStopDeceleration" Value="This parameter defines the rate at which the servo will decelerate during all immediate stop conditions. These include, the Immediate Stop Command, Estop input, or if a CW or CCW Limit is reached. If you enter 0 value, the servo will use its default value for this parameter, which is 8,000 steps/ms/sec. Or, you can enter any other value from the given range of 1,500 - 15,999 steps/ms/sec." />
+          <Text TextId="Help_ContinuousTorqueLimit" Value="Value of this parametar will limit continuous torque of steady running servo motor. It must be lower or equal to the value of Peak Torque Limit parametar." />
+          <Text TextId="Help_PeakTorqueLimit" Value="Value of this parametar will limit peak torque of accelerating or decelerating servo motor. It must be higher or equal to the value of Continuous Torque Limit parametar." />
+          <Text TextId="Help_OvervoltageTreshold" Value="Zero (0) value disables functionality of this parametar. To enable its functionality, enter any value from allowed range of 550 - 1000 that corresponds to voltage range of 55 - 100V." />
+          <Text TextId="Help_VelocityLoopProportionalGain" Value="Higher values of this parameter will cause the motor react faster but could lead to oscillations and instability. Lower values will make the motor react slower and will lead to higher velocity errors." />
+          <Text TextId="Help_VelocityLoopIntegralGain" Value="Increasing this parameter will bring velocity error down to zero but could lead to oscillations and instability." />
+          <Text TextId="Help_VelocityFeedbackLowpassFilter" Value="This parameter sets the time constant for Low-Pass filter in the Velocity Feedback. A value of 0 means no filtering. Higher values will provide more filtering, but will also introduce delays that could lead to oscillations and instability." />
+          <Text TextId="Help_PositionLoopProportionalGain" Value="Higher values of this parameter will make the motor react faster but could lead to overshoots. Lower values will make the motor to react slower and will lead to higher position errors." />
+          <Text TextId="Help_PositionLoopIntegralGain" Value="This parameter is needed to force the steady state position error to zero." />
+          <Text TextId="Help_PositionLoopDerivativeGain" Value="This parameter is needed for a dumping action as the response could become oscillatory." />
+          <Text TextId="Help_MaximumPositionErrorLimit" Value="This parameter limits the position difference between actual and command values. A stall detection error will occure if the position difference exceeds this limit." />
+          <Text TextId="Help_STODiscrepancyTime" Value="This parameter is used only with the STO version of the servo motor. It determines a Discrepancy or Mismatch time of STO inputs. Zero (default) value means that the Discrepancy time WILL NOT be monitored. Allowable values are from 50ms to 3000ms." />
+          <Text TextId="Help_AtRestProportionalGain" Value="This is the Position Loop Proportional Gain applied when the servo is at rest. A default value of zero means that an internally calculated value is applied." />
+          <Text TextId="Help_AtRestIntegralGain" Value="This is the Position Loop Integral Gain applied when the servo is at rest. A default value of zero means that an internally calculated value is applied." />
+        </PrimaryLanguage>
+        <!-- Optional Language -->
+        <Language xml:lang="de">
+          <!-- german/deutsch -->
+          <Text TextId="IDT_DevIdent_InfoText" Value="ProfiNet - IO Drive" />
+          <!-- DAP1 - port IO device  -->
+          <Text TextId="IDT_Category_IODEV_SD17060x2" Value="AMCI Drives" />
+          <Text TextId="SD17060x2" Value="SD17060x2" />
+          <Text TextId="IDT_ModInfo_InfoTextId_DAP1" Value="IO device, for PNIO controller with PDev" />
+          <!--DAP2 - port IO device-->
+          <Text TextId="IDT_Category_IODEV_SD31045x2" Value="AMCI Drives" />
+          <Text TextId="SD31045x2" Value="SD31045x2" />
+          <Text TextId="IDT_ModInfo_InfoTextId_DAP2" Value="IO device, for PNIO controller with PDev" />
+          <!-- DAP3 - port IO device -->
+          <Text TextId="IDT_Category_IODEV_SMD23x2" Value="AMCI Drives" />
+          <Text TextId="SMD23x2" Value="SMD23x2" />
+          <Text TextId="IDT_ModInfo_InfoTextId_DAP3" Value="IO device, for PNIO controller with PDev" />
+          <!--DAP4 - port IO device-->
+          <Text TextId="IDT_Category_IODEV_SMD34x2" Value="AMCI Drives" />
+          <Text TextId="SMD34x2" Value="SMD34x2" />
+          <Text TextId="IDT_ModInfo_InfoTextId_DAP4" Value="IO device, for PNIO controller with PDev" />
+          <!-- DAP5 - port IO device -->
+          <Text TextId="IDT_Category_IODEV_SMD17x2" Value="AMCI Drives" />
+          <Text TextId="SMD17x2" Value="SMD17x2" />
+          <Text TextId="IDT_ModInfo_InfoTextId_DAP5" Value="IO device, for PNIO controller with PDev" />
+          <!--DAP6 - port IO device-->
+          <Text TextId="IDT_Category_IODEV_SD4840x2" Value="AMCI Drives" />
+          <Text TextId="SD4840x2" Value="SD4840x2" />
+          <Text TextId="IDT_ModInfo_InfoTextId_DAP6" Value="IO device, for PNIO controller with PDev" />
+          <!--DAP7 - port IO device-->
+          <Text TextId="IDT_Category_IODEV_SV160x2" Value="AMCI Drives" />
+          <Text TextId="SV160x2" Value="SV160x2" />
+          <Text TextId="IDT_ModInfo_InfoTextId_DAP7" Value="IO device, for PNIO controller with PDev" />
+          <!--DAP8 - port IO device-->
+          <Text TextId="IDT_Category_IODEV_SV400x2" Value="AMCI Drives" />
+          <Text TextId="SV400x2" Value="SV400x2" />
+          <Text TextId="IDT_ModInfo_InfoTextId_DAP8" Value="IO device, for PNIO controller with PDev" />
+          <!-- modules -->
+          <Text TextId="Input Module" Value="Eingangsmodule" />
+          <Text TextId="Output Module" Value="Ausgangsmodule" />
+          <!-- port name -->
+          <Text TextId="IDT_SS_INTERFACE" Value="X1" />
+          <Text TextId="IDT_SS_PORT1" Value="X1P1" />
+          <Text TextId="IDT_SS_PORT2" Value="X1P2" />
+          <Text TextId="IDT_DAP_InterfaceModule" Value="PN-IO" />
+          <Text TextId="IDT_Port1" Value="Port1" />
+          <Text TextId="IDT_Port2" Value="Port2" />
+          <!-- module name -->
+          <Text TextId="IDT_TextId_Module_20I" Value="20 bytes EIN" />
+          <Text TextId="IDT_TextId_Module_20O" Value="20 bytes AUS" />
+          <!-- module info name -->
+          <Text TextId="IDT_InfoTextId_Module_20I" Value="20 bytes Eingangsmodule" />
+          <Text TextId="IDT_InfoTextId_Module_20O" Value="20 bytes Ausgangemodule" />
+          <!-- data item name -->
+          <Text TextId="IDT_Input_DataItem_20" Value="Eingang 20 bytes" />
+          <Text TextId="IDT_Output_DataItem_20" Value="Ausgang 20 bytes" />
+          <!-- error type name -->
+          <Text TextId="IDT_Name_ErrorType16" Value="parametrierfehler" />
+          <Text TextId="IDT_HelpName_ErrorType16" Value="parametrierfehler" />
+          <!-- record data item name -->
+          <Text TextId="IDT_RECORD_NAME_rec1" Value="Record Data Item1" />
+          <Text TextId="IDT_RECORD_NAME_rec2" Value="Record Data Item2" />
+          <!--configuration record item name-->
+          <Text TextId="IDT_RECORD_NAME_Configuration_Parameters" Value="Configuration Parameters" />
+          <Text TextId="IDT_REF_Input1Function" Value="Input 1 Function" />
+          <Text TextId="IDT_REF_Input2Function" Value="Input 2 Function" />
+          <Text TextId="IDT_REF_Input3Function" Value="Input 3 Function"></Text>
+          <Text TextId="IDT_REF_Input3Function_SV" Value="Input 3 Function" />
+          <Text TextId="IDT_REF_Input4Function" Value="Input 4 Function"></Text>
+          <Text TextId="IDT_REF_Input4Function_SV" Value="Input 4 Function" />
+          <Text TextId="IDT_ASSIGN_GenPurpInput" Value="General Purpose Input [000]" />
+          <Text TextId="IDT_ASSIGN_GenPurpInput_3SV" Value="General Purpose Input / STOA Input [000]" />
+          <Text TextId="IDT_ASSIGN_GenPurpInput_4SV" Value="General Purpose Input / STOB Input [000]" />
+          <Text TextId="IDT_ASSIGN_CWLimit" Value="CW Limit [001]" />
+          <Text TextId="IDT_ASSIGN_CCWLimit" Value="CCW Limit [010]" />
+          <Text TextId="IDT_ASSIGN_StartInexMove" Value="Start Indexed Move / Capt. Enc. Value [011]" />
+          <Text TextId="IDT_ASSIGN_StopJog" Value="Stop Jog or Reg. Move &amp; Capt. Enc. Value [100]" />
+          <Text TextId="IDT_ASSIGN_EmStop" Value="Emergency Stop [101]" />
+          <Text TextId="IDT_ASSIGN_Home" Value="Home [110]" />
+          <Text TextId="IDT_ASSIGN_QuadEncInputA" Value="Quadrature Encoder Input channel A [111]" />
+          <Text TextId="IDT_ASSIGN_QuadEncInputB" Value="Quadrature Encoder Input channel B [111]" />
+          <Text TextId="IDT_REF_UseEncoderExt" Value="Use Encoder" />
+          <Text TextId="IDT_REF_UseEncoderInt" Value="Use Encoder" />
+          <Text TextId="IDT_REF_HomeToZ" Value="Home To Z Pulse" />
+          <Text TextId="IDT_ASSIGN_HomeNotToZ" Value="Home Not To Z Pulse [0]" />
+          <Text TextId="IDT_ASSIGN_HomeToZ" Value="Home To Z Pulse [1]" />
+          <Text TextId="IDT_ASSIGN_EncoderNotUsed" Value="Encoder Not Used [0]" />
+          <Text TextId="IDT_ASSIGN_EncoderIsUsed" Value="Encoder Is Used [1]" />
+          <Text TextId="IDT_REF_UseBProx" Value="Use Backplane Proximity" />
+          <Text TextId="IDT_ASSIGN_BPlainProxNotUsed" Value="Backplane Proximity Not Used [0]" />
+          <Text TextId="IDT_ASSIGN_BPlainProxIsUsed" Value="Backplane Proximity Is Used [1]" />
+          <Text TextId="IDT_REF_EnStall" Value="Enable Stall Detection" />
+          <Text TextId="IDT_ASSIGN_StallDetectionDisabled" Value="Stall Detection Disabled [0]" />
+          <Text TextId="IDT_ASSIGN_StallDetectionEnabled" Value="Stall Detection Enabled [1]" />
+          <Text TextId="IDT_REF_DisAR" Value="Disable Antiresonance" />
+          <Text TextId="IDT_ASSIGN_AREnabled" Value="Antiresonance Enabled [0]" />
+          <Text TextId="IDT_ASSIGN_ARDisabled" Value="Antiresonance Disabled [1]" />
+          <Text TextId="IDT_REF_IN1ActiveLevel" Value="Input 1 Active Level" />
+          <Text TextId="IDT_REF_IN2ActiveLevel" Value="Input 2 Active Level" />
+          <Text TextId="IDT_REF_IN3ActiveLevel" Value="Input 3 Active Level"></Text>
+          <Text TextId="IDT_REF_IN3ActiveLevel_SV" Value="Input 3 Active Level"></Text>
+          <Text TextId="IDT_REF_IN4ActiveLevel" Value="Input 4 Active Level" />
+          <Text TextId="IDT_REF_IN4ActiveLevel_SV" Value="Input 4 Active Level" />
+          <Text TextId="IDT_ASSIGN_ActiveLow" Value="Input Active Low [0]" />
+          <Text TextId="IDT_ASSIGN_ActiveLow_SV" Value="Input Active Low [0]" />
+          <Text TextId="IDT_ASSIGN_ActiveHigh" Value="Input Active High [1]" />
+          <Text TextId="IDT_ASSIGN_ActiveHigh_SV" Value="Input Active High / STO [1]" />
+          <Text TextId="IDT_REF_DataEndian" Value="Binary Endian"></Text>
+          <Text TextId="IDT_REF_DataEndianSV" Value="Data Endian" />
+          <Text TextId="IDT_ASSIGN_LittleEndian" Value="Little Endian [0]" />
+          <Text TextId="IDT_ASSIGN_BigEndian" Value="Big Endian [1]" />
+          <Text TextId="IDT_REF_BinOutFrmt" Value="Binary Output Format" />
+          <Text TextId="IDT_REF_BinInFrmt" Value="Binary Input Format" />
+          <Text TextId="IDT_ASSIGN_MultiWordFormat" Value="Multi Word Format [0]" />
+          <Text TextId="IDT_ASSIGN_Signed32BitIntegerFormat" Value="Signed 32-bit Integer Format [1]" />
+          <Text TextId="IDT_REF_Out1SACL" Value="Output 1 State at Connection Lost" />
+          <Text TextId="IDT_ASSIGN_LowOutput" Value="Low Output [0]" />
+          <Text TextId="IDT_ASSIGN_HighOutput" Value="High Output [1]" />
+          <Text TextId="IDT_REF_Out1AOCL" Value="Output 1 Action at Connection Lost" />
+          <Text TextId="IDT_ASSIGN_OldOutput1" Value="Keep Output 1 at its last value [0]" />
+          <Text TextId="IDT_ASSIGN_SetOutput1toBit12" Value="Set Output 1 to the State defined at Connection Lost [1]" />
+          <Text TextId="IDT_REF_Out1Fcn" Value="Output 1 Function" />
+          <Text TextId="IDT_ASSIGN_FaultOutput" Value="Fault Output [0]" />
+          <Text TextId="IDT_ASSIGN_GenPurpOutput" Value="General Purpose Output [1]" />
+          <Text TextId="IDT_REF_StartingSpeed" Value="Starting Speed" />
+          <Text TextId="IDT_REF_MotorStepsPerTurn" Value="Motor Steps Per Turn" />
+          <Text TextId="IDT_REF_IdleCurrentPercentage" Value="Idle Current Percentage" />
+          <Text TextId="IDT_REF_MotorCurrentX10" Value="MotorCurrent X 10" />
+          <Text TextId="IDT_REF_HybridControlGain" Value="Hybrid Control Gain" />
+          <Text TextId="IDT_REF_CurrentLoopGain" Value="Current Loop Gain" />
+          <Text TextId="IDT_REF_EncoderResolutionExt" Value="Encoder Resolution" />
+          <Text TextId="IDT_REF_EncoderResolutionInt" Value="Encoder Resolution" />
+          <Text TextId="IDT_ASSIGN_1024" Value="1024 [incremental]" />
+          <Text TextId="IDT_ASSIGN_2048" Value="2048 [incremental or absolute]" />
+          <Text TextId="IDT_ASSIGN_4096" Value="4096 [incremental]"></Text>
+          <Text TextId="IDT_REF_CountsPerRevolution" Value="Counts Per Revolution"></Text>
+          <Text TextId="IDT_REF_ImmediateStopDeceleration" Value="Immediate Stop Deceleration"></Text>
+          <Text TextId="IDT_REF_ContinuousTorqueLimit" Value="Continuous Torque Limit" />
+          <Text TextId="IDT_REF_PeakTorqueLimit" Value="Peak Torque Limit" />
+          <Text TextId="IDT_REF_OvervoltageTreshold" Value="Overvoltage Treshold" />
+          <Text TextId="IDT_REF_VelocityLoopProportionalGain" Value="Velocity Loop Proportional Gain" />
+          <Text TextId="IDT_REF_VelocityLoopIntegralGain" Value="Velocity Loop Integral Gain"></Text>
+          <Text TextId="IDT_REF_VelocityFeedbackLowpassFilter" Value="Velocity Feedback Low-Pass Filter" />
+          <Text TextId="IDT_REF_PositionLoopProportionalGain" Value="Position Loop Proportional Gain" />
+          <Text TextId="IDT_REF_PositionLoopIntegralGain" Value="Position Loop Integral Gain" />
+          <Text TextId="IDT_REF_PositionLoopDerivativeGain" Value="Position Loop Derivative Gain" />
+          <Text TextId="IDT_REF_MaximumPositionErrorLimit" Value="Maximum Position Error Limit"></Text>
+          <Text TextId="IDT_REF_STODiscrepancyTime" Value="STO Discrepancy Time"></Text>
+          <Text TextId="IDT_REF_AtRestProportionalGain" Value="At Rest Proportional Gain"></Text>
+          <Text TextId="IDT_REF_AtRestIntegralGain" Value="At Rest Integral Gain" />
+          <Text TextId="IDT_REF_Reserved" Value="Reserved"></Text>
+          <!--Help Parmeter Text -->
+          <Text TextId="Help_Input1Function" Value="Select one of the listed functions for the Input 1." />
+          <Text TextId="Help_Input2Function" Value="Select one of the listed functions for the Input 2." />
+          <Text TextId="Help_Input3Function" Value="Select one of the listed functions for the Input 3. *NOTE: If the unit is SV160x2-STO, a General Purpose Input / STOA Input [000] option must be selected. Any other option will cause Configuration Error.*"></Text>
+          <Text TextId="Help_Input3Function_SV" Value="Select one of the listed functions for the Input 3. ***NOTE: If the unit is SV160x2-STO, a General Purpose Input / STOA Input [000] option must be selected. Any other option will cause Configuration Error.***" />
+          <Text TextId="Help_Input4Function" Value="Select one of the listed functions for the Input 4."></Text>
+          <Text TextId="Help_Input4Function_SV" Value="Select one of the listed functions for the Input 4. ***NOTE: If the unit is SV160x2-STO, a General Purpose Input / STOB Input [000] option must be selected. Any other option will cause Configuration Error.***" />
+          <Text TextId="Help_HomeToZ" Value="Select 'Home To Z Pulse [1]' option to home the machine to the encoder's Z pulse. Also, the 'Encoder Is Used [1]' option must be selected with &quot;Use Encoder&quot; parameter." />
+          <Text TextId="Help_UseEncoderExt" Value="If the quadrature encoder is used, select 'Enocoder Is Used [1]' to enable encoder inputs. Also, enter a valid value for the encoder resolution to &quot;Encoder Resolution&quot; parameter. If the quadrature encoder is not used, select 'Encoder Not Used [0]' option." />
+          <Text TextId="Help_UseEncoderInt" Value="Select 'Encoder Is Used [1]' to enable the built-in absolute or quadrature encoder. Also, select encoder resolution from &quot;Encoder Resolution&quot; parameter. If the built-in encoder is not used or not available, select 'Encoder Not Used [0]' option." />
+          <Text TextId="Help_UseBProx" Value="Select 'Backplane Proximity Not Used' if the Backplane Proximity bit is not used when homing the module. If the Backplane Proximity bit is used when homing the module, select 'Backplane Proximity Used [1]'. For more info see the User Manual." />
+          <Text TextId="Help_EnStall" Value="Select 'Stall Detection Disabled [0]' to disable motor stall detection. Select 'Stall Detection Enabled [1]' to enable motor stall detection. This functionality is valid only if encoder is used with valid encoder resolution." />
+          <Text TextId="Help_DisAR" Value="To disable unit's antiresonance feature select 'Antiresonance Disabled [1]' option. To enable unit's antiresonance select 'Antiresonance Enabled [0]' option." />
+          <Text TextId="Help_IN1ActiveLevel" Value="It determines the active state of Input 1. Select 'Input Active Low [0]' if your sensor has Normally Closed (NC) contacts and the input is active when there is no current flow through it. Select 'Input Active High [1]' if your sensor has Normally Open (NO) contacts and the input is active when current flows through the input." />
+          <Text TextId="Help_IN2ActiveLevel" Value="It determines the active state of Input 2. Select 'Input Active Low [0]' if your sensor has Normally Closed (NC) contacts and the input is active when there is no current flow through it. Select 'Input Active High [1]' if your sensor has Normally Open (NO) contacts and the input is active when current flows through the input." />
+          <Text TextId="Help_IN3ActiveLevel" Value="It determines the active state of Input 3. Select 'Input Active Low [0]' if your sensor has Normally Closed (NC) contacts and the input is active when there is no current flow through it. Select 'Input Active High [1]' if your sensor has Normally Open (NO) contacts and the input is active when current flows through the input."></Text>
+          <Text TextId="Help_IN3ActiveLevel_SV" Value="It determines the active state of Input 3. Select 'Input Active Low [0]' if your sensor has Normally Closed (NC) contacts and the input is active when there is no current flow through it. Select 'Input Active High / STO [1]' if your sensor has Normally Open (NO) contacts and the input is active when current flows through the input, or if you are configuring the SV160x2-STO unit."></Text>
+          <Text TextId="Help_IN4ActiveLevel" Value="It determines the active state of Input 4. Select 'Input Active Low [0]' if your sensor has Normally Closed (NC) contacts and the input is active when there is no current flow through it. Select 'Input Active High [1]' if your sensor has Normally Open (NO) contacts and the input is active when current flows through the input." />
+          <Text TextId="Help_IN4ActiveLevel_SV" Value="It determines the active state of Input 4. Select 'Input Active Low [0]' if your sensor has Normally Closed (NC) contacts and the input is active when there is no current flow through it. Select 'Input Active High / STO [1]' if your sensor has Normally Open (NO) contacts and the input is active when current flows through the input, or if you are configuring the SV160x2-STO unit." />
+          <Text TextId="Help_DataEndian" Value="Only used when &quot;Binary Iput Format&quot; and/or &quot;Binary Output Format&quot; parameters are set to [1]. Select 'Little Endian [0]' to have 32-bit values transmitted in little endian format. Select 'Big Endian [1]' to have the 32-bit values transmitted in big endian format."></Text>
+          <Text TextId="Help_DataEndianSV" Value="Select 'Little Endian [0]' to have 32-bit values transmitted in little endian format. Select 'Big Endian [1]' to have the 32-bit values transmitted in big endian format." />
+          <Text TextId="Help_BinOutFrmt" Value="Select 'Multi-Word Format [0]' to program the Target Position and Programmed Speed parameters in Multi-Word Format. Select 'Signed 32-bit Integer Format [1]' to program the Target Position and Programmed Speed parameters in signed 32-bit integer format with the location of LSB determined by the &quot;Binary Endian&quot; parameter." />
+          <Text TextId="Help_BinInFrmt" Value="Select 'Multi-Word Format [0]' to have the Motor Position, Encoder Position, and Trapped Encoder Position reported in the Multi-Word Format. Select 'Signed 32-bit Integer Format [1]' to have the Motor Position, Encoder Position, and Trapped Encoder Position reported in signed 32-bit integer format with the location of LSB determined by the &quot;Binary Endian&quot; parameter." />
+          <Text TextId="Help_Out1SACL" Value="When &quot;Output 1 Action at Connection Lost&quot; parameter is selected to be 'Set Output 1 to the State defined at Connection Lost [1]', Output 1 will be set to the state of this parameter: 'Low Output [0]' or 'High Output [1]'." />
+          <Text TextId="Help_Out1AOCL" Value="Either select 'Keep Output 1 at its last value [0]' or select 'Set Output 1 to the State defined at Connection Lost [1]' that is specified in the &quot;Output 1 State at Connection Lost&quot; parameter." />
+          <Text TextId="Help_Out1Fcn" Value="Select 'Fault Output [0]' to configure Output 1 to be a Fault Output. Select 'General Purpose Output [1]' to configure Output 1 to be a general purpose output whose state is determined by a bit in the Command Mode Network Output Data." />
+          <Text TextId="Help_StartingSpeed" Value="Commanded motion jumps from rest to the Starting Speed and then accelerates to the programmed speed. This value must be lower than velocity value of all performed moves." />
+          <Text TextId="Help_MotorStepsPerTurn" Value="Defines the number of steps needed to move motor's shaft by one turn." />
+          <Text TextId="Help_EncoderResolutionExt" Value="Enter the value for the &quot;Encoder Resolution&quot; for the encoder that is attached to the motor. Must be set to four times the encoder's resolution." />
+          <Text TextId="Help_EncoderResolutionInt" Value="Must be 2048 for built in absolute encoders, or 1024, 2048, or 4096 for built in incremental encoders." />
+          <Text TextId="Help_IdleCurrentPercentage" Value="Enter the value for the &quot;Idle Current Percentage&quot;, from the given value range, that is suitable for your application. The value determines percentage of the &quot;Motor Current X 10&quot; parameter value when the motor is idling." />
+          <Text TextId="Help_MotorCurrentX10" Value="Enter the value for the &quot;Motor Current X 10&quot; parameter, from the given value range, that is suitable for your application." />
+          <Text TextId="Help_CurrentLoopGain" Value="Matches the driver to the motor. The motor may stall during high speed and/or high acceleration moves if the value is too low. The motor will make a high pitch noise while idling if the value is too high."></Text>
+          <Text TextId="Help_HybridControlGain" Value="Enter the value for the &quot;Hybrid Control Gain&quot; parameter, from the given value range, that is suitable for your application."></Text>
+          <Text TextId="Help_CountsPerRevolution" Value="Counts Per Revolution is a fixed number (16384) that cannot be changed." />
+          <Text TextId="Help_ImmediateStopDeceleration" Value="This parameter defines the rate at which the SV160x2 will decelerate during all immediate stop conditions. These include, the Immediate Stop Command, Estop input, or if a CW or CCW Limit is reached. If you enter 0 value, the servo will use its default value for this parameter, which is 8,000 steps/ms/sec. Or, you can enter any other value from the given range of 1,500 - 15,999 steps/ms/sec." />
+          <Text TextId="Help_ContinuousTorqueLimit" Value="Value of this parametar will limit continuous torque of steady running servo motor. It must be lower or equal to the value of Peak Torque Limit parametar." />
+          <Text TextId="Help_PeakTorqueLimit" Value="Value of this parametar will limit peak torque of accelerating or decelerating servo motor. It must be higher or equal to the value of Continuous Torque Limit parametar." />
+          <Text TextId="Help_OvervoltageTreshold" Value="Zero (0) value disables functionality of this parametar. To enable its functionality, enter any value from allowed range of 550 - 1000 that corresponds to voltage range of 55 - 100V." />
+          <Text TextId="Help_VelocityLoopProportionalGain" Value="Higher values of this parameter will cause the motor react faster but could lead to oscillations and instability. Lower values will make the motor react slower and will lead to higher velocity errors." />
+          <Text TextId="Help_VelocityLoopIntegralGain" Value="Increasing this parameter will bring velocity error down to zero but could lead to oscillations and instability." />
+          <Text TextId="Help_VelocityFeedbackLowpassFilter" Value="This parameter sets the time constant for Low-Pass filter in the Velocity Feedback. A value of 0 means no filtering. Higher values will provide more filtering, but will also introduce delays that could lead to oscillations and instability." />
+          <Text TextId="Help_PositionLoopProportionalGain" Value="Higher values of this parameter will make the motor react faster but could lead to overshoots. Lower values will make the motor to react slower and will lead to higher position errors." />
+          <Text TextId="Help_PositionLoopIntegralGain" Value="This parameter is needed to force the steady state position error to zero." />
+          <Text TextId="Help_PositionLoopDerivativeGain" Value="This parameter is needed for a dumping action as the response could become oscillatory." />
+          <Text TextId="Help_MaximumPositionErrorLimit" Value="This parameter limits the position difference between actual and command values. A stall detection error will occure if the position difference exceeds this limit."></Text>
+          <Text TextId="Help_STODiscrepancyTime" Value="This parameter is used only with the SV160x2-STO unit. It determines a Discrepancy or Mismatch time of STO inputs. Zero (default) value means that the Discrepancy time WILL NOT be monitored. Allowable values are from 50ms to 3000ms." />
+          <Text TextId="Help_AtRestProportionalGain" Value="This is the Position Loop Proportional Gain applied when the servo is at rest. A default value of zero means that an internally calculated value is applied."></Text>
+          <Text TextId="Help_AtRestIntegralGain" Value="This is the Position Loop Integral Gain applied when the servo is at rest. A default value of zero means that an internally calculated value is applied." />
+        </Language>
+      </ExternalTextList>
+    </ApplicationProcess>
+  </ProfileBody>
+</ISO15745Profile>

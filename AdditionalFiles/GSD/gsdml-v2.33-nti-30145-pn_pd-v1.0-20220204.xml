@@ -1,0 +1,825 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<ISO15745Profile xmlns="http://www.profibus.com/GSDML/2003/11/DeviceProfile" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.profibus.com/GSDML/2003/11/DeviceProfile ..\xsd\GSDML-DeviceProfile-V2.33.xsd">
+	<ProfileHeader>
+		<ProfileIdentification>PROFINET Device Profile</ProfileIdentification>
+		<ProfileRevision>1.00</ProfileRevision>
+		<ProfileName>Device Profile for PROFINET Devices</ProfileName>
+		<ProfileSource>PROFIBUS Nutzerorganisation e. V. (PNO)</ProfileSource>
+		<ProfileClassID>Device</ProfileClassID>
+		<ISO15745Reference>
+			<ISO15745Part>4</ISO15745Part>
+			<ISO15745Edition>1</ISO15745Edition>
+			<ProfileTechnology>GSDML</ProfileTechnology>
+		</ISO15745Reference>
+	</ProfileHeader>
+	<ProfileBody>
+		<DeviceIdentity VendorID="0x01CD" DeviceID="0x75C1">	<!-- C1250-MI-XC-0S (netx) 30145 -->
+			<InfoText TextId="TOK_DevIdent_InfoText"/>
+			<VendorName Value="NTI-AG"/>
+		</DeviceIdentity>
+		<DeviceFunction>
+			<Family MainFamily="Drives" ProductFamily="PROFIdrive"/>
+		</DeviceFunction>
+		<ApplicationProcess>
+			<DeviceAccessPointList>
+				<DeviceAccessPointItem ID="DAP 1" PhysicalSlots="0..8" ModuleIdentNumber="0x00000001" MinDeviceInterval="8" ImplementationType="netx" DNS_CompatibleName="C1250-PD" FixedInSlots="0" ObjectUUID_LocalIndex="1" MultipleWriteSupported="true" PowerOnToCommReady="500" DeviceAccessSupported="true" NumberOfDeviceAccessAR="1" RequiredSchemaVersion="V2.31" PNIO_Version="V2.31" LLDP_NoD_Supported="true" ResetToFactoryModes="2" SharedDeviceSupported="true" CheckDeviceID_Allowed="false" NameOfStationNotTransferable="false" >
+				
+					<ModuleInfo>
+						<Name TextId="T_ID_DAP_C1250_0S"/>
+						<InfoText TextId="T_ID_InfoTextId_DAP1"/>
+						<VendorName Value="NTI-AG"/>						
+						<OrderNumber Value="0150-30145"/>					 
+						<HardwareRelease Value="V3.0"/>
+						<SoftwareRelease Value="V3.0"/>
+					</ModuleInfo>
+					<CertificationInfo ApplicationClass="Isochronous" ConformanceClass="C" NetloadClass="III"/>
+					<SubslotList>
+						<SubslotItem SubslotNumber="32768" TextId="TOK_Subslot_8000"/>
+						<SubslotItem SubslotNumber="32769" TextId="TOK_Subslot_8001"/>
+						<SubslotItem SubslotNumber="32770" TextId="TOK_Subslot_8002"/>
+					</SubslotList>
+					<IOConfigData MaxInputLength="128" MaxOutputLength="128" MaxDataLength="128"/>
+					<UseableModules>
+						<ModuleItemRef ModuleItemTarget="IDM_EMPTY_1" AllowedInSlots="2..8"/>		<!-- Empty Module -->
+						<ModuleItemRef ModuleItemTarget="IDM_SERVO" AllowedInSlots="1"/>			<!-- PROFIdrive Servo mudule with PAP, PROFIsave and Servo submodule-->						
+					</UseableModules>
+					<VirtualSubmoduleList>
+						<VirtualSubmoduleItem ID="DAP 2" SubmoduleIdentNumber="0x00000001" Writeable_IM_Records="1 2 3 4" MayIssueProcessAlarm="true">
+							<IOData/>
+							<RecordDataList>
+								<ParameterRecordDataItem Index="8192" Length="4">
+									<Name TextId="TI_OFFSET"/>
+									<Const Data="0x00,0x00,0x10,0x00"/>   <!-- const offset in ns input trigger T3 -->
+								</ParameterRecordDataItem>
+								<ParameterRecordDataItem Index="8193" Length="4">
+									<Name TextId="TO_OFFSET"/>
+									<Const Data="0x00,0x00,0x20,0x00"/>   <!-- const offset in ns output trigger T4 -->
+								</ParameterRecordDataItem>
+							</RecordDataList>
+							<ModuleInfo>
+							<Name TextId="TOK_netx_board"/>
+							<InfoText TextId="TOK_netx_board"/>
+							</ModuleInfo>
+							<IsochroneMode T_DC_Base="4" T_DC_Min="8" T_DC_Max="64" T_IO_Base="125000" T_IO_InputMin="2" T_IO_OutputMin="1" IsochroneModeRequired="false"/>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+					<SystemDefinedSubmoduleList>
+						<InterfaceSubmoduleItem ID="IDS_1I" SubslotNumber="32768" SubmoduleIdentNumber="0x000a" IsochroneModeSupported="true" SupportedRT_Classes="RT_CLASS_1;RT_CLASS_3" IsochroneModeInRT_Classes="RT_CLASS_3" TextId="TOK_DAP_InterfaceModule" SupportedProtocols="LLDP;SNMP" NetworkComponentDiagnosisSupported="false" DCP_BoundarySupported="true" PTP_BoundarySupported="true" DCP_HelloSupported="true" DelayMeasurementSupported="true"  >						
+							<RT_Class3Properties StartupMode="Legacy;Advanced" MaxBridgeDelay="5500" MaxNumberIR_FrameData="256" MaxRetentionTime="20000" ForwardingMode="Relative"/>
+							<SynchronisationMode SupportedRole="SyncSlave" MaxLocalJitter="50" T_PLL_MAX="1000" SupportedSyncProtocols="PTCP"/>
+							<ApplicationRelations NumberOfAdditionalInputCR="0" NumberOfAdditionalMulticastProviderCR="0" NumberOfAdditionalOutputCR="0" NumberOfMulticastConsumerCR="0" NumberOfAR="2" StartupMode="Advanced;Legacy">
+								<TimingProperties SendClock="16 32 64 128" ReductionRatio="1 2 4 8 16 32 64 128 256 512"/>
+								<RT_Class3TimingProperties ReductionRatio="1 2 4 8 16" SendClock="8 16 32 64 128"/>
+							</ApplicationRelations>
+							<MediaRedundancy SupportedRole="Client"/>
+						</InterfaceSubmoduleItem>
+						<PortSubmoduleItem ID="IDS_1P1" SubslotNumber="32769" SubmoduleIdentNumber="0x000b" MAUTypes="16" TextId="TOK_Port1" MaxPortRxDelay="220" MaxPortTxDelay="116" PortDeactivationSupported="true" LinkStateDiagnosisCapability="Up+Down" SupportsRingportConfig="true" IsDefaultRingport="true" CheckMAUTypeSupported="true" CheckMAUTypeDifferenceSupported="true">
+							<MAUTypeList>
+							<MAUTypeItem Value="16" AdjustSupported="true"/>
+							</MAUTypeList>
+						</PortSubmoduleItem>
+						<PortSubmoduleItem ID="IDS_1P2" SubslotNumber="32770" SubmoduleIdentNumber="0x000c" MAUTypes="16" TextId="TOK_Port2" MaxPortRxDelay="220" MaxPortTxDelay="116" PortDeactivationSupported="true" LinkStateDiagnosisCapability="Up+Down" SupportsRingportConfig="true" IsDefaultRingport="true" CheckMAUTypeSupported="true" CheckMAUTypeDifferenceSupported="true">
+							<MAUTypeList>
+							<MAUTypeItem Value="16" AdjustSupported="true"/>
+							</MAUTypeList>
+						</PortSubmoduleItem>
+					</SystemDefinedSubmoduleList>
+					<Graphics>
+						<GraphicItemRef Type="DeviceSymbol" GraphicItemTarget="ID_Graph_V2.2"/>
+					</Graphics>
+				</DeviceAccessPointItem>
+			</DeviceAccessPointList>
+			
+			<!-- Module definitions
+			============================================================================================ -->
+			<ModuleList>
+
+				<!-- DO without data -->
+				<ModuleItem ID="IDM_EMPTY_1" ModuleIdentNumber="0x00010000" PhysicalSubslots="1">
+					<ModuleInfo>
+						<Name TextId="IDT_MOD_NAME_EMPTY"/>
+						<InfoText TextId="IDT_MOD_INFO_EMPTY"/>
+					</ModuleInfo>
+					<UseableSubmodules>
+						<SubmoduleItemRef SubmoduleItemTarget="IDS_MAP" AllowedInSubslots="1" FixedInSubslots="1"/>
+					</UseableSubmodules>
+				</ModuleItem>
+			
+				<!-- DO Type: SERVO -->
+				<ModuleItem ID="IDM_SERVO" ModuleIdentNumber="0x100100B0" PhysicalSubslots="1 2 3 4 5 6 7 8 9 10 11 12">
+					<ModuleInfo>
+						<Name TextId="IDT_MOD_NAME_SERVO"/>
+						<InfoText TextId="IDT_MOD_INFO_SERVO"/>
+					</ModuleInfo>
+					<UseableSubmodules>
+						<SubmoduleItemRef SubmoduleItemTarget="IDS_MAP" AllowedInSubslots="1" FixedInSubslots="1"/>
+						<SubmoduleItemRef SubmoduleItemTarget="IDS_EMPTY" AllowedInSubslots="2..12"/>						
+						<SubmoduleItemRef SubmoduleItemTarget="IDS_TEL5" AllowedInSubslots="2"/>
+						<SubmoduleItemRef SubmoduleItemTarget="IDS_TEL9" AllowedInSubslots="2"/>
+						<SubmoduleItemRef SubmoduleItemTarget="IDS_TEL516" AllowedInSubslots="2"/>
+						<SubmoduleItemRef SubmoduleItemTarget="IDS_TEL750" AllowedInSubslots="3..12"/>						
+						<SubmoduleItemRef SubmoduleItemTarget="IDS_TEL105" AllowedInSubslots="2"/>
+						<SubmoduleItemRef SubmoduleItemTarget="IDS_TEL3" AllowedInSubslots="2"/>
+						<SubmoduleItemRef SubmoduleItemTarget="IDS_TEL7" AllowedInSubslots="2"/>
+						<SubmoduleItemRef SubmoduleItemTarget="IDS_200" AllowedInSubslots="3..12"/>	<!-- siemens Simotion   -->
+						<SubmoduleItemRef SubmoduleItemTarget="IDS_404" AllowedInSubslots="3..12"/>	<!-- Real Time Config Module -->
+						<SubmoduleItemRef SubmoduleItemTarget="IDS_405" AllowedInSubslots="3..12"/>	<!-- Actual Position -->
+						<SubmoduleItemRef SubmoduleItemTarget="IDS_406" AllowedInSubslots="3..12"/>	<!-- Demand Position -->
+						<SubmoduleItemRef SubmoduleItemTarget="IDS_407" AllowedInSubslots="3..12"/>	<!-- Warn Word -->		
+						<SubmoduleItemRef SubmoduleItemTarget="IDS_408" AllowedInSubslots="3..12"/>	<!-- Errr Code -->		
+						<SubmoduleItemRef SubmoduleItemTarget="IDS_409" AllowedInSubslots="3..12"/>	<!-- Demand Current 32b -->	
+						<SubmoduleItemRef SubmoduleItemTarget="IDS_410" AllowedInSubslots="3..12"/>	<!-- Monitoring Channel 1 -->
+						<SubmoduleItemRef SubmoduleItemTarget="IDS_411" AllowedInSubslots="3..12"/>	<!-- Monitoring Channel 2 -->
+						<SubmoduleItemRef SubmoduleItemTarget="IDS_412" AllowedInSubslots="3..12"/>	<!-- Monitoring Channel 3 -->
+						<SubmoduleItemRef SubmoduleItemTarget="IDS_413" AllowedInSubslots="3..12"/>	<!-- Monitoring Channel 4 -->
+						<SubmoduleItemRef SubmoduleItemTarget="IDS_414" AllowedInSubslots="3..12"/>	<!-- Demand Current 16b -->
+						<SubmoduleItemRef SubmoduleItemTarget="IDS_415" AllowedInSubslots="3..12"/>	<!-- Actual Velocity -->
+						<SubmoduleItemRef SubmoduleItemTarget="IDS_416" AllowedInSubslots="3..12"/>	<!-- Demand Velocity -->						
+						<SubmoduleItemRef SubmoduleItemTarget="IDS_417" AllowedInSubslots="3..12"/>	<!-- Parameter Channel 1 -->
+						<SubmoduleItemRef SubmoduleItemTarget="IDS_418" AllowedInSubslots="3..12"/>	<!-- Parameter Channel 2 -->
+						<SubmoduleItemRef SubmoduleItemTarget="IDS_419" AllowedInSubslots="3..12"/>	<!-- Parameter Channel 3 -->
+						<SubmoduleItemRef SubmoduleItemTarget="IDS_420" AllowedInSubslots="3..12"/>	<!-- Parameter Channel 4 -->
+					</UseableSubmodules>
+				</ModuleItem>
+				
+			</ModuleList>
+			
+			<!-- Submodule definitions
+			============================================================================================ -->
+			<SubmoduleList>
+				<!-- MAP -->
+				<SubmoduleItem ID="IDS_MAP" SubmoduleIdentNumber="0x0000FFFF" API="14848" MayIssueProcessAlarm="true">
+					<IOData/>
+					<ModuleInfo>
+						<Name TextId="IDT_SM_NAME_MAP"/>
+						<InfoText TextId="IDT_SM_INFO_MAP"/>
+					</ModuleInfo>
+				</SubmoduleItem>
+
+				<!-- empty -->
+				<SubmoduleItem ID="IDS_EMPTY" SubmoduleIdentNumber="0x00001388" API="14848" MayIssueProcessAlarm="true">
+					<IOData/>
+					<ModuleInfo>
+						<Name TextId="IDT_SM_NAME_EMPTY"/>
+						<InfoText TextId="IDT_SM_INFO_EMPTY"/>
+					</ModuleInfo>
+				</SubmoduleItem>
+
+				
+
+				<!-- Telegram 5 : 9/9 PZD -->
+				<SubmoduleItem ID="IDS_TEL5" SubmoduleIdentNumber="0x00000005" API="14848" MayIssueProcessAlarm="true">
+					<IOData>
+						<Input Consistency="All items consistency">
+							<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_ACTVAL"/>
+							<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_ACTVAL"/>
+							<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_ACTVAL"/>
+							<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_ACTVAL"/>
+							<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_ACTVAL"/>
+							<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_ACTVAL"/>
+							<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_ACTVAL"/>
+							<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_ACTVAL"/>
+							<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_ACTVAL"/>
+						</Input>
+						<Output Consistency="All items consistency">
+							<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_REFVAL"/>
+							<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_REFVAL"/>
+							<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_REFVAL"/>
+							<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_REFVAL"/>
+							<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_REFVAL"/>
+							<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_REFVAL"/>
+							<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_REFVAL"/>
+							<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_REFVAL"/>
+							<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_REFVAL"/>
+						</Output>
+					</IOData>
+					<ModuleInfo>
+						<Name TextId="IDT_SM_NAME_TEL5"/>
+						<InfoText TextId="IDT_SM_INFO_TEL5"/>
+					</ModuleInfo>
+					<IsochroneMode T_DC_Base="4" T_DC_Min="8" T_DC_Max="64" T_IO_Base="125000" T_IO_InputMin="2" T_IO_OutputMin="1" IsochroneModeRequired="true"/>
+				</SubmoduleItem>
+
+				<!-- Telegram 9 : 10/5 PZD -->
+				<SubmoduleItem ID="IDS_TEL9" SubmoduleIdentNumber="0x00000009" API="14848" MayIssueProcessAlarm="true">
+					<IOData>
+						<Input Consistency="All items consistency">
+							<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_ACTVAL"/>
+							<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_ACTVAL"/>
+							<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_ACTVAL"/>
+							<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_ACTVAL"/>
+							<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_ACTVAL"/>
+						</Input>
+						<Output Consistency="All items consistency">
+							<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_REFVAL"/>
+							<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_REFVAL"/>
+							<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_REFVAL"/>
+							<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_REFVAL"/>
+							<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_REFVAL"/>
+							<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_REFVAL"/>
+							<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_REFVAL"/>
+							<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_REFVAL"/>
+							<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_REFVAL"/>
+							<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_REFVAL"/>
+						</Output>
+					</IOData>
+					<ModuleInfo>
+						<Name TextId="IDT_SM_NAME_TEL9_125"/>
+						<InfoText TextId="IDT_SM_INFO_TEL9_125"/>
+					</ModuleInfo>
+					<IsochroneMode T_DC_Base="4" T_DC_Min="8" T_DC_Max="128" T_IO_Base="125000" T_IO_InputMin="2" T_IO_OutputMin="1" IsochroneModeRequired="false"/>
+				</SubmoduleItem>
+				
+				<!-- Telegram 516  : 16/13 PZD --> 
+				<SubmoduleItem ID="IDS_TEL516" SubmoduleIdentNumber="0x00000204" API="14848" MayIssueProcessAlarm="true">
+					<IOData>
+						<Input Consistency="All items consistency">
+							<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_ACTVAL"/>
+							<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_ACTVAL"/>
+							<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_ACTVAL"/>
+							<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_ACTVAL"/>
+							<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_ACTVAL"/>
+							<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_ACTVAL"/>
+							<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_ACTVAL"/>
+							<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_ACTVAL"/>
+							<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_ACTVAL"/>
+							<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_ACTVAL"/>
+							<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_ACTVAL"/>
+							<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_ACTVAL"/>
+							<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_ACTVAL"/>
+														
+						</Input>
+						<Output Consistency="All items consistency">
+							<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_REFVAL"/>
+							<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_REFVAL"/>
+							<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_REFVAL"/>
+							<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_REFVAL"/>
+							<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_REFVAL"/>
+							<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_REFVAL"/>
+							<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_REFVAL"/>
+							<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_REFVAL"/>
+							<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_REFVAL"/>
+							<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_REFVAL"/>
+							<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_REFVAL"/>
+							<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_REFVAL"/>
+							<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_REFVAL"/>
+							<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_REFVAL"/>
+							<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_REFVAL"/>
+							<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_REFVAL"/>
+						</Output>
+					</IOData>
+					<ModuleInfo>
+						<Name TextId="IDT_SM_NAME_TEL516"/>
+						<InfoText TextId="IDT_SM_INFO_TEL516"/>
+					</ModuleInfo>
+					<IsochroneMode T_DC_Base="4" T_DC_Min="8" T_DC_Max="64" T_IO_Base="125000" T_IO_InputMin="2" T_IO_OutputMin="1" IsochroneModeRequired="false"/>
+				</SubmoduleItem>
+
+							
+				
+				<!-- DO with telegram 750 : 3/1 PZD -->
+				<SubmoduleItem ID="IDS_TEL750" SubmoduleIdentNumber="0x000002EE" API="14848" MayIssueProcessAlarm="true">			
+					<IOData>
+						<Input Consistency="All items consistency">
+							<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_ACTVAL"/>
+																	 
+						</Input>
+						<Output Consistency="All items consistency">
+							<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_REFVAL"/>
+							<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_REFVAL"/>
+							<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_REFVAL"/>
+						</Output>
+					</IOData>
+					<ModuleInfo>
+						<Name TextId="IDT_SM_NAME_TEL750" />
+						<InfoText TextId="IDT_SM_INFO_TEL750" />
+					</ModuleInfo>
+					<IsochroneMode T_DC_Base="4" T_DC_Min="8" T_DC_Max="128" T_IO_Base="125000" T_IO_InputMin="2" T_IO_OutputMin="1" IsochroneModeRequired="false"/>						
+				</SubmoduleItem>
+					
+				
+				<!-- Telegram 105 :  -->
+				<SubmoduleItem ID="IDS_TEL105" SubmoduleIdentNumber="0x00000069" API="14848" MayIssueProcessAlarm="true">
+					<IOData>
+						<Input Consistency="All items consistency">
+							<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_ACTVAL"/>
+							<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_ACTVAL"/>
+							<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_ACTVAL"/>
+							<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_ACTVAL"/>
+							<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_ACTVAL"/>
+							<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_ACTVAL"/>
+							<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_ACTVAL"/>
+							<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_ACTVAL"/>
+							<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_ACTVAL"/>
+							<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_ACTVAL"/>
+						</Input>
+						<Output Consistency="All items consistency">
+							<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_REFVAL"/>
+							<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_REFVAL"/>
+							<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_REFVAL"/>
+							<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_REFVAL"/>
+							<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_REFVAL"/>
+							<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_REFVAL"/>
+							<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_REFVAL"/>
+							<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_REFVAL"/>
+							<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_REFVAL"/>
+							<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_REFVAL"/>
+						</Output>
+					</IOData>
+					<ModuleInfo>
+						<Name TextId="IDT_SM_NAME_TEL105"/>
+						<InfoText TextId="IDT_SM_INFO_TEL105"/>
+					</ModuleInfo>
+					<IsochroneMode T_DC_Base="4" T_DC_Min="8" T_DC_Max="64" T_IO_Base="125000" T_IO_InputMin="2" T_IO_OutputMin="1" IsochroneModeRequired="true"/>
+				</SubmoduleItem>
+				
+				
+				<!-- Telegram 3 :  -->
+				<SubmoduleItem ID="IDS_TEL3" SubmoduleIdentNumber="0x00000003" API="14848" MayIssueProcessAlarm="true">
+					<IOData>
+								<Input Consistency="All items consistency">
+									<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_ACTVAL"/>
+									<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_ACTVAL"/>
+									<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_ACTVAL"/>
+									<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_ACTVAL"/>
+									<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_ACTVAL"/>
+									<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_ACTVAL"/>
+									<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_ACTVAL"/>
+									<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_ACTVAL"/>
+									<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_ACTVAL"/>
+								</Input>
+								<Output Consistency="All items consistency">
+									<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_REFVAL"/>
+									<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_REFVAL"/>
+									<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_REFVAL"/>
+									<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_REFVAL"/>
+									<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_REFVAL"/>
+								</Output>
+							</IOData>
+							<ModuleInfo>
+								<Name TextId="IDT_SM_NAME_TEL3"/>
+								<InfoText TextId="IDT_SM_INFO_TEL3"/>
+							</ModuleInfo>
+							<IsochroneMode T_DC_Base="4" T_DC_Min="8" T_DC_Max="64" T_IO_Base="125000" T_IO_InputMin="2" T_IO_OutputMin="1" IsochroneModeRequired="false"/>
+				</SubmoduleItem>
+				
+				
+				<!-- DO with telegram 7 : 2/2 PZD -->
+				<SubmoduleItem ID="IDS_TEL7" SubmoduleIdentNumber="0x00000007" API="14848" MayIssueProcessAlarm="true">
+					<IOData>
+								<Input Consistency="All items consistency">
+									<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_ACTVAL"/>
+									<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_ACTVAL"/>
+								</Input>
+								<Output Consistency="All items consistency">
+									<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_REFVAL"/>
+									<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_REFVAL"/>
+								</Output>
+							</IOData>
+							<ModuleInfo>
+								<Name TextId="IDT_SM_NAME_TEL7"/>
+								<InfoText TextId="IDT_SM_INFO_TEL7"/>
+							</ModuleInfo>
+							<IsochroneMode T_DC_Base="4" T_DC_Min="8" T_DC_Max="128" T_IO_Base="125000" T_IO_InputMin="2" T_IO_OutputMin="1" IsochroneModeRequired="false"/>
+				</SubmoduleItem>				
+				
+				
+				
+				
+				<!-- DO with telegram TDB 200 : 3/1 PZD -->
+				<SubmoduleItem ID="IDS_200" SubmoduleIdentNumber="0x000000C8" API="14848" MayIssueProcessAlarm="true">						
+					<IOData>
+						<Input Consistency="All items consistency">
+							<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_ACTVAL"/>
+						</Input>
+						<Output Consistency="All items consistency">
+							<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_REFVAL"/>
+							<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_REFVAL"/>
+							<DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_REFVAL"/>
+						</Output>
+					</IOData>
+					<ModuleInfo>
+						<Name TextId="IDT_SM_NAME_TEL200"/>
+						<InfoText TextId="IDT_SM_INFO_TEL200"/>
+					</ModuleInfo>
+					<IsochroneMode T_DC_Base="4" T_DC_Min="8" T_DC_Max="64" T_IO_Base="125000" T_IO_InputMin="2" T_IO_OutputMin="1" IsochroneModeRequired="true"/>					
+				</SubmoduleItem>
+				
+				
+				<!-- DO with telegram 404 : 4/4 PZD -->
+				<SubmoduleItem ID="IDS_404" SubmoduleIdentNumber="0x00000194" API="14848" MayIssueProcessAlarm="true">				
+						
+					<IOData>
+						<Input Consistency="All items consistency">
+							<!--DataItem TextId="T_ID_IN_8BYTE" Length="8" DataType="OctetString" UseAsBits="false"/-->
+							<DataItem TextId="T_ID_IN_2BYTE" DataType="Unsigned16" UseAsBits="false"/>
+							<DataItem TextId="T_ID_IN_2BYTE" DataType="Unsigned16" UseAsBits="false"/>
+							<DataItem TextId="T_ID_IN_2BYTE" DataType="Unsigned16" UseAsBits="false"/>
+							<DataItem TextId="T_ID_IN_2BYTE" DataType="Unsigned16" UseAsBits="false"/>
+						</Input>
+						<Output Consistency="All items consistency">
+							<!--DataItem TextId="T_ID_OUT_8BYTE" Length="8" DataType="OctetString" UseAsBits="false"/-->
+							<DataItem TextId="T_ID_OUT_2BYTE" DataType="Unsigned16" UseAsBits="false"/>
+							<DataItem TextId="T_ID_OUT_2BYTE" DataType="Unsigned16" UseAsBits="false"/>
+							<DataItem TextId="T_ID_OUT_2BYTE" DataType="Unsigned16" UseAsBits="false"/>
+							<DataItem TextId="T_ID_OUT_2BYTE" DataType="Unsigned16" UseAsBits="false"/>
+						</Output>
+					</IOData>
+					<ModuleInfo>
+						<Name TextId="TOK_TextId_Module_404IO"/>
+						<InfoText TextId="TOK_InfoTextId_Module_404IO"/>
+					</ModuleInfo>
+				<IsochroneMode T_DC_Base="4" T_DC_Min="8" T_DC_Max="128" T_IO_Base="125000" T_IO_InputMin="2" T_IO_OutputMin="1" IsochroneModeRequired="false"/>						
+				</SubmoduleItem>	
+				
+				
+				
+					<!-- DO with telegram 405 Actual Position: 2/0 PZD -->
+				<SubmoduleItem ID="IDS_405" SubmoduleIdentNumber="0x00000195" API="14848" MayIssueProcessAlarm="true">					
+					<IOData>
+						<Input Consistency="All items consistency">
+							<DataItem TextId="T_ID_IN_4BYTE" DataType="Integer32"/>
+						</Input>
+					</IOData>
+					<ModuleInfo>
+						<Name TextId="TOK_TextId_Module_405IO"/>
+						<InfoText TextId="TOK_InfoTextId_Module_405IO"/>
+					</ModuleInfo>
+					<IsochroneMode T_DC_Base="4" T_DC_Min="8" T_DC_Max="128" T_IO_Base="125000" T_IO_InputMin="2" T_IO_OutputMin="1" IsochroneModeRequired="false"/>						
+				</SubmoduleItem>     
+				
+				
+				<!-- DO with telegram 406 Demand Position: 2/0 PZD -->
+				<SubmoduleItem ID="IDS_406" SubmoduleIdentNumber="0x00000196" API="14848" MayIssueProcessAlarm="true">					
+					<IOData>
+						<Input Consistency="All items consistency">
+							<DataItem TextId="T_ID_IN_4BYTE" DataType="Integer32"/>
+						</Input>
+					</IOData>
+					<ModuleInfo>
+						<Name TextId="TOK_TextId_Module_406IO"/>
+						<InfoText TextId="TOK_InfoTextId_Module_406IO"/>
+					</ModuleInfo>
+					<IsochroneMode T_DC_Base="4" T_DC_Min="8" T_DC_Max="128" T_IO_Base="125000" T_IO_InputMin="2" T_IO_OutputMin="1" IsochroneModeRequired="false"/>						
+				</SubmoduleItem>        
+				
+				
+				<!-- DO with telegram 407 Warn Word: 1/0 PZD -->
+				<SubmoduleItem ID="IDS_407" SubmoduleIdentNumber="0x00000197" API="14848" MayIssueProcessAlarm="true">						
+					<IOData>
+						<Input Consistency="All items consistency">
+							<DataItem TextId="T_ID_IN_2BYTE" DataType="Unsigned16" UseAsBits="false"/>
+						</Input>
+					</IOData>
+					<ModuleInfo>
+						<Name TextId="TOK_TextId_Module_407IO"/>
+						<InfoText TextId="TOK_InfoTextId_Module_407IO"/>
+					</ModuleInfo>
+					<IsochroneMode T_DC_Base="4" T_DC_Min="8" T_DC_Max="128" T_IO_Base="125000" T_IO_InputMin="2" T_IO_OutputMin="1" IsochroneModeRequired="false"/>						
+				</SubmoduleItem>   
+				
+				<!-- DO with telegram 408 Error Code: 1/0 PZD -->
+				<SubmoduleItem ID="IDS_408" SubmoduleIdentNumber="0x00000198" API="14848" MayIssueProcessAlarm="true">						
+					<IOData>
+						<Input Consistency="All items consistency">
+							<DataItem TextId="T_ID_IN_2BYTE" DataType="Unsigned16" UseAsBits="false"/>
+						</Input>
+					</IOData>
+					<ModuleInfo>
+						<Name TextId="TOK_TextId_Module_408IO"/>
+						<InfoText TextId="TOK_InfoTextId_Module_408IO"/>
+					</ModuleInfo>
+					<IsochroneMode T_DC_Base="4" T_DC_Min="8" T_DC_Max="128" T_IO_Base="125000" T_IO_InputMin="2" T_IO_OutputMin="1" IsochroneModeRequired="false"/>						
+				</SubmoduleItem>    
+				
+				<!-- DO with telegram 409 Demand Current 32b: 2/0 PZD -->
+				<SubmoduleItem ID="IDS_409" SubmoduleIdentNumber="0x00000199" API="14848" MayIssueProcessAlarm="true">						
+					<IOData>
+						<Input Consistency="All items consistency">
+							<DataItem TextId="T_ID_IN_4BYTE" DataType="Integer32"/>
+						</Input>
+					</IOData>
+					<ModuleInfo>
+						<Name TextId="TOK_TextId_Module_409IO"/>
+						<InfoText TextId="TOK_InfoTextId_Module_409IO"/>
+					</ModuleInfo>
+					<IsochroneMode T_DC_Base="4" T_DC_Min="8" T_DC_Max="128" T_IO_Base="125000" T_IO_InputMin="2" T_IO_OutputMin="1" IsochroneModeRequired="false"/>					
+				</SubmoduleItem>  	
+
+
+				<!-- DO with telegram 410 Monitoring Channel 1: 2/0 PZD -->
+				<SubmoduleItem ID="IDS_410" SubmoduleIdentNumber="0x0000019A" API="14848" MayIssueProcessAlarm="true">						
+					<IOData>
+						<Input Consistency="All items consistency">
+							<DataItem TextId="T_ID_IN_4BYTE" DataType="Integer32"/>
+						</Input>
+					</IOData>
+					<ModuleInfo>
+						<Name TextId="TOK_TextId_Module_410IO"/>
+						<InfoText TextId="TOK_InfoTextId_Module_410IO"/>
+					</ModuleInfo>
+					<IsochroneMode T_DC_Base="4" T_DC_Min="8" T_DC_Max="128" T_IO_Base="125000" T_IO_InputMin="2" T_IO_OutputMin="1" IsochroneModeRequired="false"/>						
+				</SubmoduleItem>        
+				
+				
+				
+					<!-- DO with telegram 411 Monitoring Channel 2: 2/0 PZD -->
+				<SubmoduleItem ID="IDS_411" SubmoduleIdentNumber="0x0000019B" API="14848" MayIssueProcessAlarm="true">					
+					<IOData>
+						<Input Consistency="All items consistency">
+							<DataItem TextId="T_ID_IN_4BYTE" DataType="Integer32"/>
+						</Input>
+					</IOData>
+					<ModuleInfo>
+						<Name TextId="TOK_TextId_Module_411IO"/>
+						<InfoText TextId="TOK_InfoTextId_Module_411IO"/>
+					</ModuleInfo>
+					<IsochroneMode T_DC_Base="4" T_DC_Min="8" T_DC_Max="128" T_IO_Base="125000" T_IO_InputMin="2" T_IO_OutputMin="1" IsochroneModeRequired="false"/>
+						
+				</SubmoduleItem>        
+
+				<!-- DO with telegram 412 Monitoring Channel 3: 2/0 PZD -->
+				<SubmoduleItem ID="IDS_412" SubmoduleIdentNumber="0x0000019C" API="14848" MayIssueProcessAlarm="true">					
+					<IOData>
+						<Input Consistency="All items consistency">
+							<DataItem TextId="T_ID_IN_4BYTE" DataType="Integer32"/>
+						</Input>
+					</IOData>
+					<ModuleInfo>
+						<Name TextId="TOK_TextId_Module_412IO"/>
+						<InfoText TextId="TOK_InfoTextId_Module_412IO"/>
+					</ModuleInfo>
+					<IsochroneMode T_DC_Base="4" T_DC_Min="8" T_DC_Max="128" T_IO_Base="125000" T_IO_InputMin="2" T_IO_OutputMin="1" IsochroneModeRequired="false"/>						
+				</SubmoduleItem>        
+
+				<!-- DO with telegram 413 Monitoring Channel 4: 2/0 PZD -->
+				<SubmoduleItem ID="IDS_413" SubmoduleIdentNumber="0x0000019D" API="14848" MayIssueProcessAlarm="true">					
+					<IOData>
+						<Input Consistency="All items consistency">
+							<DataItem TextId="T_ID_IN_4BYTE" DataType="Integer32"/>
+						</Input>
+					</IOData>
+					<ModuleInfo>
+						<Name TextId="TOK_TextId_Module_413IO"/>
+						<InfoText TextId="TOK_InfoTextId_Module_413IO"/>
+					</ModuleInfo>
+					<IsochroneMode T_DC_Base="4" T_DC_Min="8" T_DC_Max="128" T_IO_Base="125000" T_IO_InputMin="2" T_IO_OutputMin="1" IsochroneModeRequired="false"/>						
+				</SubmoduleItem>        
+				
+				<!-- DO with telegram 414 Demand Current 16b: 1/0 PZD -->
+				<SubmoduleItem ID="IDS_414" SubmoduleIdentNumber="0x0000019E" API="14848" MayIssueProcessAlarm="true">					
+					<IOData>
+						<Input Consistency="All items consistency">
+							<DataItem TextId="T_ID_IN_2BYTE" DataType="Integer16"/>
+						</Input>
+					</IOData>
+					<ModuleInfo>
+						<Name TextId="TOK_TextId_Module_414IO"/>
+						<InfoText TextId="TOK_InfoTextId_Module_414IO"/>
+					</ModuleInfo>
+					<IsochroneMode T_DC_Base="4" T_DC_Min="8" T_DC_Max="128" T_IO_Base="125000" T_IO_InputMin="2" T_IO_OutputMin="1" IsochroneModeRequired="false"/>						
+				</SubmoduleItem>        
+				
+				<!-- DO with telegram 415 Actual Velocity: 2/0 PZD -->
+				<SubmoduleItem ID="IDS_415" SubmoduleIdentNumber="0x0000019F" API="14848" MayIssueProcessAlarm="true">					
+					<IOData>
+						<Input Consistency="All items consistency">
+							<DataItem TextId="T_ID_IN_4BYTE" DataType="Integer32"/>
+						</Input>
+					</IOData>
+					<ModuleInfo>
+						<Name TextId="TOK_TextId_Module_415IO"/>
+						<InfoText TextId="TOK_InfoTextId_Module_415IO"/>
+					</ModuleInfo>
+					<IsochroneMode T_DC_Base="4" T_DC_Min="8" T_DC_Max="128" T_IO_Base="125000" T_IO_InputMin="2" T_IO_OutputMin="1" IsochroneModeRequired="false"/>						
+				</SubmoduleItem>        
+				
+				<!-- DO with telegram 416 Actual Velocity: 2/0 PZD -->
+				<SubmoduleItem ID="IDS_416" SubmoduleIdentNumber="0x000001A0" API="14848" MayIssueProcessAlarm="true">						
+					<IOData>
+						<Input Consistency="All items consistency">
+							<DataItem TextId="T_ID_IN_4BYTE" DataType="Integer32"/>
+						</Input>
+					</IOData>
+					<ModuleInfo>
+						<Name TextId="TOK_TextId_Module_416IO"/>
+						<InfoText TextId="TOK_InfoTextId_Module_416IO"/>
+					</ModuleInfo>
+					<IsochroneMode T_DC_Base="4" T_DC_Min="8" T_DC_Max="128" T_IO_Base="125000" T_IO_InputMin="2" T_IO_OutputMin="1" IsochroneModeRequired="false"/>						
+				</SubmoduleItem> 				
+						
+
+				<!-- Parameter Channel 1 -->
+				<SubmoduleItem ID="IDS_417" SubmoduleIdentNumber="0x000001A1" API="14848" MayIssueProcessAlarm="true">					
+					<IOData>
+						<Output Consistency="All items consistency">
+							<DataItem TextId="T_ID_OUT_4BYTE" DataType="Integer32"/>
+						</Output>
+					</IOData>
+					<ModuleInfo>
+						<Name TextId="TOK_TextId_Module_417IO"/>
+						<InfoText TextId="TOK_InfoTextId_Module_417IO"/>
+					</ModuleInfo>
+					<IsochroneMode T_DC_Base="4" T_DC_Min="8" T_DC_Max="128" T_IO_Base="125000" T_IO_InputMin="2" T_IO_OutputMin="1" IsochroneModeRequired="false"/>						
+				</SubmoduleItem>       		
+
+				<!-- Parameter Channel 2 -->
+				<SubmoduleItem ID="IDS_418" SubmoduleIdentNumber="0x000001A2" API="14848" MayIssueProcessAlarm="true">					
+					<IOData>
+						<Output Consistency="All items consistency">
+							<DataItem TextId="T_ID_OUT_4BYTE" DataType="Integer32"/>
+						</Output>
+					</IOData>
+					<ModuleInfo>
+						<Name TextId="TOK_TextId_Module_418IO"/>
+						<InfoText TextId="TOK_InfoTextId_Module_418IO"/>
+					</ModuleInfo>
+					<IsochroneMode T_DC_Base="4" T_DC_Min="8" T_DC_Max="128" T_IO_Base="125000" T_IO_InputMin="2" T_IO_OutputMin="1" IsochroneModeRequired="false"/>						
+				</SubmoduleItem>       		
+
+				<!-- Parameter Channel 3 -->
+				<SubmoduleItem ID="IDS_419" SubmoduleIdentNumber="0x000001A3" API="14848" MayIssueProcessAlarm="true">						
+					<IOData>
+						<Output Consistency="All items consistency">
+							<DataItem TextId="T_ID_OUT_4BYTE" DataType="Integer32"/>
+						</Output>
+					</IOData>
+					<ModuleInfo>
+						<Name TextId="TOK_TextId_Module_419IO"/>
+						<InfoText TextId="TOK_InfoTextId_Module_419IO"/>
+					</ModuleInfo>
+					<IsochroneMode T_DC_Base="4" T_DC_Min="8" T_DC_Max="128" T_IO_Base="125000" T_IO_InputMin="2" T_IO_OutputMin="1" IsochroneModeRequired="false"/>						
+				</SubmoduleItem>       		
+
+				<!-- Parameter Channel 4 -->
+				<SubmoduleItem ID="IDS_420" SubmoduleIdentNumber="0x000001A4" API="14848" MayIssueProcessAlarm="true">						
+					<IOData>
+						<Output Consistency="All items consistency">
+							<DataItem TextId="T_ID_OUT_4BYTE" DataType="Integer32"/>
+						</Output>
+					</IOData>
+					<ModuleInfo>
+						<Name TextId="TOK_TextId_Module_420IO"/>
+						<InfoText TextId="TOK_InfoTextId_Module_420IO"/>
+					</ModuleInfo>
+					<IsochroneMode T_DC_Base="4" T_DC_Min="8" T_DC_Max="128" T_IO_Base="125000" T_IO_InputMin="2" T_IO_OutputMin="1" IsochroneModeRequired="false"/>						
+				</SubmoduleItem>    
+				
+				
+				
+			</SubmoduleList>
+			
+			<ValueList>
+				<ValueItem ID="SubstitutionMode">
+					<Assignments>
+						<Assign TextId="Replacement value" Content="1"/>
+						<Assign TextId="Last value" Content="0"/>
+					</Assignments>
+				</ValueItem>
+			</ValueList>
+			<GraphicsList>
+				<GraphicItem ID="ID_Graph_V2.2" GraphicFile="GSDML-0461-2618-PD"/>
+			</GraphicsList>
+			<CategoryList>
+				<CategoryItem ID="ID_NTI_PROFILE" TextId="NTI_PROFILE"/>
+				<CategoryItem ID="ID_InOut" TextId="TOK_InOut"/>
+				<CategoryItem ID="ID_Out" TextId="TOK_Out"/>
+				<CategoryItem ID="ID_In" TextId="TOK_In"/>
+			</CategoryList>
+			<ExternalTextList>
+				<PrimaryLanguage>
+					<Text TextId="T_ID_DAP_C1250_0S" Value="C1250xPD 0S V3.0"/>
+					<Text TextId="NTI_PROFILE" Value="NTI IO Profile"/>
+					<Text TextId="TOK_netx_board" Value="netx for NTI AG"/>
+					<Text TextId="TOK_Subslot_8000" Value="X1"/>
+					<Text TextId="TOK_Subslot_8001" Value="X1 P1"/>
+					<Text TextId="TOK_Subslot_8002" Value="X1 P2"/>
+					<Text TextId="TOK_DAP_InterfaceModule" Value="PN-IO"/>
+					<Text TextId="TOK_Port1" Value="Port 1 - RJ45"/>
+					<Text TextId="TOK_Port2" Value="Port 2 - RJ45"/>
+					<Text TextId="TOK_In" Value="DI"/>
+					<Text TextId="TOK_Out" Value="IN/OUT"/>
+					<Text TextId="TOK_InOut" Value="DI/DO"/>
+					
+					<!--DAPs-->
+					<Text TextId="TOK_DevIdent_InfoText" Value="LinMot Servo Drives" />
+					<Text TextId="T_ID_InfoTextId_DAP1" Value="C1250-PD"/>
+					
+					<!--profidrive module names -->
+					<Text TextId="IDT_MOD_NAME_EMPTY" Value="DO without PZD"/>
+					<Text TextId="IDT_MOD_INFO_EMPTY" Value="Drive object (DO) without cyclic PZD"/>
+					<Text TextId="IDT_MOD_NAME_SERVO" Value="DO SERVO"/>
+					<Text TextId="IDT_MOD_INFO_SERVO" Value="Drive object (DO) SERVO"/>
+					<Text TextId="IDT_MOD_NAME_TEL200" Value="Data object with SIEMENS telegr. TDB"/>
+					<Text TextId="IDT_MOD_INFO_TEL200" Value="Data object with SIEMENS telegram TDB"/>		
+					
+					
+					<Text TextId="TOK_TextId_Module_404IO" Value="Real Time Config telegram 404, PZD-4/4"/>
+					<Text TextId="TOK_TextId_Module_405IO" Value="Actual Position telegram 405, PZD-0/2"/>
+					<Text TextId="TOK_TextId_Module_406IO" Value="Demand Position telegram 406, PZD-0/2"/>
+					<Text TextId="TOK_TextId_Module_407IO" Value="WarnWord telegram 407, PZD-0/1"/>
+					<Text TextId="TOK_TextId_Module_408IO" Value="ErrorCode telegram 408, PZD-0/1"/>
+					<Text TextId="TOK_TextId_Module_409IO" Value="Demand Current 32b telegram 409, PZD-0/2"/>
+					<Text TextId="TOK_TextId_Module_410IO" Value="Mon Channel 1 telegram 410, PZD-0/2"/>
+					<Text TextId="TOK_TextId_Module_411IO" Value="Mon Channel 2 telegram 411, PZD-0/2"/>
+					<Text TextId="TOK_TextId_Module_412IO" Value="Mon Channel 3 telegram 412, PZD-0/2"/>
+					<Text TextId="TOK_TextId_Module_413IO" Value="Mon Channel 4 telegram 413, PZD-0/2"/>
+					<Text TextId="TOK_TextId_Module_414IO" Value="Demand  Current 16b telegram 414, PZD-0/1"/>
+					<Text TextId="TOK_TextId_Module_415IO" Value="Actual Velocity telegram 415, PZD-0/2"/>
+					<Text TextId="TOK_TextId_Module_416IO" Value="Demand Velocity telegram 416, PZD-0/2"/>
+					<Text TextId="TOK_TextId_Module_417IO" Value="Par Channel 1 telegram 417, PZD-2/0"/>
+					<Text TextId="TOK_TextId_Module_418IO" Value="Par Channel 2 telegram 418, PZD-2/0"/>
+					<Text TextId="TOK_TextId_Module_419IO" Value="Par Channel 3 telegram 419, PZD-2/0"/>
+					<Text TextId="TOK_TextId_Module_420IO" Value="Par Channel 4 telegram 420, PZD-2/0"/>
+					
+					<Text TextId="TOK_InfoTextId_Module_404IO" Value="Real Time Configuartion Module"/>
+					<Text TextId="TOK_InfoTextId_Module_405IO" Value="Actual Position [0.1um]"/>
+					<Text TextId="TOK_InfoTextId_Module_406IO" Value="Demand Position feedback [0.1um]"/>
+					<Text TextId="TOK_InfoTextId_Module_407IO" Value="Warn Word 16 bit"/>
+					<Text TextId="TOK_InfoTextId_Module_408IO" Value="Error Code Word 16 bit"/>
+					<Text TextId="TOK_InfoTextId_Module_409IO" Value="Demand Current [mA] signed 32 bit value"/>
+					<Text TextId="TOK_InfoTextId_Module_410IO" Value="Monitoring channel 1 value 32 bit"/>
+					<Text TextId="TOK_InfoTextId_Module_411IO" Value="Monitoring channel 2 value 32 bit"/>
+					<Text TextId="TOK_InfoTextId_Module_412IO" Value="Monitoring channel 3 value 32 bit"/>
+					<Text TextId="TOK_InfoTextId_Module_413IO" Value="Monitoring channel 4 value 32 bit"/>
+					<Text TextId="TOK_InfoTextId_Module_414IO" Value="Demand Current [mA] signed 16 bit value"/>
+					<Text TextId="TOK_InfoTextId_Module_415IO" Value="Actual Velocity [1um/s]"/>
+					<Text TextId="TOK_InfoTextId_Module_416IO" Value="Demand Velocity [1um/s]"/>
+					<Text TextId="TOK_InfoTextId_Module_417IO" Value="Parameter channel 1 value 32 bit"/>
+					<Text TextId="TOK_InfoTextId_Module_418IO" Value="Parameter channel 2 value 32 bit"/>
+					<Text TextId="TOK_InfoTextId_Module_419IO" Value="Parameter channel 3 value 32 bit"/>
+					<Text TextId="TOK_InfoTextId_Module_420IO" Value="Parameter channel 4 value 32 bit"/>
+					
+
+					<!-- PROFIsafe submodules -->
+					<Text TextId="IDT_SM_NAME_PS30" Value="PROFIsafe telegr 30"/>
+					<Text TextId="IDT_SM_INFO_PS30" Value="PROFIsafe standard telegram 30: F-DI/DO length 2/2 bytes"/>
+					<Text TextId="IDT_SM_NAME_PS30_L" Value="PROFIsafe telegr 30 Legacy"/>
+					<Text TextId="IDT_SM_INFO_PS30_L" Value="PROFIsafe standard telegram 30: F-DI/DO length 2/2 bytes with 3byte legacy CRC"/>
+					<Text TextId="IDT_SM_NAME_TEL700" Value="Supplementary telegram 700, PZD-0/3"/>
+					<Text TextId="IDT_SM_INFO_TEL700" Value="Supplementary telegram 700, safety information channel / safety control channel, PZD length 0/3 words"/>
+					<Text TextId="IDT_SM_NAME_TEL701" Value="Supplementary telegram 701, PZD-2/5"/>
+					<Text TextId="IDT_SM_INFO_TEL701" Value="Supplementary telegram 701, safety information channel / safety control channel, PZD length 2/5 words"/>
+					<Text TextId="IDT_SM_NAME_TEL750" Value="Supplementary telegram 750, PZD-3/1" />
+					<Text TextId="IDT_SM_INFO_TEL750" Value="Supplementary telegram 750, torque control, PZD length 3/1 word" /> 
+					
+					<!-- profidrive submodules -->
+					<Text TextId="IDT_SM_NAME_TEL5" Value="Standard telegram 5, PZD-9/9"/>
+					<Text TextId="IDT_SM_INFO_TEL5" Value="Standard telegram 5: Closed-loop speed/position control with DSC, 1 position encoder, PZD length 9/9 words"/>
+					<Text TextId="IDT_SM_NAME_TEL105" Value="SIEMENS telegram 105, PZD-10/10"/>
+					<Text TextId="IDT_SM_INFO_TEL105" Value="SIEMENS telegram 105: Closed-loop speed/position control with DSC and torque reduction, 1 position encoders, PZD length 10/10 words"/>
+					<Text TextId="IDT_SM_NAME_TEL3" Value="Standard telegram 3, PZD-5/9"/>
+					<Text TextId="IDT_SM_INFO_TEL3" Value="Standard telegram 3: Closed-loop speed control, 1 position encoder, PZD length 5/9 words"/>
+					<Text TextId="IDT_SM_NAME_TEL7" Value="Standard telegram 7, PZD-2/2"/>
+					<Text TextId="IDT_SM_INFO_TEL7" Value="Standard telegram 7: Positioning, PZD length 2/2 words"/>
+					<Text TextId="IDT_SM_NAME_TEL9_125" Value="Standard telegram 9, PZD-10/5; SERVO"/>
+					<Text TextId="IDT_SM_INFO_TEL9_125" Value="Standard telegram 9: Positioning, PZD length 10/5 words; for DO SERVO"/>
+					<Text TextId="IDT_SM_NAME_TEL516" Value="LinMot telegram 516, PZD-16/13;"/>
+					<Text TextId="IDT_SM_INFO_TEL516" Value="LinMot telegram 516: Positioning, PZD length 16/13 words; for DO SERVO"/>
+					<Text TextId="IDT_SM_NAME_TEL200" Value="SIEMENS telegram TDB, PZD-3/1"/>
+					<Text TextId="IDT_SM_INFO_TEL200" Value="SIEMENS telegram TDB: Additional moment/force and direction depending moment/force reduction, PZD length 3/1 words"/>
+					
+					
+					
+					<!-- special submodules -->
+					
+					
+					<Text TextId="IDT_SM_NAME_MAP" Value="Module Access Point"/>
+					<Text TextId="IDT_SM_INFO_MAP" Value="Module Access Point"/>
+					<Text TextId="IDT_DATAITEM_ACTVAL" Value="Status word or actual value"/>
+					<Text TextId="IDT_DATAITEM_REFVAL" Value="Control word or setpoint"/>
+					<Text TextId="IDT_SM_NAME_EMPTY" Value="empty submodule"/>
+					<Text TextId="IDT_SM_INFO_EMPTY" Value="empty submodule"/>
+					
+					
+					<!--NTI specific module names -->
+					<!--module info name-->
+					<!--dataitem name-->
+					<Text TextId="T_ID_IN_2BYTE" Value="2 byte input"/>
+					<Text TextId="T_ID_IN_4BYTE" Value="4 byte input"/>
+					<Text TextId="T_ID_OUT_2BYTE" Value="2 byte output"/>  
+					<Text TextId="T_ID_OUT_4BYTE" Value="4 byte output"/>
+					<!-- KW SW -->
+					<!--without translation-->
+					<Text TextId="TI_OFFSET" Value="TI_OFFSET"/>
+					<Text TextId="TO_OFFSET" Value="TO_OFFSET"/>
+					<!--DAPs-->
+					<!--module name-->
+					<!--data item name-->
+					
+					
+					    
+					
+					<!-- TextIDs for Replacement Mode. -->
+					<Text Value="Replacement value" TextId="Replacement value"/>
+					<Text Value="Last value" TextId="Last value"/>
+					
+					<Text TextId="IDT_DATAITEM_SAFETY_TRAILER" Value="Safety"/>
+					<Text TextId="IDT_DATAITEM_SAFETY_INPUT" Value="Safety In"/>
+					<Text TextId="IDT_DATAITEM_SAFETY_OUTPUT" Value="Safety Out"/>
+					
+				</PrimaryLanguage>
+			</ExternalTextList>
+		</ApplicationProcess>
+	</ProfileBody>
+</ISO15745Profile>
