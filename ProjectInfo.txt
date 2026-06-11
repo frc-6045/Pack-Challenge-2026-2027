@@ -3,8 +3,8 @@ TiaPortal:
   - Version: V21.0
   - TechnicalVersion: 21.00.00.00
   LastUsed:
-  - Version: V21 Update 1
-  - TechnicalVersion: 21.00.01.00
+  - Version: V21
+  - TechnicalVersion: 21.00.00.00
 
 UsedProducts:
 - Name: SINAMICS Startdrive Advanced
@@ -16,9 +16,6 @@ UsedProducts:
 - Name: Totally Integrated Automation Portal
   Version: V21
   TechnicalVersion: 21.00.00.00
-- Name: WinCC Unified Basic
-  Version: V21 Update 1
-  TechnicalVersion: 21.00.01.00
 
 UsedSupportPackages:
 - Name: gsdml-v2.3-smc-ex600-20130220.xml
