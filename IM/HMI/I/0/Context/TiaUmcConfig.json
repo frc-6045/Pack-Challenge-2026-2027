@@ -1,0 +1,8 @@
+{
+  "version": "1",
+  "tiaUmcProjectSettings": {
+    "localDomain": true,
+    "centralDomain": false,
+    "sharedRoles": false
+  }
+}
